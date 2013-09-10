@@ -1,0 +1,360 @@
+body {
+  background-color:#1f4669;
+  color:#333333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin:0px;
+  text-align:center;
+}
+body#homePage #container-header {
+  background-image: url('/img/headerbg.png');!important
+}
+#container-header {
+  background-image: url('/img/headerbgsm.gif');
+  background-attachment:scroll;
+  background-repeat: repeat-x;
+  clear: both;
+  display:block;
+  text-align:center;
+}
+#header {
+  margin:auto;
+  text-align:left;
+  width: 750px;
+}
+#container {
+  display: block;
+  margin: auto;
+  text-align: left;
+  width: 725px;
+}
+#navigation {
+  background: url('/img/navbg.gif') no-repeat right bottom;
+  float: left;
+  padding-bottom: 60px;
+  padding-top: 12px;
+  width: 140px;
+}
+#navigation li a {
+  color: #1f4669;
+  display:block;
+  font-size: 14px;
+  font-weight: bold;
+  height:24px;
+  line-height: 24px;
+  text-decoration:none;
+}
+
+#navigation ul {
+	list-style: none;
+	margin: 0;
+	padding:0;
+}
+
+#navigation ul li {
+	margin:0;
+}
+
+#navigation ul ul a{
+	padding-left: 15px;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+#footer a {
+  color:#1f4669;
+}
+#navigation a:hover {
+  color: #3e86c7;
+}
+#container-main {
+  background-color: #ffffff;
+  display:block;
+}
+#content {
+  clear:none;
+  float: left;
+  margin: 0px 12px;
+  width:560px;
+}
+#container-footer {
+  background-color: #1f4669;
+  background-image: url('/img/footerbg.png');
+  background-position:top;
+  background-repeat: repeat-x;
+  clear:both;
+  display:block;
+  padding-top: 24px;
+  text-align:center;
+}
+#footer {
+  background-image: url('/img/footer.png');
+  background-position:top;
+  background-repeat: no-repeat;
+  display:block;
+  height:140px;
+  line-height:20px;
+  margin:auto;
+  padding-top:9px;
+  width:725px;
+}
+p {
+  margin: 10px 0px;
+}
+p, blockquote {
+  line-height:18px;
+}
+.clear {
+  clear: both;
+  display:block;
+}
+.column {
+  float: left;
+  margin: 9px;
+  width: 210px;
+}
+.left {
+  text-align:left;
+}
+
+.column.left{
+  margin: 8px;
+  width: 211px;
+}
+.center {
+  text-align:center;
+}
+.right {
+  text-align:right;
+}
+.mainColumn {
+  float:left;
+  margin:9px;
+  min-height: 293px;
+  width:210px;
+}
+.columnDivider {
+  background-image: url('/img/vr.gif');
+  background-position:center;
+  background-repeat:no-repeat;
+  float: left;
+  height:300px;
+  width: 20px;
+}
+h1, h2, h3 {
+  color: #1f4669;
+  margin: 12px 0px 0px 0px;
+}
+h1, h1 a {
+  color: #1f4669;
+  font-size: 18px;
+}
+h2, h2 a {
+  color: #3e86c7;
+  font-size: 14px;
+}
+h3, h3 a {
+  color: #1f4669; /* was 666666 */
+  font-size: 13px;
+}
+em {
+  /* color: #3e86c7; */
+  font-style:italic;
+  font-weight: bold;
+}
+ul {
+  padding: 0px 9px;
+  margin: 0 0 0 10px;
+}
+li {
+	margin-bottom:8px;
+	margin-top:8px;
+}
+a {
+  color: #1f4669; /* was 3e86c7 */
+}
+blockquote p {
+  margin: 0px;
+}
+
+blockquote {
+  margin: 10px 0px 0px 0px;
+  padding: 20px 20px 0 20px;
+  background: url('/img/quote_up.gif') top left no-repeat;
+}
+
+cite {
+  display: block;
+  text-align: right;    
+  background: url('/img/quote_down.gif') top right no-repeat;
+  padding: 3px 32px 0px 0px;
+} 
+
+.right { float:right; }
+.left  { float: left; }
+
+img.right { margin:0 0 5px 10px; }
+img.left  { margin:0 10px 5px 0; }
+
+.border { 
+  padding:2px;
+  border: 1px solid black;
+}
+
+.center {
+	text-align:center;
+}
+
+a img { border:0; text-decoration:none; }
+
+.sb, .sb * {
+	display:none;
+}
+
+.errors{
+	color:red;
+}
+
+td { padding: 5px 4px;}
+
+thead td {
+	font-weight:bold;
+	border-bottom:1px solid #333333;
+}
+
+tfoot td {
+	font-weight:bold;
+	border-top: 1px solid #333333;
+	padding-top:8px
+}
+
+#invoices a, #history a { color:black; }
+
+/* clients page */
+
+.whattheydo {
+	margin-bottom:30px;
+}
+
+
+/* special css for my login box in the footer 
+ * (it uses the same html template as the main login page)
+ */
+#footer div.login h1, #footer div.login br{
+	display:none;
+}
+#footer div.login p{
+	font-size: 11px;
+	margin: 3px;
+	padding: 0;
+	color:white;
+	text-align:right;
+}
+#footer div.login b{
+	font-weight:normal;
+
+}
+
+#footer div.login input[type=submit]{
+	font-size:12px;
+}
+
+.rightarrow, .downarrow {
+	background-image: url(/img/contact-arrows-sprite.gif);
+	background-repeat:no-repeat;
+	background-position:top left;
+	height:12px;
+	width:12px;
+	margin:2px 4px;
+	cursor:pointer;
+}
+.downarrow{
+	background-position:top right;
+}
+
+.hilight {
+	-moz-border-radius:10px; /* grr firefox, accept standard names! */
+	border-radius:10px;
+	background-color:#CCFFCC;
+	border:2px solid #66FF00;
+	color:#000000;
+	font-size:16px;
+	margin:0 0 30px;
+	padding:30px;
+	text-align:center;
+	width:93%;
+}
+
+#webdev_menu{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+#webdev_menu li {
+	margin:0 0 0 35px;
+	padding:0 10px 20px 10px;
+	float:left;
+	width:180px;
+}
+
+/* used on webdev sub-pages */
+
+.buttons {
+	float:right;
+	text-align:center;
+}
+.buttons h2 {
+	text-align:left;
+}
+.buttons a {
+	display:block;
+
+	margin:10px 0;
+
+	height:26px;
+	line-height:26px;
+
+	width:120px;
+
+	text-decoration:none;
+
+	background: url(/img/green-button-120x26.png) top left no-repeat;
+
+	color:black;
+	font-weight:bold;
+}
+
+.buttons a:hover {
+	background-position:0 -26px;
+	color:#222;
+}
+
+/* pagerank styles */
+
+.prlist {
+	margin-bottom: 2em;
+}
+
+.prlist, .prlist li {
+	margin-left: 1px;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+.prbar {
+	position: relative; 
+	padding: 0; 
+	background: #D9D9D9; 
+	float:left; 
+	margin:10px 5px 0 0;
+}
+
+.prbar strong {
+	 display: block; 
+	 position: relative; 
+	 background: #5EAA5E; 
+	 text-align: center; 
+	 color: #333; 
+	 height: 4px; 
+	 line-height: 4px;
+}

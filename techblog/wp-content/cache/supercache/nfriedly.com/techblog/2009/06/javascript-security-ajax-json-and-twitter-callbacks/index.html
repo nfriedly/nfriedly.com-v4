@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>How AJAX Security and Twitter callbacks work &#8211; nFriedly Web Dev Tech Blog</title>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/blog.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+<link rel="alternate" type="application/rss+xml" title="nFriedly Web Dev Tech Blog &raquo; How AJAX Security and Twitter callbacks work Comments Feed" href="http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://nfriedly.com/techblog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://nfriedly.com/techblog/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Advanced Javascript: Objects, Arrays, and Array-Like objects' href='http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/' />
+<link rel='next' title='How to use XSLT to style an RSS feed' href='http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/' />
+<meta name="generator" content="WordPress 3.6" />
+<link rel='canonical' href='http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/' />
+<link rel='shortlink' href='http://nfriedly.com/techblog/?p=114' />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/feed/" title="nFriedly Web Dev Tech Blog latest posts" />
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/comments/feed/" title="nFriedly Web Dev Tech Blog latest comments" />
+	<link rel="pingback" href="http://nfriedly.com/techblog/xmlrpc.php" />
+
+</head>
+
+<body class=" yui-skin-sam">
+
+<div id="container-header">
+	<div id="header">
+		<h2><a href="/techblog">nFriedly Web Development</a></h2>
+		<h1><a href="/techblog">Tech Blog</a></h1>
+		<a href="/"><img src="/img/nflogo-header-notext.png" height="140" width="107" alt="nFriedly" /></a>
+	</div>
+</div>
+<div id="container-main">
+<div id="container">
+<div id="navigation">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+	<li><a href="/fellowship">Fellowship</a></li>
+	<li><a href="/webdev">Web Dev</a>
+		<ul>
+			<li><a href="/webdev/php" title="Server Side Web Programming">PHP</a></li>
+			<li><a href="/webdev/javascript" title="Javascript and Ajax: Client Side Web Programming">JS &amp; AJAX</a></li>
+			<li><a href="/webdev/marketing">Marketing</a></li>
+			<li><a href="/portfolio">Portfolio</a></li>
+		</ul>
+	
+</li>
+	<li><a href="/techblog">Tech Blog</a></li>
+    <li><a href="/estimate">Quote</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+		
+<div style="width: 90%; margin-top: 40px;">
+<h3 style="margin:0">Did I help you?</h3>
+<p style=" margin:6px 0; font-size: 110%;">Support my work with a <a href="https://www.gittip.com/nfriedly/">small recurring donation</a>:</p>
+<iframe width="80px" height="25px" src="https://www.gittip.com/nfriedly/widget.html" style="border: 0; margin: 0; padding: 0;"></iframe>
+</div></div>
+    <div id="content">
+
+				<p class="navigation">
+			<div class="left">&laquo; <a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/" rel="prev">Advanced Javascript: Objects, Arrays, and Array-Like objects</a></div>
+			<div class="right"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/" rel="next">How to use XSLT to style an RSS feed</a> &raquo;</div>
+		</p>
+		<div class="clear"></div>
+		
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/" >How AJAX Security and Twitter callbacks work</a></h1>
+				<small class="date">June 16th, 2009 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><img class="alignleft" title="Breaking javascript - the right way" src="http://www.sxc.hu/pic/m/s/si/simonok/323276_game_of_pool.jpg" alt="" width="141" height="188" />The twitter callback feature is nice &#8211; it makes it extremely easy to to add a twitter feed to a page. But to get the most benefit out of it, you really need to understand what it&#8217;s doing.</p>
+<p>We&#8217;re going to look at how AJAX security works, specifically the Same Origin Policy, how Twitter gets around it, and the type of callback that twitter uses.</p>
+<p>Note: the callback that twitter uses is entirely different from callback in the sense of passing a javascript function around as a variable. We&#8217;ll look at that in a future article.</p>
+<p><span id="more-114"></span></p>
+<h2>AJAX Security</h2>
+<p>The XMLHTTPRequest Object, which is the javascript object used to make AJAX requests, has a &#8220;<a href="https://developer.mozilla.org/En/Same_origin_policy_for_JavaScript">Same Origin Policy</a>&#8221; which basically means that javascript on site1.com cannot use AJAX to directly load data from site2.com. This is a security feature, as it makes XSS (Cross-Site Scripting) attacks more difficult.</p>
+<p>Worth noting, if the website is at site1.com, no scripts can communicate with any other site, even if the script was loaded from site2.com.</p>
+<h2>Work Arounds</h2>
+<p>There are a number of workarounds including iframes, java applets, and flash, but here&#8217;s a couple of the more common methods.</p>
+<h3><img src="http://www.sxc.hu/pic/m/c/cw/cwmgary/486891_all_lined_up.jpg" alt="Line em up!" class="alignright" />Proxying Requests</h3>
+<p>The way proxying works is to have a file on your server that grabs the data from a remote server and passes it along. Then for javascript, the data appears to be coming from your server, even though it actually originated at a remote server. This is what the Fancy part of my <a href="http://nfriedly.com/demos/twitter">twitter demo</a> does.</p>
+<p>We&#8217;ll look at using a proxy to get remote data in a future article.</p>
+<h3>Remotely hosted javascript files</h3>
+<p>Scripts stored on other websites can be included on a page. As long as the script doesn&#8217;t need to call home after the initial load, everything works great. This is how a basic twitter function works: you load a script from twitter&#8217;s website and it communicates with your site via the callback feature. This is what the Simple part of my <a href="http://nfriedly.com/demos/twitter">twitter demo</a> does.</p>
+<p>Here is a very basic page that uses Twitter&#8217;s callback feature and a remotely loaded javascript file to show my twitter status &#8211; remote data &#8211; on my website, by interacting with local javascript.</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;  dir=&quot;ltr&quot; lang=&quot;en-US&quot;&gt;
+
+&lt;head&gt;
+&lt;title&gt;Simple Twitter Status&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My Twitter Status:&lt;/h1&gt;
+
+&lt;div id=&quot;twitter_status&quot;&gt;Loading...&lt;/div&gt;
+
+&lt;!-- Put scripts down here for speed --&gt;
+
+&lt;!-- this must come before we load the twitter script --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+function showStatus(json){
+
+	json = json[0]; // we only care about the most recent status;
+
+	var myDiv = document.getElementById('twitter_status');
+
+	myDiv.innerHTML = '&lt;img src=&quot;'
+		+ json.user.profile_image_url
+		+ '&quot; style=&quot;float:left; margin:5px 10px 10px 0&quot;&gt;'
+		+ json.text;
+}
+&lt;/script&gt;
+
+&lt;!-- now load the twitter file --&gt;
+&lt;script type=&quot;text/javascript&quot;
+src=&quot;http://twitter.com/statuses/user_timeline/nfriedly.json?count=1&amp;amp;callback=showStatus&amp;amp;random=&lt;?php echo time(); ?&gt;&quot; /&gt;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>You can see a live copy of this code at <a href="http://nfriedly.com/demos/twitter-extra-simple">http://nfriedly.com/demos/twitter-extra-simple</a>.</p>
+<h2>Digging into Twitter&#8217;s callback method</h2>
+<p>Below is a trimmed down example of what Twitter&#8217;s API sends back when we make the request in the example above.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+showStatus([{&quot;in_reply_to_screen_name&quot;:null,&quot;text&quot;:&quot; [ Lots of information that I'm omitting because it's not the point. ] &quot;]);
+</pre>
+<p>Now, don&#8217;t worry about the jazz in the middle, just look at that showStatus(); that&#8217;s wrapped around it. First of all, how does Twitter even know that we have a function named show status? Because we said so in the url to the file -see how we added <code>&amp;callback=showStatus</code>? That&#8217;s where the magic is.  (Ok, technically we said <code>&amp;amp;</code> not just <code>&amp;</code>, but that was just to pass XHTML validation. )</p>
+<p><img class="alignright" title="The break!" src="http://www.sxc.hu/pic/m/l/lj/ljweb/490307_pool_break.jpg" alt="" width="300" height="168" /></p>
+<h3>Cross-domain!</h3>
+<p>There&#8217;s a second important thing going on here &#8211; javascript from two different domains are interacting with each other. This is allowed because of how the Same Origin Policy works &#8211; everything is restricted to the local domain, but that means that everything can work together on the same plane.</p>
+<h3>It&#8217;s a beautiful thing</h3>
+<p>I hope this gave you a little bit better understanding of how AJAX security works and how Twitter gets around it and is still able to interact with your site. In the future, I&#8217;ll have an article on how &#8220;traditional&#8221; callbacks work that will use jQuery and more AJAX to dive a bit deeper into the topic.</p>
+<h2>Javascript Ninja for Hire</h2>
+<p>I have <a href="http://nfriedly.com/portfolio">extensive experience</a> working with AJAX, Twitter, and related technologies. I&#8217;m just the man you need to make your next <a href="http://nfriedly.com/webdev">javascript development</a> project shine!</p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/#comments" title="Comment on How AJAX Security and Twitter callbacks work">Comments (1)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/ajax/" rel="tag">ajax</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/json/" rel="tag">json</a>, <a href="http://nfriedly.com/techblog/tag/security/" rel="tag">security</a>, <a href="http://nfriedly.com/techblog/tag/twitter/" rel="tag">twitter</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+<!-- You can start editing here. -->
+
+	<h3 id="comments">One Response to &#8220;How AJAX Security and Twitter callbacks work&#8221;</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-2028">
+				<div id="div-comment-2028" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/03daf70c249b392c7681f167b44b6d4b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">mark landmann</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/comment-page-1/#comment-2028">
+			January 17, 2010 at 5:35 am</a>		</div>
+
+		<p>if you are interested in a small little twitter like project, please send me your contact information to the above address.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div id="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://nfriedly.com/techblog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='114' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="44bf8010e0" /></p>	<script type='text/javascript'>
+	<!--
+	ref = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='ref' value='"+ref+"'>");
+	// -->
+	</script>
+	<p style="display:none;"><input type="text" name="nxts" value="1377680377" /><input type="text" name="nxts_signed" value="7749df692ecd58453f036d256f13adf89404d224" /><input type="text" name="042d412f056" value="" /><input type="text" name="eaba44abc25c34be729678164" value="3c8ca25967a141543700ac647" /></p><p style="clear:both"><input style="width: 20px" type="checkbox" value="1" name="subscribe" id="subscribe" checked="checked"/>&nbsp;<label style="margin:0; padding:0; position:relative; left:0; top:0;" for="subscribe">Email me when new comments are added</label></p>
+</form>
+
+</div>
+
+
+
+			<div id="nav-below" class="navigation">
+				<div class="nav-previous"></div>
+				<div class="nav-next"></div>
+			</div>
+
+<hr />
+
+		<p>
+<a class="right" href="http://nfriedly.com/techblog/feed/"><img src="/img/feed-icon-14x14.png" alt="RSS" /></a>
+<a href="/webdev">nFriedly Web Development</a>  &raquo; <a href="/techblog">Technical Blog</a></p>
+		
+		
+
+	</div> <!-- /content -->
+    <div class="clear"></div>
+
+</div> <!-- /container -->
+</div> <!-- /container-main -->
+
+<div id="container-footer">
+	<div id="footer">
+		<div class="column left">
+	       		&copy; 2008 Nathan Friedly<br />
+				<script type="text/javascript">
+					<!--
+					document.write('Site design by <a href="http://www.charleyskira.com"><img src="/img/charleyskiralogo.gif" align="absmiddle" height="18" width="65" border="0" alt="Charley Skira" /></a>');
+					// -->
+				</script>
+		</div>
+
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left center">
+			<a href="/">Home</a>
+			| <a href="/webdev">Web Development</a>
+			<br />
+			<a href="/contact">Contact</a>
+			| <a href="/estimate">Quote</a>
+
+			| <a href="/sitemap">Sitemap</a>
+		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left">
+        	<div class="login">
+
+<h1>Client Login</h1>
+
+<form action="/client/login" method="post" >
+
+<p><b>Username:</b><br />
+<input type="text" name="username" /></p>
+
+<p><b>Password:</b><br />
+<input type="password" name="password" /></p>
+
+<p><a href="/techblog/wp-admin/">WP Admin</a> <input type="submit" value="Log In" /></p>
+
+</form>
+
+</div>		</div>
+	</div>
+
+</div> <!-- /container-footer -->
+
+
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201335.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'8074834',v:'ext',post:'114'});
+var load_cmc = function(){linktracker_init(8074834,114,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1735765-3";
+urchinTracker();
+</script>
+
+<script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('f9396fdc93a94c71e178b275d41bad01'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } </script>
+<script type='text/javascript'>
+mpmetrics.track('pageview', { 'url': window.location.pathname, location:'blog' }); 
+</script>
+
+</body>
+
+</html>
+<!-- Dynamic page generated in 0.284 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2013-08-28 04:59:37 -->
+
+<!-- super cache -->

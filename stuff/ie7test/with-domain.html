@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>with domain</title>
+</head>
+<body>
+<p>This page sets document.domain to window.location.hostname</p>
+<p>In IE7 / xp, it does not work. It throws errors on the initial load, but not if you click refresh.</p>
+<script type="text/javascript">
+
+document.domain=window.location.hostname;
+
+// this one doesn't work, but doesn't throw any errors either
+document.write("<p>hostname: " + window.location.hostname + " - if you can see this, then it worked!</p>");
+
+</script>
+</body>
+</html>

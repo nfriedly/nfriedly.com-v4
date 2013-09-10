@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iframe</title>
+</head>
+<body>
+<p>iframe</p>
+<script>
+if(window.opener){
+document.write('window.opener is truthy');
+} else {
+document.write('window.opener is falsy');
+}
+</script>
+<p>
+<script>
+if(top === self){
+document.write('top == self');
+} else {
+document.write('top != self');
+}
+</script>
+</p>
+</body>
+</html>

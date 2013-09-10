@@ -1,0 +1,3 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:15:16,328 Slf4jLog.java:92 :- Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+

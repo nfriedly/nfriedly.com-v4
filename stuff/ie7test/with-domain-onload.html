@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>with domain + onload</title>
+</head>
+<body>
+<p>This page sets document.domain to window.location.hostname</p>
+<p>In IE7 / xp, it does not work, but does throw a "Permission denied" error.</p>
+<script type="text/javascript">
+
+document.domain=window.location.hostname;
+
+
+window.onload = function(){
+// but this one does give an error: Permission denied line 15, character 1
+alert("window.location.hostname is " + window.location.hostname + " - if you can see this then it worked!");
+};
+
+</script>
+
+
+</body>
+</html>

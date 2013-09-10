@@ -1,0 +1,57 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:13:39,081 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:13:39,095 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:13:39,949 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:13:39,950 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:13:41,573 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:13:41,574 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:13:41,575 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:13:41,575 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:13:41,575 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:13:41,576 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:13:41,627 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:13:41,635 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:13:41,643 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:41,643 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:41,732 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@5dd41318
+ INFO [main] 2011-02-22 13:13:41,777 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:13:41,809 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:13:41,809 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:13:41,809 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:13:41,810 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:13:41,810 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:13:41,813 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:13:41,833 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:41,834 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:13:43,478 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398422370 that have not already been processed and expired before: Tue Feb 22 13:13:43 EST 2011
+ INFO [main] 2011-02-22 13:13:43,498 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:43,504 GroupPromoManager.java:238 :- Took: 5 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:43,507 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398422370 that have not already been processed and expired before: Tue Feb 22 13:13:43 EST 2011
+ INFO [main] 2011-02-22 13:13:44,594 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398423508 that have not already been processed and expired before: Tue Feb 22 13:13:44 EST 2011
+ INFO [main] 2011-02-22 13:13:44,599 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:44,611 GroupPromoManager.java:238 :- Took: 12 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:44,613 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398423508 that have not already been processed and expired before: Tue Feb 22 13:13:44 EST 2011
+ INFO [main] 2011-02-22 13:13:45,943 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398424614 that have not already been processed and expired before: Tue Feb 22 13:13:45 EST 2011
+ INFO [main] 2011-02-22 13:13:45,946 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:45,955 GroupPromoManager.java:238 :- Took: 9 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:45,956 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398424614 that have not already been processed and expired before: Tue Feb 22 13:13:45 EST 2011
+ INFO [main] 2011-02-22 13:13:47,039 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398425957 that have not already been processed and expired before: Tue Feb 22 13:13:47 EST 2011
+ INFO [main] 2011-02-22 13:13:47,042 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:47,050 GroupPromoManager.java:238 :- Took: 8 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:47,052 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398425957 that have not already been processed and expired before: Tue Feb 22 13:13:47 EST 2011
+ INFO [main] 2011-02-22 13:13:48,180 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398427053 that have not already been processed and expired before: Tue Feb 22 13:13:48 EST 2011
+ INFO [main] 2011-02-22 13:13:48,183 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:48,201 GroupPromoManager.java:328 :- Promo Qualified - PROMO_BOGO,Tue Feb 22 13:13:47 EST 2011,CUST_ID#ABCD,ORDER#123,MOTYPE,MO 1298398427113,CUST_ID_FRIEND#1,ORDER#999;,
+ INFO [main] 2011-02-22 13:13:48,203 GroupPromoManager.java:238 :- Took: 20 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:48,205 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398427053 that have not already been processed and expired before: Tue Feb 22 13:13:48 EST 2011
+ INFO [main] 2011-02-22 13:13:49,322 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398428206 that have not already been processed and expired before: Tue Feb 22 13:13:49 EST 2011
+ INFO [main] 2011-02-22 13:13:49,325 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:49,338 GroupPromoManager.java:328 :- Promo Qualified - PROMO_BOGO2,Tue Feb 22 13:13:48 EST 2011,CUST_ID#ABCD,ORDER#124,MOTYPE,MO 1298398428257,CUST_ID_FRIEND#1,ORDER#999;,
+ INFO [main] 2011-02-22 13:13:49,340 GroupPromoManager.java:238 :- Took: 15 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:49,341 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398428206 that have not already been processed and expired before: Tue Feb 22 13:13:49 EST 2011
+ INFO [main] 2011-02-22 13:13:50,464 GroupPromoManager.java:113 :- Will process all GroupPromos for customer: CUST1298398429342 that have not already been processed and expired before: Tue Feb 22 13:13:50 EST 2011
+ INFO [main] 2011-02-22 13:13:50,466 GroupPromoManager.java:130 :- Processing next: 1 GroupPromotions...
+ INFO [main] 2011-02-22 13:13:50,489 GroupPromoManager.java:328 :- Promo Qualified - PROMO_BOGO,Tue Feb 22 13:13:49 EST 2011,CUST_ID_FRIEND#1,ORDER#123,MOTYPE,MO 1298398429399,CUST_ID_FRIEND#1,ORDER#999;,
+ INFO [main] 2011-02-22 13:13:50,491 GroupPromoManager.java:238 :- Took: 24 ms. to process 1 GroupPromos.
+ INFO [main] 2011-02-22 13:13:50,492 GroupPromoManager.java:241 :- Finished processing all GroupPromos for customer: CUST1298398429342 that have not already been processed and expired before: Tue Feb 22 13:13:50 EST 2011
+

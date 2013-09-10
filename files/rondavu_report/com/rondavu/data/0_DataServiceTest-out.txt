@@ -1,0 +1,306 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:12:06,715 Slf4jLog.java:92 :- Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+ INFO [main] 2011-02-22 13:12:07,014 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:12:07,037 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:12:08,339 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:12:08,340 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:12:08,647 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:08,648 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:08,649 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:08,649 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:08,650 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:08,651 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:08,651 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:13,656 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:13,656 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:13,657 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:13,657 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:13,658 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:13,658 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:13,658 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:18,664 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:18,665 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:18,666 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:18,667 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:18,667 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:18,668 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:18,668 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:23,675 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:23,675 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:23,676 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:23,676 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:23,677 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:23,677 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:23,678 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:28,683 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:28,683 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:28,684 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:28,684 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:28,685 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:28,686 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:28,687 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:33,691 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:33,692 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:33,692 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:33,693 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:33,693 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:33,694 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:33,694 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:38,698 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:38,698 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:38,699 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:38,699 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:38,700 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:38,700 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:38,700 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:43,706 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:43,706 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:43,707 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:43,707 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:43,708 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:43,708 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:43,709 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:48,714 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:48,714 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:48,715 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:48,715 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:48,716 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:48,716 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:48,717 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:12:53,722 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:53,723 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:53,723 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:53,724 HttpMethodDirector.java:445 :- Retrying request
+ INFO [main] 2011-02-22 13:12:53,724 HttpMethodDirector.java:439 :- I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO [main] 2011-02-22 13:12:53,725 HttpMethodDirector.java:445 :- Retrying request
+ WARN [main] 2011-02-22 13:12:53,726 ConfigManager.java:127 :- Unable to load configuration: java.net.ConnectException: Connection refused
+ INFO [main] 2011-02-22 13:13:00,140 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:13:00,141 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:13:00,141 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:13:00,141 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:13:00,142 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:13:00,142 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:13:00,188 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:13:00,206 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:13:00,213 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:00,214 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:00,302 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@6fe30af
+ INFO [main] 2011-02-22 13:13:00,348 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:13:00,374 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:13:00,375 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:13:00,375 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:13:00,375 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:13:00,376 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:13:00,379 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:13:00,403 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:00,403 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:13:00,563 Slf4jLog.java:92 :- jetty-7.0.2.v20100331
+ INFO [main] 2011-02-22 13:13:03,834 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper
+ INFO [main] 2011-02-22 13:13:03,834 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JsonParseExceptionMapper
+ INFO [main] 2011-02-22 13:13:03,835 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: com.rondavu.data.sns.fb.FacebookUserUnmarshaller
+ INFO [main] 2011-02-22 13:13:03,835 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: com.rondavu.data.sns.fb.FacebookFriendsUnmarshaller
+ INFO [main] 2011-02-22 13:13:03,835 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JacksonJsonProvider
+ INFO [main] 2011-02-22 13:13:03,842 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider
+ INFO [main] 2011-02-22 13:13:03,845 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.rsvp.RsvpModule
+ INFO [main] 2011-02-22 13:13:03,847 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.recentactivity.RecentActivity
+ INFO [main] 2011-02-22 13:13:03,847 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.mostpopular.MostPopular
+ INFO [main] 2011-02-22 13:13:03,849 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.status.StatusModule
+ INFO [main] 2011-02-22 13:13:03,850 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.log.LogModule
+ INFO [main] 2011-02-22 13:13:03,852 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.conductor.ConductorModule
+ INFO [main] 2011-02-22 13:13:03,853 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.Scheduler
+ INFO [main] 2011-02-22 13:13:03,854 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.sfs.SFSUpdateModule
+ INFO [main] 2011-02-22 13:13:03,854 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.ReportGenerator
+ INFO [main] 2011-02-22 13:13:03,855 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.readcookie.RedirectModule
+ INFO [main] 2011-02-22 13:13:03,857 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.FeedProcessor
+ INFO [main] 2011-02-22 13:13:03,859 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.grouppromotion.GroupPromotion
+ INFO [main] 2011-02-22 13:13:03,860 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.htmlblock.HtmlBlockModule
+ INFO [main] 2011-02-22 13:13:03,862 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.ping.PingModule
+ INFO [main] 2011-02-22 13:13:03,863 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.readcookie.ReadCookieModule
+ INFO [main] 2011-02-22 13:13:03,864 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.lint.LintModule
+ INFO [main] 2011-02-22 13:13:03,865 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.fbupdate.SubscriptionModule
+ INFO [main] 2011-02-22 13:13:03,866 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.report.PurchaseReport
+ INFO [main] 2011-02-22 13:13:03,867 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.bootstrap.BootstrapModule
+ INFO [main] 2011-02-22 13:13:03,868 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.birthday.BirthdayModule
+ INFO [main] 2011-02-22 13:13:03,869 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.streampublish.StreamPublish
+ INFO [main] 2011-02-22 13:13:03,869 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.webtier.WebTierModule
+ INFO [main] 2011-02-22 13:13:03,870 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.fblike.FacebookLikeModule
+ INFO [main] 2011-02-22 13:13:03,871 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.relevantpeople.RelevantPeopleModule
+ INFO [main] 2011-02-22 13:13:04,152 RondavuBootstrap.java:63 :- Context is being initialized
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:13:04,194 FreemarkerManager.java:45 :- Freemarker initialized
+ INFO [main] 2011-02-22 13:13:04,196 ModuleManager.java:234 :- Processing com.rondavu.wt
+ INFO [main] 2011-02-22 13:13:04,196 ModuleManager.java:234 :- Processing com.rondavu.wt.exception
+ INFO [main] 2011-02-22 13:13:04,197 ModuleManager.java:234 :- Processing com.rondavu.wt.facebook
+ INFO [main] 2011-02-22 13:13:04,198 ModuleManager.java:234 :- Processing com.rondavu.wt.filter
+ INFO [main] 2011-02-22 13:13:04,212 ModuleManager.java:234 :- Processing com.rondavu.wt.module
+ INFO [main] 2011-02-22 13:13:04,213 ModuleManager.java:234 :- Processing com.rondavu.wt.module.birthday
+ INFO [main] 2011-02-22 13:13:04,215 ModuleManager.java:234 :- Processing com.rondavu.wt.module.birthday.templates
+ INFO [main] 2011-02-22 13:13:04,215 ModuleManager.java:234 :- Processing com.rondavu.wt.module.bootstrap
+ INFO [main] 2011-02-22 13:13:04,218 ModuleManager.java:234 :- Processing com.rondavu.wt.module.conductor
+ INFO [main] 2011-02-22 13:13:04,222 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbactivityfeed
+ INFO [main] 2011-02-22 13:13:04,223 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbactivityfeed.templates
+ INFO [main] 2011-02-22 13:13:04,223 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblike
+ INFO [main] 2011-02-22 13:13:04,223 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblike.templates
+ INFO [main] 2011-02-22 13:13:04,224 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblikebox
+ INFO [main] 2011-02-22 13:13:04,224 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblikebox.templates
+ INFO [main] 2011-02-22 13:13:04,225 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblogin
+ INFO [main] 2011-02-22 13:13:04,225 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblogin.templates
+ INFO [main] 2011-02-22 13:13:04,226 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbupdate
+ INFO [main] 2011-02-22 13:13:04,226 ModuleManager.java:234 :- Processing com.rondavu.wt.module.grouppromotion
+ INFO [main] 2011-02-22 13:13:04,226 ModuleManager.java:234 :- Processing com.rondavu.wt.module.grouppromotion.templates
+ INFO [main] 2011-02-22 13:13:04,227 ModuleManager.java:234 :- Processing com.rondavu.wt.module.htmlblock
+ INFO [main] 2011-02-22 13:13:04,227 ModuleManager.java:234 :- Processing com.rondavu.wt.module.lint
+ INFO [main] 2011-02-22 13:13:04,228 ModuleManager.java:234 :- Processing com.rondavu.wt.module.lint.static
+ INFO [main] 2011-02-22 13:13:04,228 ModuleManager.java:234 :- Processing com.rondavu.wt.module.log
+ INFO [main] 2011-02-22 13:13:04,244 ModuleManager.java:234 :- Processing com.rondavu.wt.module.mostpopular
+ INFO [main] 2011-02-22 13:13:04,245 ModuleManager.java:234 :- Processing com.rondavu.wt.module.mostpopular.templates
+ INFO [main] 2011-02-22 13:13:04,248 ModuleManager.java:234 :- Processing com.rondavu.wt.module.ping
+ INFO [main] 2011-02-22 13:13:04,249 ModuleManager.java:234 :- Processing com.rondavu.wt.module.readcookie
+ INFO [main] 2011-02-22 13:13:04,249 ModuleManager.java:234 :- Processing com.rondavu.wt.module.recentactivity
+ INFO [main] 2011-02-22 13:13:04,250 ModuleManager.java:234 :- Processing com.rondavu.wt.module.recentactivity.templates
+ INFO [main] 2011-02-22 13:13:04,250 ModuleManager.java:234 :- Processing com.rondavu.wt.module.relevantpeople
+ INFO [main] 2011-02-22 13:13:04,251 ModuleManager.java:234 :- Processing com.rondavu.wt.module.relevantpeople.templates
+ INFO [main] 2011-02-22 13:13:04,252 ModuleManager.java:234 :- Processing com.rondavu.wt.module.report
+ INFO [main] 2011-02-22 13:13:04,253 ModuleManager.java:234 :- Processing com.rondavu.wt.module.rsvp
+ INFO [main] 2011-02-22 13:13:04,254 ModuleManager.java:234 :- Processing com.rondavu.wt.module.rsvp.templates
+ INFO [main] 2011-02-22 13:13:04,254 ModuleManager.java:234 :- Processing com.rondavu.wt.module.scheduler
+ INFO [main] 2011-02-22 13:13:04,258 ModuleManager.java:234 :- Processing com.rondavu.wt.module.scheduler.templates
+ INFO [main] 2011-02-22 13:13:04,259 ModuleManager.java:234 :- Processing com.rondavu.wt.module.sfs
+ INFO [main] 2011-02-22 13:13:04,260 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static
+ INFO [main] 2011-02-22 13:13:04,260 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.diagnostic
+ INFO [main] 2011-02-22 13:13:04,260 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.images
+ INFO [main] 2011-02-22 13:13:04,261 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.scripts
+ INFO [main] 2011-02-22 13:13:04,261 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.templates
+ INFO [main] 2011-02-22 13:13:04,261 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.test_templates
+ INFO [main] 2011-02-22 13:13:04,262 ModuleManager.java:234 :- Processing com.rondavu.wt.module.status
+ INFO [main] 2011-02-22 13:13:04,262 ModuleManager.java:234 :- Processing com.rondavu.wt.module.streampublish
+ INFO [main] 2011-02-22 13:13:04,262 ModuleManager.java:234 :- Processing com.rondavu.wt.module.streampublish.templates
+ INFO [main] 2011-02-22 13:13:04,264 ModuleManager.java:234 :- Processing com.rondavu.wt.module.webtier
+ INFO [main] 2011-02-22 13:13:04,264 ModuleManager.java:234 :- Processing com.rondavu.wt.module.welcome
+ INFO [main] 2011-02-22 13:13:04,265 ModuleManager.java:234 :- Processing com.rondavu.wt.module.welcome.templates
+ INFO [main] 2011-02-22 13:13:04,266 ModuleManager.java:234 :- Processing com.rondavu.wt
+ INFO [main] 2011-02-22 13:13:04,267 ModuleManager.java:234 :- Processing com.rondavu.wt.filter
+ INFO [main] 2011-02-22 13:13:04,278 ModuleManager.java:234 :- Processing com.rondavu.wt.module
+ INFO [main] 2011-02-22 13:13:04,278 ModuleManager.java:234 :- Processing com.rondavu.wt.module.bootstrap
+ INFO [main] 2011-02-22 13:13:04,289 ModuleManager.java:234 :- Processing com.rondavu.wt.module.conductor
+ INFO [main] 2011-02-22 13:13:04,290 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbupdate
+ INFO [main] 2011-02-22 13:13:04,291 ModuleManager.java:234 :- Processing com.rondavu.wt.module.log
+ INFO [main] 2011-02-22 13:13:04,292 ModuleManager.java:234 :- Processing com.rondavu.wt.module.ping
+ INFO [main] 2011-02-22 13:13:04,292 ModuleManager.java:234 :- Processing com.rondavu.wt.module.readcookie
+ INFO [main] 2011-02-22 13:13:04,294 ModuleManager.java:234 :- Processing com.rondavu.wt.module.sfs
+ INFO [main] 2011-02-22 13:13:04,298 ModuleManager.java:234 :- Processing com.rondavu.wt.util
+ INFO [main] 2011-02-22 13:13:04,299 ModuleManager.java:184 :- Successfully registered module id birthday
+ INFO [main] 2011-02-22 13:13:04,299 ModuleManager.java:184 :- Successfully registered module id fbactivityfeed
+ INFO [main] 2011-02-22 13:13:04,300 ModuleManager.java:184 :- Successfully registered module id fblike
+ INFO [main] 2011-02-22 13:13:04,300 ModuleManager.java:184 :- Successfully registered module id fblikebox
+ INFO [main] 2011-02-22 13:13:04,300 ModuleManager.java:184 :- Successfully registered module id fblogin
+ INFO [main] 2011-02-22 13:13:04,300 ModuleManager.java:184 :- Successfully registered module id grouppromo
+ INFO [main] 2011-02-22 13:13:04,301 ModuleManager.java:184 :- Successfully registered module id htmlblock
+ INFO [main] 2011-02-22 13:13:04,301 ModuleManager.java:184 :- Successfully registered module id mostpopular1
+ INFO [main] 2011-02-22 13:13:04,301 ModuleManager.java:184 :- Successfully registered module id recentactivity1
+ INFO [main] 2011-02-22 13:13:04,301 ModuleManager.java:184 :- Successfully registered module id rp1
+ INFO [main] 2011-02-22 13:13:04,301 ModuleManager.java:184 :- Successfully registered module id rsvp1
+ INFO [main] 2011-02-22 13:13:04,302 ModuleManager.java:184 :- Successfully registered module id streampublish
+ INFO [main] 2011-02-22 13:13:04,302 ModuleManager.java:184 :- Successfully registered module id welcome
+ERROR [main] 2011-02-22 13:13:04,302 ModuleManager.java:175 :- Unable to instantiate module com.rondavu.wt.module.SuResurfaceTest$DummyModule
+ INFO [main] 2011-02-22 13:13:04,303 RondavuFilter.java:308 :- Validated mo cache count=10000 TTL=0 TTI=86400
+ INFO [main] 2011-02-22 13:13:04,308 Slf4jLog.java:92 :- Started LocalConnector@0.0.0.0:0
+ INFO [main] 2011-02-22 13:13:04,316 DataServiceTest.java:51 :- Creating a base customer for others to use.
+ INFO [main] 2011-02-22 13:13:04,489 DataServiceTest.java:69 :- Starting testStartStop
+ INFO [main] 2011-02-22 13:13:04,489 AbstractService.java:62 :- Stopping Data Service
+ INFO [main] 2011-02-22 13:13:04,490 AbstractService.java:62 :- Stopping Data Access Provider
+ INFO [JdbcThread] 2011-02-22 13:13:04,490 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:04,494 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:04,494 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [Thread-16] 2011-02-22 13:13:04,494 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-19] 2011-02-22 13:13:04,492 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-19] 2011-02-22 13:13:04,497 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-4] 2011-02-22 13:13:04,492 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-4] 2011-02-22 13:13:04,498 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [JdbcThread] 2011-02-22 13:13:04,492 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:13:04,492 AbstractService.java:62 :- Stopping SocialNetwork Service
+ INFO [Thread-16] 2011-02-22 13:13:04,497 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [main] 2011-02-22 13:13:04,501 SocialNetworkService.java:45 :- Stopping the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,502 AbstractService.java:62 :- Stopping CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:04,502 CacheRefresher.java:96 :- Stopping the CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:04,504 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:13:04,504 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:13:04,505 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:13:04,505 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:13:04,507 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:13:04,507 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:13:04,508 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:13:04,517 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:13:04,525 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:13:04,533 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,534 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,534 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:13:04,534 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:13:04,535 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:04,535 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:13:04,545 AbstractService.java:62 :- Stopping Data Service
+ INFO [main] 2011-02-22 13:13:04,545 AbstractService.java:62 :- Stopping Data Access Provider
+ INFO [main] 2011-02-22 13:13:04,546 AbstractService.java:62 :- Stopping SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,546 SocialNetworkService.java:45 :- Stopping the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,547 AbstractService.java:62 :- Stopping CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:04,549 CacheRefresher.java:96 :- Stopping the CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:04,553 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:13:04,554 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:13:04,554 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:13:04,554 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:13:04,554 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:13:04,555 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:13:04,555 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:13:04,577 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:13:04,591 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:13:04,601 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,601 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:04,602 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:13:04,602 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:13:04,602 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:04,603 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:13:04,635 DataServiceTest.java:78 :- Starting testGeneralFlow
+ INFO [main] 2011-02-22 13:13:04,635 DataServiceTest.java:84 :- created wallet: Wallet(browserId=3, credentials=[]
+ INFO [main] 2011-02-22 13:13:04,770 DataServiceTest.java:116 :- created wallet: Wallet(browserId=3, credentials=[AnonymousCredential(network: 0, id: 0), FacebookLoginModel{lastFetched=null, firstName='null', lastName='null', picSquareUrl='null', picUrl='null', birthday=null, timezone=0.0, sex=u, relationshipStatus=s, friends=[], storedInDb=true, lastRefreshRequest=java.util.concurrent.FutureTask@696e1ccd}]
+ INFO [main] 2011-02-22 13:13:04,805 DataServiceTest.java:130 :- Starting Test: testSuKeyValues
+ INFO [main] 2011-02-22 13:13:04,854 DataServiceTest.java:148 :- Starting Test: basicSuCreateAndRead
+ INFO [main] 2011-02-22 13:13:04,854 DataServiceTest.java:154 :- Using browserId of 6
+ INFO [main] 2011-02-22 13:13:04,857 DataServiceTest.java:155 :- wallet.mask: 1
+ INFO [main] 2011-02-22 13:13:04,889 DataServiceTest.java:167 :- Su#1 has id: 4 with browserId: 6 with mask: 1
+ INFO [main] 2011-02-22 13:13:04,912 DataServiceTest.java:178 :- Su#2 has id: 5 with browserId: 6 with mask: 1
+ INFO [main] 2011-02-22 13:13:04,915 DataServiceTest.java:182 :- Su#3 has id: 6 with browserId: 6 with mask: 1
+ INFO [main] 2011-02-22 13:13:04,955 DataServiceTest.java:189 :- found SU has id: 6 with browserId: 6 with mask: 1
+ INFO [main] 2011-02-22 13:13:04,955 DataServiceTest.java:189 :- found SU has id: 5 with browserId: 6 with mask: 1
+ INFO [main] 2011-02-22 13:13:04,955 DataServiceTest.java:189 :- found SU has id: 4 with browserId: 6 with mask: 1
+ INFO [main] 2011-02-22 13:13:04,965 DataServiceTest.java:203 :- Starting Test: basicLocationCreateAndRead
+ INFO [main] 2011-02-22 13:13:04,994 DataServiceTest.java:231 :- Starting Test: getSusByCustomer
+ INFO [main] 2011-02-22 13:13:05,039 DataServiceTest.java:259 :- SU: 7
+ INFO [main] 2011-02-22 13:13:05,039 DataServiceTest.java:259 :- SU: 3
+ INFO [main] 2011-02-22 13:13:05,047 RondavuBootstrap.java:41 :- Context is being destroyed
+ INFO [main] 2011-02-22 13:13:05,047 AbstractService.java:62 :- Stopping Data Service
+ INFO [main] 2011-02-22 13:13:05,048 AbstractService.java:62 :- Stopping Data Access Provider
+ INFO [JdbcThread] 2011-02-22 13:13:05,048 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:13:05,048 AbstractService.java:62 :- Stopping SocialNetwork Service
+ INFO [Thread-28] 2011-02-22 13:13:05,052 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [JdbcThread] 2011-02-22 13:13:05,052 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,051 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [Thread-31] 2011-02-22 13:13:05,051 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [JdbcThread] 2011-02-22 13:13:05,051 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [Thread-29] 2011-02-22 13:13:05,050 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-29] 2011-02-22 13:13:05,057 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-23] 2011-02-22 13:13:05,050 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-23] 2011-02-22 13:13:05,059 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [JdbcThread] 2011-02-22 13:13:05,050 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,050 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,050 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,050 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,050 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,048 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,048 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:13:05,048 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [Thread-31] 2011-02-22 13:13:05,056 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [Thread-28] 2011-02-22 13:13:05,052 JdbcGroupThreadFactory.java:89 :- JdbcGroupThread is closing a JDBC Connection: 
+ INFO [main] 2011-02-22 13:13:05,052 SocialNetworkService.java:45 :- Stopping the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:05,072 AbstractService.java:62 :- Stopping CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:05,072 CacheRefresher.java:96 :- Stopping the CacheRefresher Service
+

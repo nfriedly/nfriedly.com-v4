@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>nFriedly Web Dev Tech Blog</title>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/blog.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://nfriedly.com/techblog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://nfriedly.com/techblog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.6" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/feed/" title="nFriedly Web Dev Tech Blog latest posts" />
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/comments/feed/" title="nFriedly Web Dev Tech Blog latest comments" />
+	<link rel="pingback" href="http://nfriedly.com/techblog/xmlrpc.php" />
+
+</head>
+
+<body class=" yui-skin-sam">
+
+<div id="container-header">
+	<div id="header">
+		<h2><a href="/techblog">nFriedly Web Development</a></h2>
+		<h1><a href="/techblog">Tech Blog</a></h1>
+		<a href="/"><img src="/img/nflogo-header-notext.png" height="140" width="107" alt="nFriedly" /></a>
+	</div>
+</div>
+<div id="container-main">
+<div id="container">
+<div id="navigation">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+	<li><a href="/fellowship">Fellowship</a></li>
+	<li><a href="/webdev">Web Dev</a>
+</li>
+	<li><a href="/techblog">Tech Blog</a></li>
+    <li><a href="/estimate">Quote</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+		
+<div style="width: 90%; margin-top: 40px;">
+<h3 style="margin:0">Did I help you?</h3>
+<p style=" margin:6px 0; font-size: 110%;">Support my work with a <a href="https://www.gittip.com/nfriedly/">small recurring donation</a>:</p>
+<iframe width="80px" height="25px" src="https://www.gittip.com/nfriedly/widget.html" style="border: 0; margin: 0; padding: 0;"></iframe>
+</div></div>
+    <div id="content">
+
+		
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2013/03/automatically-removing-spamers-from-the-wordpress-coment-notifier-plugins-database/" >Automatically removing spamers from the WordPress Coment Notifier Plugin&#8217;s Database</a></h1>
+				<small class="date">March 22nd, 2013 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://nfriedly.com/techblog/2013/03/automatically-removing-spamers-from-the-wordpress-coment-notifier-plugins-database/"><img src="https://farm1.staticflickr.com/216/512562593_33dcb600f2_m.jpg" width="240" height="180" alt="Beach" class="right" title="Spam? Not anymore! Now all I do is relax and enjoy :)" /></a> <small class="right" style="clear:right"><a href="https://secure.flickr.com/photos/8438819@N03/512562593/">Photo by  anda (:</a></small> There&#8217;s an awesome <a href="http://wordpress.org/">WordPress</a> plugin called <a href="http://www.satollo.net/plugins/comment-notifier">Comment Notifier</a> &#8211; what it does is add that check box at the bottom of the comments section. If you leave it checked when you add a comment, then it will automatically email you with anyone ease&#8217;s comments in the future.</p>
+<p>However, it has a slight problem with spam. When spammers leave comments, my combination of <a href="http://akismet.com/">Akismet</a> and <a href="http://wordpress.org/extend/plugins/nospamnx/">NoSpamNX</a> do a pretty good job of keeping spam comments of of the site, but not before their (usually fake) email gets added to the Comment Notifier database. </p>
+<p>Recently, I realized that my server was trying to send out several hundred failing emails any time someone left a comment. I shot a short feature request (and a small donation) to the Comment Notifier plugin&#8217;s author, but then decided that this was one I could take on myself. Here&#8217;s how I did it:</p>
+<p> <a href="http://nfriedly.com/techblog/2013/03/automatically-removing-spamers-from-the-wordpress-coment-notifier-plugins-database/#more-512" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2013/03/automatically-removing-spamers-from-the-wordpress-coment-notifier-plugins-database/#comments" title="Comment on Automatically removing spamers from the WordPress Coment Notifier Plugin&#8217;s Database">Comments (4)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/antispam/" rel="tag">antispam</a>, <a href="http://nfriedly.com/techblog/tag/howto/" rel="tag">howto</a>, <a href="http://nfriedly.com/techblog/tag/mysql/" rel="tag">MySQL</a>, <a href="http://nfriedly.com/techblog/tag/wordpress/" rel="tag">WordPress</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2013/02/automatically-unit-testing-client-side-javascript-with-jasmine-and-node-js/" >Automatically unit testing client-side JavaScript with Jasmine and Node.js</a></h1>
+				<small class="date">February 4th, 2013 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="automatically-unit-testing-client-side-javascript-with-jasmine-and-node-js"><img src="http://nfriedly.com/techblog/wp-content/uploads/2013/02/jasmine_flower.png" alt="jasmine_logo" width="91" height="90" class="alignleft left size-full wp-image-478" /></a> At <a href="http://sociablelabs.com">Sociable Labs</a>, we have hundreds JavaScript unit tests that run on every checkin. They output a <a href="http://www.junit.org/">JUnit</a>-compatible report that <a href="https://www.atlassian.com/software/bamboo/overview">Bamboo</a> can use to track stats and email us if anything failed. Here&#8217;s how we do it.</p>
+<p> <a href="http://nfriedly.com/techblog/2013/02/automatically-unit-testing-client-side-javascript-with-jasmine-and-node-js/#more-460" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2013/02/automatically-unit-testing-client-side-javascript-with-jasmine-and-node-js/#comments" title="Comment on Automatically unit testing client-side JavaScript with Jasmine and Node.js">Comments (1)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/howto/" rel="tag">howto</a>, <a href="http://nfriedly.com/techblog/tag/jasmine/" rel="tag">jasmine</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/node-js/" rel="tag">node.js</a>, <a href="http://nfriedly.com/techblog/tag/testing/" rel="tag">testing</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2012/02/how-to-make-ant-tasks-run-in-a-default-directory/" >How to make Apache Ant tasks run in a default directory</a></h1>
+				<small class="date">February 29th, 2012 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://www.flickr.com/photos/soldiersmediacenter/6668518895/" title="The other Apache, image courtesy of The U.S. Army"><img src="http://farm8.staticflickr.com/7020/6668518895_0700a12958_m.jpg" width="240" height="160" alt="Apache takeoff" class="right"/></a>I often open a new tab in my Terminal to run an <a href="http://ant.apache.org/">Ant</a> task, and often as not I forget to <code>cd</code> into the correct directory first and so I am greeted with this error:</p>
+<p><code>Nathan-Mac:~ nathan$ ant database.start<br />
+Buildfile: build.xml does not exist!<br />
+Build failed</code></p>
+<p>On my system, there&#8217;s only one main project that uses ant, so I almost always intend for ant tasks to be run against that project&#8217;s build.xml. So, I created a function that makes ant tasks &#8220;just work&#8221; no matter what directory I am in.</p>
+<p> <a href="http://nfriedly.com/techblog/2012/02/how-to-make-ant-tasks-run-in-a-default-directory/#more-422" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2012/02/how-to-make-ant-tasks-run-in-a-default-directory/#respond" title="Comment on How to make Apache Ant tasks run in a default directory">Comments (0)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/ant/" rel="tag">ant</a>, <a href="http://nfriedly.com/techblog/tag/apache/" rel="tag">apache</a>, <a href="http://nfriedly.com/techblog/tag/bash/" rel="tag">bash</a>, <a href="http://nfriedly.com/techblog/tag/howto/" rel="tag">howto</a>, <a href="http://nfriedly.com/techblog/tag/productivity/" rel="tag">productivity</a>, <a href="http://nfriedly.com/techblog/tag/shell/" rel="tag">shell</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2011/09/javascript-changes-for-facebooks-oauth-2-0-upgrade/" >How to get your apps ready for Facebook&#8217;s OAuth 2.0 upgrade</a></h1>
+				<small class="date">September 16th, 2011 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><img class="alignright" src="http://oauth.net/images/oauth-2-sm.png" alt="" width="124" height="123" style="margin-bottom: 0;"/>I just finished a writeup on the necessary JS changes to support Facebook&#8217;s OAuth 2.0 upgrade, and then Hilary did a followup post on the server-side. </p>
+<p>The upgrade enabled right now, but it gets forced out on October 1st. These two posts should give you all you need to know to get your site ready for Facebook&#8217;s upgrade:</p>
+<p>Part 1: JavaScript - <a href="http://blog.sociablelabs.com/2011/09/16/javascript-changes-facebook-pauth-2-0-upgrade/">JavaScript changes for Facebook’s OAuth 2.0 upgrade</a></p>
+<p>Part 2: PHP / Backend &#8211; <a href="http://blog.sociablelabs.com/2011/09/19/server-side-changes-facebook-oauth-2-0-upgrade/">Server Side changes for Facebook’s OAuth 2.0 upgrade</a></p>
+<p>Also worth noting, there&#8217;s a lot of good information on <a href="https://developers.facebook.com/blog/">Facebook&#8217;s Developer Blog</a>.</p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2011/09/javascript-changes-for-facebooks-oauth-2-0-upgrade/#comments" title="Comment on How to get your apps ready for Facebook&#8217;s OAuth 2.0 upgrade">Comments (9)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/facebook/" rel="tag">facebook</a>, <a href="http://nfriedly.com/techblog/tag/howto/" rel="tag">howto</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/oauth2-0/" rel="tag">oauth2.0</a>, <a href="http://nfriedly.com/techblog/tag/php/" rel="tag">php</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2010/12/calling-all-available-web-designers-developers/" >Calling all (available) Web Designers &#038; Developers</a></h1>
+				<small class="date">December 17th, 2010 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://nfriedly.com/techblog/2010/12/calling-all-avaliable-web-designers-developers"><img class="alignright size-full wp-image-358" title="Ring Ring!" alt="" src="http://nfriedly.com/techblog/wp-content/uploads/2010/12/1171473_phone_home-min.jpg" width="200" height="245" /></a>Even though I&#8217;ve been happily employed with <a href="http://sociablelabs.com/">Sociable Labs</a> for a while now, I still get fairly frequent calls and emails from people who want to know if I&#8217;m available or I &#8220;know someone.&#8221; The list of people I know is starting to run short, so this post is intended to remedy that.</p>
+<p><strong>If you are an individual Web Designer or Web Developer interested in work, please post a comment below.</strong></p>
+<p><strong> <a href="http://nfriedly.com/techblog/2010/12/calling-all-available-web-designers-developers/#more-329" class="more-link">(more&hellip;)</a></strong></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2010/12/calling-all-available-web-designers-developers/#comments" title="Comment on Calling all (available) Web Designers &amp; Developers">Comments (17)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/ajax/" rel="tag">ajax</a>, <a href="http://nfriedly.com/techblog/tag/css/" rel="tag">css</a>, <a href="http://nfriedly.com/techblog/tag/flash/" rel="tag">flash</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/php/" rel="tag">php</a>, <a href="http://nfriedly.com/techblog/tag/seo/" rel="tag">seo</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2010/08/how-facebook-sets-and-uses-cross-domain-cookies/" >How Facebook sets and uses cross-domain cookies</a></h1>
+				<small class="date">August 26th, 2010 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><img class="alignleft" alt="" src="http://nfriedly.com/img/portfolio/facebook.png" />I&#8217;ve seen a lot of confusion about this lately, so I thought I&#8217;d make a quick writeup to explain how facebook does it. (I&#8217;ll also give a quick tip on how you can do it yourself.)</p>
+<h3>What Facebook Does</h3>
+<p>Facebook is in a unique position compared to many developers looking to set cross domain cookies: The user visits both facebook.com and the other website.  <a href="http://nfriedly.com/techblog/2010/08/how-facebook-sets-and-uses-cross-domain-cookies/#more-310" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2010/08/how-facebook-sets-and-uses-cross-domain-cookies/#comments" title="Comment on How Facebook sets and uses cross-domain cookies">Comments (4)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/cookie/" rel="tag">cookie</a>, <a href="http://nfriedly.com/techblog/tag/cross-domain/" rel="tag">cross-domain</a>, <a href="http://nfriedly.com/techblog/tag/facebook/" rel="tag">facebook</a>, <a href="http://nfriedly.com/techblog/tag/howto/" rel="tag">howto</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2010/07/swf-for-javascript-cross-domain-flash-cookies/" >JavaScript library and .swf for cross-domain flash cookies</a></h1>
+				<small class="date">July 13th, 2010 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<div style="position:relative;">
+<img class="alignright size-full wp-image-295" title="325990_chocolate_chip_cookies_2" src="http://nfriedly.com/techblog/wp-content/uploads/2010/07/325990_chocolate_chip_cookies_2.jpg" alt="" width="300" height="224" />I&#8217;m working on a project that has a legitimate (non-spammy) reason to need cross-domain cookies, and we settled on flash as a good way to accomplish this.</p>
+<p>However, I was surprisingly unable to find any complete library or how-to guide for connecting flash cookies to javascript. So I dusted off my flash skills and built one, and and now you get to enjoy the fruit of my labor:</p>
+<p><a href="http://github.com/nfriedly/Javascript-Flash-Cookies"><img style="position: absolute; top: 0pt; right: 0pt; border: 0pt none;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+</div>
+<p> <a href="http://nfriedly.com/techblog/2010/07/swf-for-javascript-cross-domain-flash-cookies/#more-272" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2010/07/swf-for-javascript-cross-domain-flash-cookies/#comments" title="Comment on JavaScript library and .swf for cross-domain flash cookies">Comments (47)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/actionscript-3-0/" rel="tag">actionscript 3.0</a>, <a href="http://nfriedly.com/techblog/tag/cookie/" rel="tag">cookie</a>, <a href="http://nfriedly.com/techblog/tag/cross-domain/" rel="tag">cross-domain</a>, <a href="http://nfriedly.com/techblog/tag/externalinterface/" rel="tag">externalinterface</a>, <a href="http://nfriedly.com/techblog/tag/flash/" rel="tag">flash</a>, <a href="http://nfriedly.com/techblog/tag/flashcookie/" rel="tag">flashcookie</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/sharedobject/" rel="tag">sharedobject</a>, <a href="http://nfriedly.com/techblog/tag/swf/" rel="tag">swf</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2009/11/how-to-build-a-spam-free-contact-forms-without-captchas/" >How to build a spam-free contact form without captchas</a></h1>
+				<small class="date">November 7th, 2009 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><img class="alignright size-thumbnail wp-image-39" title="data_security_3" alt="data_security_3" src="http://nfriedly.com/techblog/wp-content/uploads/2009/06/data_security_3-150x150.jpg" width="150" height="150" />Most anti-spam methods used by websites today are annoying at best. They use impossible-to-read captcha images, or they make users jump through some kind of hoop to get the email address instead of just clicking on it. <strong>This can mean lost sales and opportunities for you, because each hurdle turns away more users. </strong></p>
+<p>This article looks at how to use some simple HTML, CSS, &amp; Javascript to protect your private information without making your guests jump through hoops.</p>
+<p> <a href="http://nfriedly.com/techblog/2009/11/how-to-build-a-spam-free-contact-forms-without-captchas/#more-23" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2009/11/how-to-build-a-spam-free-contact-forms-without-captchas/#comments" title="Comment on How to build a spam-free contact form without captchas">Comments (120)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/antispam/" rel="tag">antispam</a>, <a href="http://nfriedly.com/techblog/tag/howto/" rel="tag">howto</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/php/" rel="tag">php</a>, <a href="http://nfriedly.com/techblog/tag/security/" rel="tag">security</a>, <a href="http://nfriedly.com/techblog/tag/ux/" rel="tag">ux</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2009/07/advanced-javascript-operators-and-truthy-falsy/" >Advanced Javascript: Logical Operators and truthy / falsy</a></h1>
+				<small class="date">July 7th, 2009 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://www.flickr.com/photos/fleur-design/308974073/"><img class="alignleft" title="speed machine" src="http://farm1.static.flickr.com/104/308974073_9057064747_m.jpg" alt="" width="240" height="160" /></a> Nearly every website on the internet uses javascript in some form or fashion. Yet very few people, even those who write it and teach it, have a clear understanding of how javascript works!</p>
+<p>Logical Operators are a core part of the language. We&#8217;re going to look at what logical operators are, what &#8220;truthy&#8221; and &#8220;falsy&#8221; mean, and <strong>how to use this to write cleaner, faster and more optimized javascript</strong>.</p>
+<p> <a href="http://nfriedly.com/techblog/2009/07/advanced-javascript-operators-and-truthy-falsy/#more-46" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2009/07/advanced-javascript-operators-and-truthy-falsy/#comments" title="Comment on Advanced Javascript: Logical Operators and truthy / falsy">Comments (13)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/optimization/" rel="tag">optimization</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/" >How to use XSLT to style an RSS feed</a></h1>
+				<small class="date">June 17th, 2009 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://www.flickr.com/photos/gogdog/2240855570/"><img class="alignright" src="http://farm3.static.flickr.com/2097/2240855570_4529cf9f6d_m.jpg" alt="Take this!" /></a><abbr title="Extensible Stylesheet Language Transformations">XSLT</abbr> is a fairly well-supported technology. It allows you to take any XML file &#8211; including RSS &#8211; and <em>transform</em> it into a styled HTML document. It&#8217;s kind of like CSS on steroids.</p>
+<p>Unfortunately, most browsers think they know better and go off and do their own thing on RSS feeds.</p>
+<p>We&#8217;re going to look at how and which browsers can be brought into line, and how to use XSLT to improve the look of your RSS feed in those browsers.</p>
+<p> <a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/#more-191" class="more-link">(more&hellip;)</a></p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/#comments" title="Comment on How to use XSLT to style an RSS feed">Comments (37)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/css/" rel="tag">css</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/php/" rel="tag">php</a>, <a href="http://nfriedly.com/techblog/tag/rss/" rel="tag">rss</a>, <a href="http://nfriedly.com/techblog/tag/xml/" rel="tag">xml</a>, <a href="http://nfriedly.com/techblog/tag/xslt/" rel="tag">xslt</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+
+			<div id="nav-below" class="navigation">
+				<div class="nav-previous"><a href="http://nfriedly.com/techblog/page/2/" ><span class="meta-nav">&laquo;</span> Older posts</a></div>
+				<div class="nav-next"></div>
+			</div>
+
+<hr />
+
+		<p>
+<a class="right" href="http://nfriedly.com/techblog/feed/"><img src="/img/feed-icon-14x14.png" alt="RSS" /></a>
+<a href="/webdev">nFriedly Web Development</a>  &raquo; <a href="/techblog">Technical Blog</a></p>
+		
+		
+
+	</div> <!-- /content -->
+    <div class="clear"></div>
+
+</div> <!-- /container -->
+</div> <!-- /container-main -->
+
+<div id="container-footer">
+	<div id="footer">
+		<div class="column left">
+	       		&copy; 2008 Nathan Friedly<br />
+				<script type="text/javascript">
+					<!--
+					document.write('Site design by <a href="http://www.charleyskira.com"><img src="/img/charleyskiralogo.gif" align="absmiddle" height="18" width="65" border="0" alt="Charley Skira" /></a>');
+					// -->
+				</script>
+		</div>
+
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left center">
+			<a href="/">Home</a>
+			| <a href="/webdev">Web Development</a>
+			<br />
+			<a href="/contact">Contact</a>
+			| <a href="/estimate">Quote</a>
+
+			| <a href="/sitemap">Sitemap</a>
+		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left">
+        	<div class="login">
+
+<h1>Client Login</h1>
+
+<form action="/client/login" method="post" >
+
+<p><b>Username:</b><br />
+<input type="text" name="username" /></p>
+
+<p><b>Password:</b><br />
+<input type="password" name="password" /></p>
+
+<p><a href="/techblog/wp-admin/">WP Admin</a> <input type="submit" value="Log In" /></p>
+
+</form>
+
+</div>		</div>
+	</div>
+
+</div> <!-- /container-footer -->
+
+
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201335.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'8074834',v:'ext',post:'0'});
+var load_cmc = function(){linktracker_init(8074834,0,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1735765-3";
+urchinTracker();
+</script>
+
+<script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('f9396fdc93a94c71e178b275d41bad01'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } </script>
+<script type='text/javascript'>
+mpmetrics.track('pageview', { 'url': window.location.pathname, location:'blog' }); 
+</script>
+
+</body>
+
+</html>
+<!-- Dynamic page generated in 0.346 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2013-08-27 16:32:41 -->
+
+<!-- super cache -->

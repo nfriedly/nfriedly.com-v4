@@ -1,0 +1,12 @@
+RewriteEngine on
+
+# fix my broken arcade link
+RewriteRule ^arcade.php$ /stuff/arcade.php [R=301,L] 
+
+# redirect requests for phpr0xi to poxy
+RewriteRule ^phpr0xi.*$ /px/poxy/ [R=301,L] 
+
+#send anything else that doesn't exist to my home page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ / [R=301,L]

@@ -1,0 +1,149 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:18:03,950 Slf4jLog.java:92 :- Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+ INFO [main] 2011-02-22 13:18:04,167 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:18:04,176 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:18:04,944 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:18:04,945 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:18:06,361 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:18:06,362 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:18:06,363 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:18:06,363 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:18:06,363 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:18:06,364 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:18:06,411 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:18:06,423 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:18:06,431 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:18:06,431 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:18:06,531 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@4510dc2
+ INFO [main] 2011-02-22 13:18:06,592 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:18:06,637 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:18:06,637 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:18:06,637 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:18:06,637 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:18:06,639 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:18:06,643 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:18:06,674 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:18:06,675 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:18:06,816 Slf4jLog.java:92 :- jetty-7.0.2.v20100331
+ INFO [main] 2011-02-22 13:18:09,968 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper
+ INFO [main] 2011-02-22 13:18:09,969 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JsonParseExceptionMapper
+ INFO [main] 2011-02-22 13:18:09,969 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: com.rondavu.data.sns.fb.FacebookUserUnmarshaller
+ INFO [main] 2011-02-22 13:18:09,969 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: com.rondavu.data.sns.fb.FacebookFriendsUnmarshaller
+ INFO [main] 2011-02-22 13:18:09,970 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JacksonJsonProvider
+ INFO [main] 2011-02-22 13:18:09,970 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider
+ INFO [main] 2011-02-22 13:18:09,974 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.rsvp.RsvpModule
+ INFO [main] 2011-02-22 13:18:09,975 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.recentactivity.RecentActivity
+ INFO [main] 2011-02-22 13:18:09,976 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.mostpopular.MostPopular
+ INFO [main] 2011-02-22 13:18:09,978 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.status.StatusModule
+ INFO [main] 2011-02-22 13:18:09,979 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.log.LogModule
+ INFO [main] 2011-02-22 13:18:09,980 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.conductor.ConductorModule
+ INFO [main] 2011-02-22 13:18:09,981 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.Scheduler
+ INFO [main] 2011-02-22 13:18:09,982 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.sfs.SFSUpdateModule
+ INFO [main] 2011-02-22 13:18:09,983 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.ReportGenerator
+ INFO [main] 2011-02-22 13:18:09,984 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.readcookie.RedirectModule
+ INFO [main] 2011-02-22 13:18:09,985 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.FeedProcessor
+ INFO [main] 2011-02-22 13:18:09,987 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.grouppromotion.GroupPromotion
+ INFO [main] 2011-02-22 13:18:09,988 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.htmlblock.HtmlBlockModule
+ INFO [main] 2011-02-22 13:18:09,989 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.ping.PingModule
+ INFO [main] 2011-02-22 13:18:09,991 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.readcookie.ReadCookieModule
+ INFO [main] 2011-02-22 13:18:09,992 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.lint.LintModule
+ INFO [main] 2011-02-22 13:18:09,993 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.fbupdate.SubscriptionModule
+ INFO [main] 2011-02-22 13:18:09,994 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.report.PurchaseReport
+ INFO [main] 2011-02-22 13:18:09,996 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.bootstrap.BootstrapModule
+ INFO [main] 2011-02-22 13:18:09,997 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.birthday.BirthdayModule
+ INFO [main] 2011-02-22 13:18:09,998 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.streampublish.StreamPublish
+ INFO [main] 2011-02-22 13:18:09,999 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.webtier.WebTierModule
+ INFO [main] 2011-02-22 13:18:10,000 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.fblike.FacebookLikeModule
+ INFO [main] 2011-02-22 13:18:10,001 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.relevantpeople.RelevantPeopleModule
+ INFO [main] 2011-02-22 13:18:10,320 RondavuBootstrap.java:63 :- Context is being initialized
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:18:10,367 FreemarkerManager.java:45 :- Freemarker initialized
+ INFO [main] 2011-02-22 13:18:10,369 ModuleManager.java:234 :- Processing com.rondavu.wt
+ INFO [main] 2011-02-22 13:18:10,369 ModuleManager.java:234 :- Processing com.rondavu.wt.exception
+ INFO [main] 2011-02-22 13:18:10,371 ModuleManager.java:234 :- Processing com.rondavu.wt.facebook
+ INFO [main] 2011-02-22 13:18:10,371 ModuleManager.java:234 :- Processing com.rondavu.wt.filter
+ INFO [main] 2011-02-22 13:18:10,383 ModuleManager.java:234 :- Processing com.rondavu.wt.module
+ INFO [main] 2011-02-22 13:18:10,384 ModuleManager.java:234 :- Processing com.rondavu.wt.module.birthday
+ INFO [main] 2011-02-22 13:18:10,386 ModuleManager.java:234 :- Processing com.rondavu.wt.module.birthday.templates
+ INFO [main] 2011-02-22 13:18:10,387 ModuleManager.java:234 :- Processing com.rondavu.wt.module.bootstrap
+ INFO [main] 2011-02-22 13:18:10,391 ModuleManager.java:234 :- Processing com.rondavu.wt.module.conductor
+ INFO [main] 2011-02-22 13:18:10,395 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbactivityfeed
+ INFO [main] 2011-02-22 13:18:10,397 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbactivityfeed.templates
+ INFO [main] 2011-02-22 13:18:10,397 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblike
+ INFO [main] 2011-02-22 13:18:10,398 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblike.templates
+ INFO [main] 2011-02-22 13:18:10,398 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblikebox
+ INFO [main] 2011-02-22 13:18:10,399 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblikebox.templates
+ INFO [main] 2011-02-22 13:18:10,399 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblogin
+ INFO [main] 2011-02-22 13:18:10,400 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblogin.templates
+ INFO [main] 2011-02-22 13:18:10,401 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbupdate
+ INFO [main] 2011-02-22 13:18:10,401 ModuleManager.java:234 :- Processing com.rondavu.wt.module.grouppromotion
+ INFO [main] 2011-02-22 13:18:10,402 ModuleManager.java:234 :- Processing com.rondavu.wt.module.grouppromotion.templates
+ INFO [main] 2011-02-22 13:18:10,402 ModuleManager.java:234 :- Processing com.rondavu.wt.module.htmlblock
+ INFO [main] 2011-02-22 13:18:10,403 ModuleManager.java:234 :- Processing com.rondavu.wt.module.lint
+ INFO [main] 2011-02-22 13:18:10,403 ModuleManager.java:234 :- Processing com.rondavu.wt.module.lint.static
+ INFO [main] 2011-02-22 13:18:10,404 ModuleManager.java:234 :- Processing com.rondavu.wt.module.log
+ INFO [main] 2011-02-22 13:18:10,406 ModuleManager.java:234 :- Processing com.rondavu.wt.module.mostpopular
+ INFO [main] 2011-02-22 13:18:10,407 ModuleManager.java:234 :- Processing com.rondavu.wt.module.mostpopular.templates
+ INFO [main] 2011-02-22 13:18:10,409 ModuleManager.java:234 :- Processing com.rondavu.wt.module.ping
+ INFO [main] 2011-02-22 13:18:10,410 ModuleManager.java:234 :- Processing com.rondavu.wt.module.readcookie
+ INFO [main] 2011-02-22 13:18:10,411 ModuleManager.java:234 :- Processing com.rondavu.wt.module.recentactivity
+ INFO [main] 2011-02-22 13:18:10,411 ModuleManager.java:234 :- Processing com.rondavu.wt.module.recentactivity.templates
+ INFO [main] 2011-02-22 13:18:10,412 ModuleManager.java:234 :- Processing com.rondavu.wt.module.relevantpeople
+ INFO [main] 2011-02-22 13:18:10,412 ModuleManager.java:234 :- Processing com.rondavu.wt.module.relevantpeople.templates
+ INFO [main] 2011-02-22 13:18:10,413 ModuleManager.java:234 :- Processing com.rondavu.wt.module.report
+ INFO [main] 2011-02-22 13:18:10,414 ModuleManager.java:234 :- Processing com.rondavu.wt.module.rsvp
+ INFO [main] 2011-02-22 13:18:10,415 ModuleManager.java:234 :- Processing com.rondavu.wt.module.rsvp.templates
+ INFO [main] 2011-02-22 13:18:10,416 ModuleManager.java:234 :- Processing com.rondavu.wt.module.scheduler
+ INFO [main] 2011-02-22 13:18:10,420 ModuleManager.java:234 :- Processing com.rondavu.wt.module.scheduler.templates
+ INFO [main] 2011-02-22 13:18:10,421 ModuleManager.java:234 :- Processing com.rondavu.wt.module.sfs
+ INFO [main] 2011-02-22 13:18:10,422 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static
+ INFO [main] 2011-02-22 13:18:10,422 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.diagnostic
+ INFO [main] 2011-02-22 13:18:10,423 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.images
+ INFO [main] 2011-02-22 13:18:10,424 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.scripts
+ INFO [main] 2011-02-22 13:18:10,424 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.templates
+ INFO [main] 2011-02-22 13:18:10,424 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.test_templates
+ INFO [main] 2011-02-22 13:18:10,425 ModuleManager.java:234 :- Processing com.rondavu.wt.module.status
+ INFO [main] 2011-02-22 13:18:10,425 ModuleManager.java:234 :- Processing com.rondavu.wt.module.streampublish
+ INFO [main] 2011-02-22 13:18:10,426 ModuleManager.java:234 :- Processing com.rondavu.wt.module.streampublish.templates
+ INFO [main] 2011-02-22 13:18:10,427 ModuleManager.java:234 :- Processing com.rondavu.wt.module.webtier
+ INFO [main] 2011-02-22 13:18:10,428 ModuleManager.java:234 :- Processing com.rondavu.wt.module.welcome
+ INFO [main] 2011-02-22 13:18:10,428 ModuleManager.java:234 :- Processing com.rondavu.wt.module.welcome.templates
+ INFO [main] 2011-02-22 13:18:10,430 ModuleManager.java:234 :- Processing com.rondavu.wt
+ INFO [main] 2011-02-22 13:18:10,431 ModuleManager.java:234 :- Processing com.rondavu.wt.filter
+ INFO [main] 2011-02-22 13:18:10,439 ModuleManager.java:234 :- Processing com.rondavu.wt.module
+ INFO [main] 2011-02-22 13:18:10,440 ModuleManager.java:234 :- Processing com.rondavu.wt.module.bootstrap
+ INFO [main] 2011-02-22 13:18:10,451 ModuleManager.java:234 :- Processing com.rondavu.wt.module.conductor
+ INFO [main] 2011-02-22 13:18:10,452 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbupdate
+ INFO [main] 2011-02-22 13:18:10,453 ModuleManager.java:234 :- Processing com.rondavu.wt.module.log
+ INFO [main] 2011-02-22 13:18:10,453 ModuleManager.java:234 :- Processing com.rondavu.wt.module.ping
+ INFO [main] 2011-02-22 13:18:10,455 ModuleManager.java:234 :- Processing com.rondavu.wt.module.readcookie
+ INFO [main] 2011-02-22 13:18:10,455 ModuleManager.java:234 :- Processing com.rondavu.wt.module.sfs
+ INFO [main] 2011-02-22 13:18:10,459 ModuleManager.java:234 :- Processing com.rondavu.wt.util
+ INFO [main] 2011-02-22 13:18:10,460 ModuleManager.java:184 :- Successfully registered module id birthday
+ INFO [main] 2011-02-22 13:18:10,460 ModuleManager.java:184 :- Successfully registered module id fbactivityfeed
+ INFO [main] 2011-02-22 13:18:10,461 ModuleManager.java:184 :- Successfully registered module id fblike
+ INFO [main] 2011-02-22 13:18:10,461 ModuleManager.java:184 :- Successfully registered module id fblikebox
+ INFO [main] 2011-02-22 13:18:10,461 ModuleManager.java:184 :- Successfully registered module id fblogin
+ INFO [main] 2011-02-22 13:18:10,461 ModuleManager.java:184 :- Successfully registered module id grouppromo
+ INFO [main] 2011-02-22 13:18:10,462 ModuleManager.java:184 :- Successfully registered module id htmlblock
+ INFO [main] 2011-02-22 13:18:10,462 ModuleManager.java:184 :- Successfully registered module id mostpopular1
+ INFO [main] 2011-02-22 13:18:10,462 ModuleManager.java:184 :- Successfully registered module id recentactivity1
+ INFO [main] 2011-02-22 13:18:10,462 ModuleManager.java:184 :- Successfully registered module id rp1
+ INFO [main] 2011-02-22 13:18:10,463 ModuleManager.java:184 :- Successfully registered module id rsvp1
+ INFO [main] 2011-02-22 13:18:10,463 ModuleManager.java:184 :- Successfully registered module id streampublish
+ INFO [main] 2011-02-22 13:18:10,463 ModuleManager.java:184 :- Successfully registered module id welcome
+ERROR [main] 2011-02-22 13:18:10,463 ModuleManager.java:175 :- Unable to instantiate module com.rondavu.wt.module.SuResurfaceTest$DummyModule
+ INFO [main] 2011-02-22 13:18:10,464 RondavuFilter.java:308 :- Validated mo cache count=10000 TTL=0 TTI=86400
+ INFO [main] 2011-02-22 13:18:10,469 Slf4jLog.java:92 :- Started LocalConnector@0.0.0.0:0
+ INFO [main] 2011-02-22 13:18:10,600 RondavuBootstrap.java:41 :- Context is being destroyed
+ INFO [main] 2011-02-22 13:18:10,600 AbstractService.java:62 :- Stopping Data Service
+ INFO [main] 2011-02-22 13:18:10,600 AbstractService.java:62 :- Stopping Data Access Provider
+ INFO [JdbcThread] 2011-02-22 13:18:10,601 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:18:10,605 AbstractService.java:62 :- Stopping SocialNetwork Service
+ INFO [JdbcThread] 2011-02-22 13:18:10,603 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:18:10,601 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:18:10,601 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:18:10,606 SocialNetworkService.java:45 :- Stopping the SocialNetwork Service
+ INFO [main] 2011-02-22 13:18:10,607 AbstractService.java:62 :- Stopping CacheRefresher Service
+ INFO [main] 2011-02-22 13:18:10,608 CacheRefresher.java:96 :- Stopping the CacheRefresher Service
+

@@ -1,0 +1,458 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:17:55,380 Slf4jLog.java:92 :- Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+ INFO [main] 2011-02-22 13:17:55,592 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:17:55,601 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:17:56,282 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:17:56,283 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:17:58,933 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:17:58,933 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:17:58,934 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:17:58,934 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:17:58,934 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:17:58,935 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:17:58,985 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:17:58,994 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:17:59,002 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:17:59,002 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:17:59,094 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@95d0a50
+ INFO [main] 2011-02-22 13:17:59,138 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:17:59,159 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:17:59,160 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:17:59,160 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:17:59,160 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:17:59,161 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:17:59,163 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:17:59,193 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:17:59,194 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:17:59,314 Slf4jLog.java:92 :- jetty-7.0.2.v20100331
+ INFO [main] 2011-02-22 13:18:02,077 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper
+ INFO [main] 2011-02-22 13:18:02,078 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JsonParseExceptionMapper
+ INFO [main] 2011-02-22 13:18:02,078 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: com.rondavu.data.sns.fb.FacebookUserUnmarshaller
+ INFO [main] 2011-02-22 13:18:02,079 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: com.rondavu.data.sns.fb.FacebookFriendsUnmarshaller
+ INFO [main] 2011-02-22 13:18:02,079 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JacksonJsonProvider
+ INFO [main] 2011-02-22 13:18:02,079 ConfigurationBootstrap.java:271 :- Adding scanned @Provider: org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider
+ INFO [main] 2011-02-22 13:18:02,083 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.rsvp.RsvpModule
+ INFO [main] 2011-02-22 13:18:02,085 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.recentactivity.RecentActivity
+ INFO [main] 2011-02-22 13:18:02,086 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.mostpopular.MostPopular
+ INFO [main] 2011-02-22 13:18:02,087 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.status.StatusModule
+ INFO [main] 2011-02-22 13:18:02,089 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.log.LogModule
+ INFO [main] 2011-02-22 13:18:02,090 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.conductor.ConductorModule
+ INFO [main] 2011-02-22 13:18:02,091 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.Scheduler
+ INFO [main] 2011-02-22 13:18:02,092 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.sfs.SFSUpdateModule
+ INFO [main] 2011-02-22 13:18:02,093 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.ReportGenerator
+ INFO [main] 2011-02-22 13:18:02,094 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.readcookie.RedirectModule
+ INFO [main] 2011-02-22 13:18:02,095 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.scheduler.FeedProcessor
+ INFO [main] 2011-02-22 13:18:02,097 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.grouppromotion.GroupPromotion
+ INFO [main] 2011-02-22 13:18:02,099 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.htmlblock.HtmlBlockModule
+ INFO [main] 2011-02-22 13:18:02,100 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.ping.PingModule
+ INFO [main] 2011-02-22 13:18:02,101 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.readcookie.ReadCookieModule
+ INFO [main] 2011-02-22 13:18:02,102 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.lint.LintModule
+ INFO [main] 2011-02-22 13:18:02,102 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.fbupdate.SubscriptionModule
+ INFO [main] 2011-02-22 13:18:02,103 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.report.PurchaseReport
+ INFO [main] 2011-02-22 13:18:02,105 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.bootstrap.BootstrapModule
+ INFO [main] 2011-02-22 13:18:02,106 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.birthday.BirthdayModule
+ INFO [main] 2011-02-22 13:18:02,107 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.streampublish.StreamPublish
+ INFO [main] 2011-02-22 13:18:02,108 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.webtier.WebTierModule
+ INFO [main] 2011-02-22 13:18:02,109 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.fblike.FacebookLikeModule
+ INFO [main] 2011-02-22 13:18:02,110 ConfigurationBootstrap.java:298 :- Adding scanned resource: com.rondavu.wt.module.relevantpeople.RelevantPeopleModule
+ INFO [main] 2011-02-22 13:18:02,390 RondavuBootstrap.java:63 :- Context is being initialized
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:18:02,434 FreemarkerManager.java:45 :- Freemarker initialized
+ INFO [main] 2011-02-22 13:18:02,436 ModuleManager.java:234 :- Processing com.rondavu.wt
+ INFO [main] 2011-02-22 13:18:02,436 ModuleManager.java:234 :- Processing com.rondavu.wt.exception
+ INFO [main] 2011-02-22 13:18:02,437 ModuleManager.java:234 :- Processing com.rondavu.wt.facebook
+ INFO [main] 2011-02-22 13:18:02,438 ModuleManager.java:234 :- Processing com.rondavu.wt.filter
+ INFO [main] 2011-02-22 13:18:02,448 ModuleManager.java:234 :- Processing com.rondavu.wt.module
+ INFO [main] 2011-02-22 13:18:02,449 ModuleManager.java:234 :- Processing com.rondavu.wt.module.birthday
+ INFO [main] 2011-02-22 13:18:02,450 ModuleManager.java:234 :- Processing com.rondavu.wt.module.birthday.templates
+ INFO [main] 2011-02-22 13:18:02,451 ModuleManager.java:234 :- Processing com.rondavu.wt.module.bootstrap
+ INFO [main] 2011-02-22 13:18:02,454 ModuleManager.java:234 :- Processing com.rondavu.wt.module.conductor
+ INFO [main] 2011-02-22 13:18:02,458 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbactivityfeed
+ INFO [main] 2011-02-22 13:18:02,459 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbactivityfeed.templates
+ INFO [main] 2011-02-22 13:18:02,459 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblike
+ INFO [main] 2011-02-22 13:18:02,459 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblike.templates
+ INFO [main] 2011-02-22 13:18:02,460 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblikebox
+ INFO [main] 2011-02-22 13:18:02,460 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblikebox.templates
+ INFO [main] 2011-02-22 13:18:02,461 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblogin
+ INFO [main] 2011-02-22 13:18:02,462 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fblogin.templates
+ INFO [main] 2011-02-22 13:18:02,462 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbupdate
+ INFO [main] 2011-02-22 13:18:02,462 ModuleManager.java:234 :- Processing com.rondavu.wt.module.grouppromotion
+ INFO [main] 2011-02-22 13:18:02,463 ModuleManager.java:234 :- Processing com.rondavu.wt.module.grouppromotion.templates
+ INFO [main] 2011-02-22 13:18:02,463 ModuleManager.java:234 :- Processing com.rondavu.wt.module.htmlblock
+ INFO [main] 2011-02-22 13:18:02,464 ModuleManager.java:234 :- Processing com.rondavu.wt.module.lint
+ INFO [main] 2011-02-22 13:18:02,464 ModuleManager.java:234 :- Processing com.rondavu.wt.module.lint.static
+ INFO [main] 2011-02-22 13:18:02,465 ModuleManager.java:234 :- Processing com.rondavu.wt.module.log
+ INFO [main] 2011-02-22 13:18:02,467 ModuleManager.java:234 :- Processing com.rondavu.wt.module.mostpopular
+ INFO [main] 2011-02-22 13:18:02,468 ModuleManager.java:234 :- Processing com.rondavu.wt.module.mostpopular.templates
+ INFO [main] 2011-02-22 13:18:02,470 ModuleManager.java:234 :- Processing com.rondavu.wt.module.ping
+ INFO [main] 2011-02-22 13:18:02,470 ModuleManager.java:234 :- Processing com.rondavu.wt.module.readcookie
+ INFO [main] 2011-02-22 13:18:02,471 ModuleManager.java:234 :- Processing com.rondavu.wt.module.recentactivity
+ INFO [main] 2011-02-22 13:18:02,471 ModuleManager.java:234 :- Processing com.rondavu.wt.module.recentactivity.templates
+ INFO [main] 2011-02-22 13:18:02,472 ModuleManager.java:234 :- Processing com.rondavu.wt.module.relevantpeople
+ INFO [main] 2011-02-22 13:18:02,472 ModuleManager.java:234 :- Processing com.rondavu.wt.module.relevantpeople.templates
+ INFO [main] 2011-02-22 13:18:02,472 ModuleManager.java:234 :- Processing com.rondavu.wt.module.report
+ INFO [main] 2011-02-22 13:18:02,474 ModuleManager.java:234 :- Processing com.rondavu.wt.module.rsvp
+ INFO [main] 2011-02-22 13:18:02,474 ModuleManager.java:234 :- Processing com.rondavu.wt.module.rsvp.templates
+ INFO [main] 2011-02-22 13:18:02,475 ModuleManager.java:234 :- Processing com.rondavu.wt.module.scheduler
+ INFO [main] 2011-02-22 13:18:02,478 ModuleManager.java:234 :- Processing com.rondavu.wt.module.scheduler.templates
+ INFO [main] 2011-02-22 13:18:02,479 ModuleManager.java:234 :- Processing com.rondavu.wt.module.sfs
+ INFO [main] 2011-02-22 13:18:02,480 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static
+ INFO [main] 2011-02-22 13:18:02,480 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.diagnostic
+ INFO [main] 2011-02-22 13:18:02,480 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.images
+ INFO [main] 2011-02-22 13:18:02,481 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.scripts
+ INFO [main] 2011-02-22 13:18:02,481 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.templates
+ INFO [main] 2011-02-22 13:18:02,482 ModuleManager.java:234 :- Processing com.rondavu.wt.module.static.test_templates
+ INFO [main] 2011-02-22 13:18:02,482 ModuleManager.java:234 :- Processing com.rondavu.wt.module.status
+ INFO [main] 2011-02-22 13:18:02,482 ModuleManager.java:234 :- Processing com.rondavu.wt.module.streampublish
+ INFO [main] 2011-02-22 13:18:02,483 ModuleManager.java:234 :- Processing com.rondavu.wt.module.streampublish.templates
+ INFO [main] 2011-02-22 13:18:02,484 ModuleManager.java:234 :- Processing com.rondavu.wt.module.webtier
+ INFO [main] 2011-02-22 13:18:02,485 ModuleManager.java:234 :- Processing com.rondavu.wt.module.welcome
+ INFO [main] 2011-02-22 13:18:02,485 ModuleManager.java:234 :- Processing com.rondavu.wt.module.welcome.templates
+ INFO [main] 2011-02-22 13:18:02,487 ModuleManager.java:234 :- Processing com.rondavu.wt
+ INFO [main] 2011-02-22 13:18:02,487 ModuleManager.java:234 :- Processing com.rondavu.wt.filter
+ INFO [main] 2011-02-22 13:18:02,494 ModuleManager.java:234 :- Processing com.rondavu.wt.module
+ INFO [main] 2011-02-22 13:18:02,494 ModuleManager.java:234 :- Processing com.rondavu.wt.module.bootstrap
+ INFO [main] 2011-02-22 13:18:02,504 ModuleManager.java:234 :- Processing com.rondavu.wt.module.conductor
+ INFO [main] 2011-02-22 13:18:02,505 ModuleManager.java:234 :- Processing com.rondavu.wt.module.fbupdate
+ INFO [main] 2011-02-22 13:18:02,506 ModuleManager.java:234 :- Processing com.rondavu.wt.module.log
+ INFO [main] 2011-02-22 13:18:02,507 ModuleManager.java:234 :- Processing com.rondavu.wt.module.ping
+ INFO [main] 2011-02-22 13:18:02,508 ModuleManager.java:234 :- Processing com.rondavu.wt.module.readcookie
+ INFO [main] 2011-02-22 13:18:02,509 ModuleManager.java:234 :- Processing com.rondavu.wt.module.sfs
+ INFO [main] 2011-02-22 13:18:02,512 ModuleManager.java:234 :- Processing com.rondavu.wt.util
+ INFO [main] 2011-02-22 13:18:02,513 ModuleManager.java:184 :- Successfully registered module id birthday
+ INFO [main] 2011-02-22 13:18:02,513 ModuleManager.java:184 :- Successfully registered module id fbactivityfeed
+ INFO [main] 2011-02-22 13:18:02,514 ModuleManager.java:184 :- Successfully registered module id fblike
+ INFO [main] 2011-02-22 13:18:02,514 ModuleManager.java:184 :- Successfully registered module id fblikebox
+ INFO [main] 2011-02-22 13:18:02,514 ModuleManager.java:184 :- Successfully registered module id fblogin
+ INFO [main] 2011-02-22 13:18:02,514 ModuleManager.java:184 :- Successfully registered module id grouppromo
+ INFO [main] 2011-02-22 13:18:02,515 ModuleManager.java:184 :- Successfully registered module id htmlblock
+ INFO [main] 2011-02-22 13:18:02,515 ModuleManager.java:184 :- Successfully registered module id mostpopular1
+ INFO [main] 2011-02-22 13:18:02,515 ModuleManager.java:184 :- Successfully registered module id recentactivity1
+ INFO [main] 2011-02-22 13:18:02,515 ModuleManager.java:184 :- Successfully registered module id rp1
+ INFO [main] 2011-02-22 13:18:02,516 ModuleManager.java:184 :- Successfully registered module id rsvp1
+ INFO [main] 2011-02-22 13:18:02,516 ModuleManager.java:184 :- Successfully registered module id streampublish
+ INFO [main] 2011-02-22 13:18:02,516 ModuleManager.java:184 :- Successfully registered module id welcome
+ERROR [main] 2011-02-22 13:18:02,516 ModuleManager.java:175 :- Unable to instantiate module com.rondavu.wt.module.SuResurfaceTest$DummyModule
+ INFO [main] 2011-02-22 13:18:02,517 RondavuFilter.java:308 :- Validated mo cache count=10000 TTL=0 TTI=86400
+ INFO [main] 2011-02-22 13:18:02,522 Slf4jLog.java:92 :- Started LocalConnector@0.0.0.0:0
+ WARN [qtp593348385-19] 2011-02-22 13:18:02,551 FacebookFilter.java:65 :- No wallet found - skipping facebook credentials
+ERROR [qtp593348385-19] 2011-02-22 13:18:02,609 SubscriptionModule.java:37 :- Invalid hub.mode null
+ERROR [qtp593348385-19] 2011-02-22 13:18:02,612 SynchronousDispatcher.java:351 :- failed to execute
+javax.ws.rs.WebApplicationException
+	at com.rondavu.wt.module.fbupdate.SubscriptionModule.verify(SubscriptionModule.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:124)
+	at org.jboss.resteasy.core.ResourceMethod.invokeOnTarget(ResourceMethod.java:247)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:212)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:202)
+	at org.jboss.resteasy.core.SynchronousDispatcher.getResponse(SynchronousDispatcher.java:441)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:418)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:111)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:217)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:159)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:530)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1219)
+	at com.rondavu.wt.filter.CrossDomainFilter.doFilter(CrossDomainFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuCookieFilter.doFilter(RondavuCookieFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuFilter.doFilter(RondavuFilter.java:403)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.TinyUrlFilter.doFilter(TinyUrlFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.FacebookFilter.doFilter(FacebookFilter.java:137)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.WalletFilter.doFilter(WalletFilter.java:38)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.ServerHeaderFilter.doFilter(ServerHeaderFilter.java:115)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:424)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:931)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:361)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:867)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:113)
+	at org.eclipse.jetty.server.Server.handle(Server.java:337)
+	at org.eclipse.jetty.server.HttpConnection.handleRequest(HttpConnection.java:581)
+	at org.eclipse.jetty.server.HttpConnection$RequestHandler.messageComplete(HttpConnection.java:1036)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:814)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:228)
+	at org.eclipse.jetty.server.HttpConnection.handle(HttpConnection.java:417)
+	at org.eclipse.jetty.server.LocalConnector$Request.run(LocalConnector.java:129)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:437)
+	at java.lang.Thread.run(Thread.java:680)
+ERROR [qtp593348385-19] 2011-02-22 13:18:02,612 SynchronousDispatcher.java:351 :- failed to execute
+javax.ws.rs.WebApplicationException
+	at com.rondavu.wt.module.fbupdate.SubscriptionModule.verify(SubscriptionModule.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:124)
+	at org.jboss.resteasy.core.ResourceMethod.invokeOnTarget(ResourceMethod.java:247)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:212)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:202)
+	at org.jboss.resteasy.core.SynchronousDispatcher.getResponse(SynchronousDispatcher.java:441)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:418)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:111)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:217)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:159)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:530)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1219)
+	at com.rondavu.wt.filter.CrossDomainFilter.doFilter(CrossDomainFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuCookieFilter.doFilter(RondavuCookieFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuFilter.doFilter(RondavuFilter.java:403)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.TinyUrlFilter.doFilter(TinyUrlFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.FacebookFilter.doFilter(FacebookFilter.java:137)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.WalletFilter.doFilter(WalletFilter.java:38)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.ServerHeaderFilter.doFilter(ServerHeaderFilter.java:115)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:424)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:931)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:361)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:867)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:113)
+	at org.eclipse.jetty.server.Server.handle(Server.java:337)
+	at org.eclipse.jetty.server.HttpConnection.handleRequest(HttpConnection.java:581)
+	at org.eclipse.jetty.server.HttpConnection$RequestHandler.messageComplete(HttpConnection.java:1036)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:814)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:228)
+	at org.eclipse.jetty.server.HttpConnection.handle(HttpConnection.java:417)
+	at org.eclipse.jetty.server.LocalConnector$Request.run(LocalConnector.java:129)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:437)
+	at java.lang.Thread.run(Thread.java:680)
+ WARN [qtp593348385-20] 2011-02-22 13:18:02,622 FacebookFilter.java:65 :- No wallet found - skipping facebook credentials
+ERROR [qtp593348385-20] 2011-02-22 13:18:02,625 SubscriptionModule.java:43 :- Invalid verify token null
+ERROR [qtp593348385-20] 2011-02-22 13:18:02,625 SynchronousDispatcher.java:351 :- failed to execute
+javax.ws.rs.WebApplicationException
+	at com.rondavu.wt.module.fbupdate.SubscriptionModule.verify(SubscriptionModule.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:124)
+	at org.jboss.resteasy.core.ResourceMethod.invokeOnTarget(ResourceMethod.java:247)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:212)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:202)
+	at org.jboss.resteasy.core.SynchronousDispatcher.getResponse(SynchronousDispatcher.java:441)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:418)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:111)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:217)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:159)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:530)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1219)
+	at com.rondavu.wt.filter.CrossDomainFilter.doFilter(CrossDomainFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuCookieFilter.doFilter(RondavuCookieFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuFilter.doFilter(RondavuFilter.java:403)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.TinyUrlFilter.doFilter(TinyUrlFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.FacebookFilter.doFilter(FacebookFilter.java:137)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.WalletFilter.doFilter(WalletFilter.java:38)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.ServerHeaderFilter.doFilter(ServerHeaderFilter.java:115)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:424)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:931)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:361)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:867)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:113)
+	at org.eclipse.jetty.server.Server.handle(Server.java:337)
+	at org.eclipse.jetty.server.HttpConnection.handleRequest(HttpConnection.java:581)
+	at org.eclipse.jetty.server.HttpConnection$RequestHandler.messageComplete(HttpConnection.java:1036)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:814)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:228)
+	at org.eclipse.jetty.server.HttpConnection.handle(HttpConnection.java:417)
+	at org.eclipse.jetty.server.LocalConnector$Request.run(LocalConnector.java:129)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:437)
+	at java.lang.Thread.run(Thread.java:680)
+ERROR [qtp593348385-20] 2011-02-22 13:18:02,625 SynchronousDispatcher.java:351 :- failed to execute
+javax.ws.rs.WebApplicationException
+	at com.rondavu.wt.module.fbupdate.SubscriptionModule.verify(SubscriptionModule.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:124)
+	at org.jboss.resteasy.core.ResourceMethod.invokeOnTarget(ResourceMethod.java:247)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:212)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:202)
+	at org.jboss.resteasy.core.SynchronousDispatcher.getResponse(SynchronousDispatcher.java:441)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:418)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:111)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:217)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:159)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:530)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1219)
+	at com.rondavu.wt.filter.CrossDomainFilter.doFilter(CrossDomainFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuCookieFilter.doFilter(RondavuCookieFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuFilter.doFilter(RondavuFilter.java:403)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.TinyUrlFilter.doFilter(TinyUrlFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.FacebookFilter.doFilter(FacebookFilter.java:137)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.WalletFilter.doFilter(WalletFilter.java:38)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.ServerHeaderFilter.doFilter(ServerHeaderFilter.java:115)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:424)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:931)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:361)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:867)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:113)
+	at org.eclipse.jetty.server.Server.handle(Server.java:337)
+	at org.eclipse.jetty.server.HttpConnection.handleRequest(HttpConnection.java:581)
+	at org.eclipse.jetty.server.HttpConnection$RequestHandler.messageComplete(HttpConnection.java:1036)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:814)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:228)
+	at org.eclipse.jetty.server.HttpConnection.handle(HttpConnection.java:417)
+	at org.eclipse.jetty.server.LocalConnector$Request.run(LocalConnector.java:129)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:437)
+	at java.lang.Thread.run(Thread.java:680)
+ WARN [qtp593348385-21] 2011-02-22 13:18:02,628 FacebookFilter.java:65 :- No wallet found - skipping facebook credentials
+ERROR [qtp593348385-21] 2011-02-22 13:18:02,631 SubscriptionModule.java:43 :- Invalid verify token FOOBAR
+ERROR [qtp593348385-21] 2011-02-22 13:18:02,631 SynchronousDispatcher.java:351 :- failed to execute
+javax.ws.rs.WebApplicationException
+	at com.rondavu.wt.module.fbupdate.SubscriptionModule.verify(SubscriptionModule.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:124)
+	at org.jboss.resteasy.core.ResourceMethod.invokeOnTarget(ResourceMethod.java:247)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:212)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:202)
+	at org.jboss.resteasy.core.SynchronousDispatcher.getResponse(SynchronousDispatcher.java:441)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:418)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:111)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:217)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:159)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:530)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1219)
+	at com.rondavu.wt.filter.CrossDomainFilter.doFilter(CrossDomainFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuCookieFilter.doFilter(RondavuCookieFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuFilter.doFilter(RondavuFilter.java:403)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.TinyUrlFilter.doFilter(TinyUrlFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.FacebookFilter.doFilter(FacebookFilter.java:137)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.WalletFilter.doFilter(WalletFilter.java:38)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.ServerHeaderFilter.doFilter(ServerHeaderFilter.java:115)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:424)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:931)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:361)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:867)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:113)
+	at org.eclipse.jetty.server.Server.handle(Server.java:337)
+	at org.eclipse.jetty.server.HttpConnection.handleRequest(HttpConnection.java:581)
+	at org.eclipse.jetty.server.HttpConnection$RequestHandler.messageComplete(HttpConnection.java:1036)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:814)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:228)
+	at org.eclipse.jetty.server.HttpConnection.handle(HttpConnection.java:417)
+	at org.eclipse.jetty.server.LocalConnector$Request.run(LocalConnector.java:129)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:437)
+	at java.lang.Thread.run(Thread.java:680)
+ERROR [qtp593348385-21] 2011-02-22 13:18:02,631 SynchronousDispatcher.java:351 :- failed to execute
+javax.ws.rs.WebApplicationException
+	at com.rondavu.wt.module.fbupdate.SubscriptionModule.verify(SubscriptionModule.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:124)
+	at org.jboss.resteasy.core.ResourceMethod.invokeOnTarget(ResourceMethod.java:247)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:212)
+	at org.jboss.resteasy.core.ResourceMethod.invoke(ResourceMethod.java:202)
+	at org.jboss.resteasy.core.SynchronousDispatcher.getResponse(SynchronousDispatcher.java:441)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:418)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:111)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:217)
+	at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:159)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:530)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1219)
+	at com.rondavu.wt.filter.CrossDomainFilter.doFilter(CrossDomainFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuCookieFilter.doFilter(RondavuCookieFilter.java:70)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.RondavuFilter.doFilter(RondavuFilter.java:403)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.TinyUrlFilter.doFilter(TinyUrlFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.FacebookFilter.doFilter(FacebookFilter.java:137)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.WalletFilter.doFilter(WalletFilter.java:38)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at com.rondavu.wt.filter.ServerHeaderFilter.doFilter(ServerHeaderFilter.java:115)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1190)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:424)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:931)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:361)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:867)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:113)
+	at org.eclipse.jetty.server.Server.handle(Server.java:337)
+	at org.eclipse.jetty.server.HttpConnection.handleRequest(HttpConnection.java:581)
+	at org.eclipse.jetty.server.HttpConnection$RequestHandler.messageComplete(HttpConnection.java:1036)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:814)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:228)
+	at org.eclipse.jetty.server.HttpConnection.handle(HttpConnection.java:417)
+	at org.eclipse.jetty.server.LocalConnector$Request.run(LocalConnector.java:129)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:437)
+	at java.lang.Thread.run(Thread.java:680)
+ WARN [qtp593348385-22] 2011-02-22 13:18:02,635 FacebookFilter.java:65 :- No wallet found - skipping facebook credentials
+ WARN [qtp593348385-23] 2011-02-22 13:18:02,638 FacebookFilter.java:65 :- No wallet found - skipping facebook credentials
+ WARN [qtp593348385-24] 2011-02-22 13:18:02,656 FacebookFilter.java:65 :- No wallet found - skipping facebook credentials
+ INFO [main] 2011-02-22 13:18:02,675 RondavuBootstrap.java:41 :- Context is being destroyed
+ INFO [main] 2011-02-22 13:18:02,675 AbstractService.java:62 :- Stopping Data Service
+ INFO [main] 2011-02-22 13:18:02,675 AbstractService.java:62 :- Stopping Data Access Provider
+ INFO [JdbcThread] 2011-02-22 13:18:02,676 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:18:02,676 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:18:02,676 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:18:02,676 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:18:02,676 AbstractService.java:62 :- Stopping SocialNetwork Service
+ INFO [main] 2011-02-22 13:18:02,681 SocialNetworkService.java:45 :- Stopping the SocialNetwork Service
+ INFO [main] 2011-02-22 13:18:02,681 AbstractService.java:62 :- Stopping CacheRefresher Service
+ INFO [main] 2011-02-22 13:18:02,681 CacheRefresher.java:96 :- Stopping the CacheRefresher Service
+

@@ -1,0 +1,1 @@
+<?php include 'hosting.php'; ?>

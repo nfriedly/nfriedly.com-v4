@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FB Popup login test</title>
+</head>
+<body>
+<h1>Popup bug example</h1>
+<p><strong>As a developer</strong> of the nf-dev facebook app (113630655336080), in full-screen on a high-resolution system (1920x1080), click the fb login button below.</p>
+<p>It should open the window in a popup, but the popup will have a error message reading:</p>
+
+<blockquote>
+<p>You are using a display type of 'popup' in a large browser window or tab. For a better user experience, show this dialog with our JavaScript SDK without specifying an explicit display type. The SDK will choose the best display type for each environment. Alternatively, set height and width on your window.open() call to properly size this dialog if you have special requirements precluding you from using the SDK. This message is only visible to developers of your application.</p>
+</blockquote>
+
+
+<p><button id="login">fb login</button> <button id="disconnect">fb disconnect</button></p>
+
+
+<div id="fb-root"></div>
+
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '113630655336080',                        // App ID from the app dashboard
+      status     : true
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+	document.getElementById('login').onclick = function() {
+	
+	  ////////////////////////////
+	  // This reproduces the bug
+	  ////////////////////////////
+	  FB.login();
+	  
+	  
+	};
+	
+	document.getElementById('disconnect').onclick = function() {
+      FB.api({ method: 'Auth.revokeAuthorization' });
+	};
+    
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+</body>

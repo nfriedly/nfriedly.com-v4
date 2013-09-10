@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Add .gif to EOC signature images for forum BBCode [img]'s</title>
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+</head>
+
+<body class=" yui-skin-sam">
+<div id="container-header">
+	<div id="header"><a href="/"><img src="/img/headersm.png" height="140" width="750" alt="Nathan Friedly: Minister // Web Developer // Ninja" /></a></div>
+</div>
+<div id="container-main">
+<div id="container">
+
+
+<div id="navigation">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+	<li><a href="/fellowship">Fellowship</a></li>
+	<li><a href="/webdev">Web Dev</a>
+</li>
+	<li><a href="/techblog">Tech Blog</a></li>
+    <li><a href="/estimate">Quote</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+	</div>
+		
+    <div id="content">
+
+	
+<h1>How to use your ExtremeOverclocking.com folding@home Sig Images on forums</h1>
+
+<h2>Background</h2>
+<p>Some forums, such as <a href="http://www.maximumpc.com/forums/viewtopic.php?t=85995">Maximum PC's</a> do not allow images to be posted unless the url ends in .gif, .jpg, or .png. This fixes that.</p>
+
+<p>The image is proxied, as well as the Date, Expires, and Last-Modified headers to keep from hitting their servers too often.</p>
+
+<h2>Prerequisites</h2>
+<p>First, find your EOC UserID:</p>
+<ol>
+	<li>Go to <a href="http://folding.extremeoverclocking.com/">folding.extremeoverclocking.com</a> and find your stats page by using the search feature.</li>
+	<li>Your url will look something like http://folding.extremeoverclocking.com/user_summary.php?s=&amp;u=408666, but the number at the end will be different. That number is your EOC UserID.</li>
+</ol>
+
+<h2>Get your Image</h2>
+<p>Enter your EOC UserID here and click Go:</p>
+
+<p><input name="userid" id="userid" value="408666" /> <input name="go" id="go" value="Go" type="submit" /></p>
+
+<p>Forum Code:</p>
+
+<p><input name="code" id="code" value="[img]http://nfriedly.com/eoc/408666/whatever.gif[/img]" onclick="this.select();" size="60" /></p> 
+
+<p>Preview:</p>
+<p><img id="img" src="/eoc/408666/whatever.gif" alt="" /></p>
+
+
+<h2>Advanced</h2>
+<p>The script also supports two formats for passing along querystring data
+to change the color scheme or layout.</p>
+
+<h3>Querystring method</h3>
+<p>If your forum allows it, you can simply append the querystring to the end after the ".gif"
+For example:</p>
+<p><code>http://nfriedly.com/eoc/408666/whatever.gif?c1=ffffff&amp;c2=000000&amp;c3=000000&amp;c4=0000cc&amp;c5=ffffff</code></p>
+
+<h3>Path method</h3>
+<p>Replace  "&amp;" with "/" and replace  "=" with ":", then insert that before "/whatever.gif". For example:</p>
+<p><code>http://nfriedly.com/eoc/408666/c1:FFFFFF/c2:000000/c3:000000/c4:0000CC/c5:FFFFFF/whatever.gif</code></p>
+
+<h3>More information about the querystring options: </h3>
+<p>
+<a href="http://folding.extremeoverclocking.com/?nav=IMAGES">http://folding.extremeoverclocking.com/?nav=IMAGES</a>
+</p>
+
+<p>
+
+	</div> <!-- /content -->
+    <div class="clear"></div>
+
+</div> <!-- /container -->
+</div> <!-- /container-main -->
+
+<div id="container-footer">
+	<div id="footer">
+		<div class="column left">
+	       		&copy; 2010 Nathan Friedly<br />
+				<script type="text/javascript">
+					<!--
+					document.write('Site design by <a href="http://www.charleyskira.com"><img src="/img/charleyskiralogo.gif" align="absmiddle" height="18" width="65" border="0" alt="Charley Skira" /></a>');
+					// -->
+				</script>
+						</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left center">
+			<a href="/">Home</a>
+			| <a href="/webdev">Web Development</a>
+			<br />
+			<a href="/contact">Contact</a>
+			| <a href="/estimate">Quote</a>
+			| <a href="/sitemap">Sitemap</a>
+		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left">
+        	<div class="login">
+
+<h1>Client Login</h1>
+
+<form action="https://nfriedly.com/client/login" method="post" >
+
+<p><b>Username:</b><br />
+<input type="text" name="username" /></p>
+
+<p><b>Password:</b><br />
+<input type="password" name="password" /></p>
+
+<p><input type="submit" value="Log In" /></p>
+
+</form>
+
+</div>		</div>
+	</div>
+</div> <!-- /container-footer -->
+
+
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAWMsuqAAoJe0vLYg5hsR_RhSOpBqeijn_PFXyh9G70yoMxuLEGxQp76oyfuI3ixXHxHGC_R4Z3BMQ3w"></script>
+<script type="text/javascript" src="/scripts/eoc.js"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1735765-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+<!-- supercache generated at 2010-7-6 7:21:13 PM -->
+
+</body>
+</html>

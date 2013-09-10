@@ -1,0 +1,18 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:14:53,187 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:14:53,802 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:14:53,803 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ERROR [main] 2011-02-22 13:14:57,698 FacebookManager.java:81 :- Error connecting to Facebook: getUser(100001006540647)
+Response Status:Bad Request
+Headers:
+Name:[Content-Type] Value(s):[text/javascript; charset=UTF-8]
+Name:[Cache-Control] Value(s):[no-store]
+Name:[X-Cnection] Value(s):[close]
+Name:[Expires] Value(s):[Sat, 01 Jan 2000 00:00:00 GMT]
+Name:[WWW-Authenticate] Value(s):[OAuth "Facebook Platform" "invalid_token" "Invalid OAuth access token."]
+Name:[Content-Length] Value(s):[75]
+Name:[Date] Value(s):[Tue, 22 Feb 2011 18:14:57 GMT]
+Name:[Pragma] Value(s):[no-cache]
+
+ERROR [main] 2011-02-22 13:14:57,699 FacebookManager.java:98 :- org.jboss.resteasy.client.ClientResponseFailure: Error status 400 Bad Request returned
+

@@ -1,0 +1,32 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:16:30,842 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:16:30,853 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:16:31,561 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:16:31,562 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:16:33,020 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:16:33,020 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:16:33,021 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:16:33,021 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:16:33,021 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:16:33,022 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:16:33,074 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:16:33,091 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:16:33,099 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:16:33,100 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:16:33,188 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@e4eb585
+ INFO [main] 2011-02-22 13:16:33,236 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:16:33,268 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:16:33,268 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:16:33,268 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:16:33,269 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:16:33,269 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:16:33,272 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:16:33,294 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:16:33,294 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:16:34,226 MoModel.java:1034 :- updating the promotional style tags for mo with id: 171 oldTags: [wheee, best ever!] newTags: []
+ INFO [main] 2011-02-22 13:16:34,265 MoModel.java:1034 :- updating the promotional style tags for mo with id: 172 oldTags: [wheee, best ever!] newTags: [another tag, one more]
+ INFO [main] 2011-02-22 13:16:34,306 MoModel.java:1034 :- updating the promotional style tags for mo with id: 173 oldTags: [wheee, best ever!] newTags: [best ever!, another tag, one more]
+ WARN [main] 2011-02-22 13:16:34,555 MoValidator.java:222 :- Location and Name are recommended to be in the same language.
+ WARN [main] 2011-02-22 13:16:34,570 MoValidator.java:222 :- Location and Name are recommended to be in the same language.
+ WARN [main] 2011-02-22 13:16:34,773 MoValidator.java:279 :- Insecure picture in secure mode.
+

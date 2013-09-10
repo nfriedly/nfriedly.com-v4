@@ -1,0 +1,27 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:13:51,748 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:13:51,759 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:13:52,416 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:13:52,417 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:13:53,879 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:13:53,880 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:13:53,881 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:13:53,881 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:13:53,881 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:13:53,882 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:13:53,938 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:13:53,947 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:13:53,955 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:53,955 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:13:54,041 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@37c3432a
+ INFO [main] 2011-02-22 13:13:54,091 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:13:54,119 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:13:54,119 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:13:54,119 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:13:54,119 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:13:54,120 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:13:54,123 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:13:54,147 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:13:54,147 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:13:54,152 HtmlPanelManagerTest.java:36 :- testCreateAndSave()
+

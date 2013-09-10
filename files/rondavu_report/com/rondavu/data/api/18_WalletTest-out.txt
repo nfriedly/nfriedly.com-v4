@@ -1,0 +1,40 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:14:47,806 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:14:47,817 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:14:48,453 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:14:48,454 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:14:49,905 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:14:49,905 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:14:49,906 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:14:49,906 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:14:49,907 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:14:49,907 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:14:49,956 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:14:49,965 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:14:49,973 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:14:49,974 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:14:50,062 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@5ce8787a
+ INFO [main] 2011-02-22 13:14:50,106 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:14:50,130 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:14:50,130 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:14:50,130 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:14:50,130 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:14:50,131 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:14:50,134 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:14:50,155 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:14:50,155 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:14:50,598 AbstractService.java:62 :- Stopping Data Service
+ INFO [main] 2011-02-22 13:14:50,598 AbstractService.java:62 :- Stopping Data Access Provider
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:14:50,599 AbstractService.java:62 :- Stopping SocialNetwork Service
+ INFO [JdbcThread] 2011-02-22 13:14:50,599 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [JdbcThread] 2011-02-22 13:14:50,598 JdbcThreadFactory.java:88 :- JdbcThread is closing its JDBC Connection
+ INFO [main] 2011-02-22 13:14:50,600 SocialNetworkService.java:45 :- Stopping the SocialNetwork Service
+ INFO [main] 2011-02-22 13:14:50,602 AbstractService.java:62 :- Stopping CacheRefresher Service
+ INFO [main] 2011-02-22 13:14:50,602 CacheRefresher.java:96 :- Stopping the CacheRefresher Service
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Twitter Development Demo by nFriedly - Javascript &amp; AJAX Expert</title>
+
+<meta name="keywords" content="twitter,app,application,bot,js,javascript,ajax,development,dev,web,social,new,media,dhtml,expert" />
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+</head>
+
+<body class=" yui-skin-sam">
+<div id="container-header">
+	<div id="header"><a href="/"><img src="/img/headersm.png" height="140" width="750" alt="Nathan Friedly: Minister // Web Developer // Ninja" /></a></div>
+</div>
+<div id="container-main">
+<div id="container">
+
+
+<div id="navigation">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+	<li><a href="/fellowship">Fellowship</a></li>
+	<li><a href="/webdev">Web Dev</a>
+</li>
+	<li><a href="/techblog">Tech Blog</a></li>
+    <li><a href="/estimate">Quote</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+	</div>
+		
+    <div id="content">
+
+	
+<!-- div class="left" style="width:250px;" -->
+
+
+<div class="right" style="width:250px;margin-top:10px; text-align:left;">
+	<p id="status_output"></p>
+	<p class="clear" id="fancy_output"></p>
+</div>
+
+<h1>Twitter Demo</h1>
+
+	<h2>Simple:</h2>
+	<p>Type in your twitter name to see your status:</p>
+	<p><input id="status_username" value="nfriedly" /> <input type="button" id="get_status" value="Go" /></p>
+	
+	<h2>Fancy:</h2>
+	<form method="post">
+	<!-- p>Type in your name and password to do any of the folowing:</p -->
+	<p><input checked="checked" type="checkbox" name="follow_me" id="follow_me" /> Follow me</p>
+	<p><input checked="checked" type="checkbox" name="tweet" id="tweet" /> Tweet "@nfriedly is awesome!  <br />
+	http://nfriedly.com/demos/twitter"</p>
+	<p><input checked="checked" type="checkbox" name="show_dm" id="show_dm" /> Display the last direct message you recieved</p>
+	<p><input id="userid" name="userid" /> Your twitter name</p>
+	<p><input id="password" name="password" type="password" /> Your twitter password</p>
+	<img src="/img/twitter_small.png" alt="Twitter bird" title="" class="right"  />
+	<p><input type="button" name="do_fancy" id="do_fancy" value="Go" /></p>
+	<p><small><i>Your username and password are used only for this demonstration and then discarded immediately.</i></small></p>
+	
+	<h2>Twitter Development</h2>
+
+	<p>This page demo's two of three twitter API access methods: Public Data and Web Authentication. 
+These methods are best suited for embedding statuses into websites and twitter bot development. </p>
+
+	<p>The third method, <abbr title="Open Authentication">OAuth</abbr> is appropriate for situations where many users will be using your application and you would like to get their tweets to link back to your website in the "from" section.</p>
+	
+	<p>If you are interested in <a href="/webdev">building a twitter app or bot</a>, I am the right man for the job. 
+I have been working with twitter since well before it became commonplace. 
+<a href="/contact">Get in touch with me</a> or get an <a href="/estimate">Instant Estimate</a> for more information.</p>
+
+	<p><a href="/webdev">Website Development</a> &gt; <a href="/portfolio">Portfolio</a> &gt; Twitter Demo</p>
+	</form>
+<!-- /div -->
+
+
+
+
+	</div> <!-- /content -->
+    <div class="clear"></div>
+
+</div> <!-- /container -->
+</div> <!-- /container-main -->
+
+<div id="container-footer">
+	<div id="footer">
+		<div class="column left">
+	       		&copy; 2010 Nathan Friedly<br />
+				<script type="text/javascript">
+					<!--
+					document.write('Site design by <a href="http://www.charleyskira.com"><img src="/img/charleyskiralogo.gif" align="absmiddle" height="18" width="65" border="0" alt="Charley Skira" /></a>');
+					// -->
+				</script>
+				<br />Twitter graphic from <a href="http://www.mediabistro.com/prnewser/original/twitter-bird.png">mediabistro.com</a>		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left center">
+			<a href="/">Home</a>
+			| <a href="/webdev">Web Development</a>
+			<br />
+			<a href="/contact">Contact</a>
+			| <a href="/estimate">Quote</a>
+			| <a href="/sitemap">Sitemap</a>
+		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left">
+        	<div class="login">
+
+<h1>Client Login</h1>
+
+<form action="https://nfriedly.com/client/login" method="post" >
+
+<p><b>Username:</b><br />
+<input type="text" name="username" /></p>
+
+<p><b>Password:</b><br />
+<input type="password" name="password" /></p>
+
+<p><input type="submit" value="Log In" /></p>
+
+</form>
+
+</div>		</div>
+	</div>
+</div> <!-- /container-footer -->
+
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAWMsuqAAoJe0vLYg5hsR_RhSOpBqeijn_PFXyh9G70yoMxuLEGxQp76oyfuI3ixXHxHGC_R4Z3BMQ3w"></script>
+<script type="text/javascript" src="/scripts/twitter.js"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1735765-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+<!-- supercache generated at 2010-3-17 5:27:34 PM -->
+
+</body>
+</html>

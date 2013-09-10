@@ -1,0 +1,30 @@
+DEBUG: setDebug: JavaMail version 1.4ea
+ INFO [main] 2011-02-22 13:14:07,000 AbstractService.java:52 :- Starting Data Service
+ INFO [main] 2011-02-22 13:14:07,008 ConfigManager.java:85 :- Loading up configuration
+ INFO [main] 2011-02-22 13:14:07,654 Conductor.java:130 :- Loaded conductor.xml successfully
+ INFO [main] 2011-02-22 13:14:07,655 ConfigManager.java:94 :- Connecting to conductor at: http://localhost:8081
+ INFO [main] 2011-02-22 13:14:09,246 ShardMap.java:166 :- Setting up ShardMap...
+ INFO [main] 2011-02-22 13:14:09,247 ShardMap.java:82 :- Shard#0
+ INFO [main] 2011-02-22 13:14:09,247 ShardMap.java:82 :- Shard#1
+ INFO [main] 2011-02-22 13:14:09,248 ShardMap.java:100 :- Read in: 2 Shards
+ INFO [main] 2011-02-22 13:14:09,248 ShardMap.java:191 :- Validating Shard Mapping
+ INFO [main] 2011-02-22 13:14:09,248 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard1
+ INFO [main] 2011-02-22 13:14:09,305 ShardMap.java:197 :- Connecting to shard: jdbc:postgresql://localhost:5432/shard2
+ INFO [main] 2011-02-22 13:14:09,322 StateDb.java:33 :- Initializing access to the State Database
+ INFO [main] 2011-02-22 13:14:09,332 AbstractService.java:52 :- Starting SocialNetwork Service
+ INFO [main] 2011-02-22 13:14:09,332 SocialNetworkService.java:40 :- Starting the SocialNetwork Service
+ INFO [main] 2011-02-22 13:14:09,424 DataAccessProvider.java:161 :- Creating cache manager: net.sf.ehcache.CacheManager@73e492d8
+ INFO [main] 2011-02-22 13:14:09,469 DataAccessProvider.java:166 :- setting up log4j JMX...
+ INFO [main] 2011-02-22 13:14:09,494 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: mo to be: 10000
+ INFO [main] 2011-02-22 13:14:09,494 DataAccessProvider.java:634 :- Config change: Setting new value of TimeToLive for Cache: credential to be: 180
+ INFO [main] 2011-02-22 13:14:09,495 DataAccessProvider.java:642 :- Config change: Setting new value of TimeToIdle for Cache: credential to be: 300
+ INFO [main] 2011-02-22 13:14:09,495 DataAccessProvider.java:626 :- Config change: Setting new value of count for Cache: identity to be: 10000
+ INFO [main] 2011-02-22 13:14:09,496 AbstractService.java:52 :- Starting Data Access Provider
+ INFO [main] 2011-02-22 13:14:09,498 DataService.java:83 :- Registering TopMosCache with CacheRefresher service.
+ INFO [main] 2011-02-22 13:14:09,521 AbstractService.java:52 :- Starting CacheRefresher Service
+ INFO [main] 2011-02-22 13:14:09,521 CacheRefresher.java:62 :- Starting the CacheRefresher Service will refresh cache every: 30 seconds.
+ INFO [main] 2011-02-22 13:14:10,140 MoStore.java:227 :- unique constraint violation will try and lookup now. MO(id=49, customerId=50, customerMoType=artist, customerMoId=ARTIST#1, startDate=Tue Feb 22 13:14:10 EST 2011
+ INFO [main] 2011-02-22 13:14:10,141 MoStore.java:231 :- FOUND a mo like ours. recovering...
+ INFO [main] 2011-02-22 13:14:10,144 MoStore.java:227 :- unique constraint violation will try and lookup now. MO(id=50, customerId=50, customerMoType=artist, customerMoId=ARTIST#1, startDate=Tue Feb 22 13:14:10 EST 2011
+ INFO [main] 2011-02-22 13:14:10,144 MoStore.java:231 :- FOUND a mo like ours. recovering...
+

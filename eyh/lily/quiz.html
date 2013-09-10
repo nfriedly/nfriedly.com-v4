@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+appId = 129441890497335;
+appUrl = "https://apps.facebook.com/lily_quiz/"
+
+var addEvent = function( obj, type, fn ) {
+        if (obj.addEventListener)
+                obj.addEventListener(type, fn, false);
+        else if (obj.attachEvent) 
+                obj.attachEvent('on' + type, function() { return fn.apply(obj, new Array(window.event));});
+}
+
+function quiz(quizTitle, imageUrl) {
+    this.quizTitle = quizTitle;
+    this.imageUrl = imageUrl;
+    this.questions = [];
+    this.results = [];
+    
+    this.addQuestion = function(question) {
+        this.questions.push(question);
+    }
+    
+    this.addResult = function(result) {
+        this.results.push(result);
+    }
+    
+    this.renderQuiz = function() {
+        document.write("<div class='container'><div class='quizTitle'>"+this.quizTitle+"</div>");
+        document.write("<div id='quizForm'>")
+        var questionText = "";
+        for (var index in this.questions) {
+            var question = this.questions[index];
+            questionText += question.render(index);
+        }
+        document.write(questionText);
+        document.write("<div id='submitQuiz' class='submit'><a href='#'>Submit</a></div>");
+        document.write("</div><div id='result'></div></div>");
+        var that = this;
+        var submit = document.getElementById('submitQuiz');
+        submit.addEvent('click', function() {that.renderResult();}, false);
+    }
+    
+    this.renderResult = function(result) {
+        var quizEl = document.getElementById("quizForm");
+        quizEl.style.display='none';
+        var score = this.calculateScore();
+        var result = this.determineResult(score);
+        document.getElementById('result').innerHTML = result.render();
+        var that = this;
+        var publishButton = document.getElementById('publish');
+        publishButton.addEvent('click', function() {that.promptFeedStory(result)}, false);
+    }
+    
+    this.calculateScore = function() {
+        var score = 0;
+        for (var index in this.questions) {
+            var question = this.questions[index];
+            score += question.calculateScore();
+        }
+        return score;
+    }
+    
+    this.determineResult = function(score) {
+        for (var i in this.results) {
+            var result = this.results[i];
+            if (result.isUserResult(score)) return result;
+        }
+    }
+    
+    this.promptFeedStory = function(result) {
+		FB.ui({
+			method: 'feed',
+			name: this.quizTitle + ": " + result.resultTitle,
+			caption: result.resultDescription, 
+			description: " ", //add another line of text here if you want
+			link: appUrl,
+			picture: this.imageUrl,
+			actions: [
+				{ name: 'Test your knowledge!', link: appUrl }
+			]
+		});
+    }
+    
+}
+
+function question(questionText, responses) {
+    this.question = questionText;
+    this.responses = responses;
+    
+    this.render = function(index) {
+        var text = "<div class='question'><div class='questionText'>" + this.question + "</div><div class='responses'>";
+        for (var i in this.responses) {
+            text += this.responses[i].render(index, i);
+        }
+        text +="</div></div>"
+        return text;
+    }
+    this.calculateScore = function() {
+        var score = 0;
+        for (var i in this.responses) {
+            score += this.responses[i].calculateScore();
+        }
+        return score;
+    }
+}
+
+function response(responseText, score) {
+    this.respText = responseText;
+    this.score = score;
+    this.responseId = "";
+    
+    this.render = function(questionIndex, responseIndex) {
+        this.responseId = questionIndex + "_" + responseIndex;
+        return "<input type='radio' class='response' name='"+questionIndex+"' value='"+responseIndex+"' id='"+ this.responseId+"' /> "+this.respText +"<br/>";
+    }
+    this.calculateScore = function() {
+        if (this.responseId === "") return 0;
+        if (document.getElementById(this.responseId).checked) return this.score;
+        return 0;
+    }
+}
+
+function result(low, high, resultTitle, resultDescription) {
+    this.low = low;
+    this.high = high;
+    this.resultTitle = resultTitle;
+    this.resultDescription = resultDescription;
+    
+    this.render = function() {
+        return "<div class='resultTitle'>" + this.resultTitle + "</div><div class='resultDescription'>"+ this.resultDescription+"</div><div id='publish' class='submit'><a href='#'>Publish your result!</a></div>"; 
+    }
+    
+    this.isUserResult = function(score) {
+        return this.low < score && score <= this.high;
+    }
+}
+
+/* SET UP YOUR QUIZ HERE!!!! */
+myQuiz = new quiz("How well do you know Lily?", "http://www.metroactive.com/papers/cruz/07.27.05/gifs/potter-0530.jpg");
+
+myQuiz.addQuestion(new question("what's her newest favorite color?", 
+                           [new response("purple", 0), 
+                           new response("green", 1),
+                           new response("pink", 0) ] ));
+
+myQuiz.addQuestion(new question("What's her favorite food?", 
+                           [new response("pizza", 0), 
+                           new response("desserts.....", 0),
+                           new response("sushi", 5) ] ));
+
+myQuiz.addQuestion(new question("what's her favorite song?", 
+                          [new response("baby", ), 
+                           new response("jar of hearts", 0),
+                           new response("mistletoe", 10),
+                           new response("love song", 0) ] ));
+
+myQuiz.addResult(new result(-1,0, "Do you even know who's Lily?"));
+myQuiz.addResult(new result(0,1, "You've seen her around before. MAYBE..."));
+myQuiz.addResult(new result(1,5, "you know her, but not that well."));                           
+myQuiz.addResult(new result(5,10, "you and Lily must be close friends!"));
+myQuiz.addResult(new result(10,16, "you're either one of her best friends or a stalker."));
+</script>
+
+<style>
+body{font-family: "lucida grande", tahoma, verdana, arial, sans-serif; }
+            
+.container {
+    width: 600px;
+    margin: 50px auto;
+}
+.quizTitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.question {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.questionText {
+    font-weight: bold;
+}
+.responses {
+    margin-left: 10px;
+}
+.submit {
+    text-align: center;
+    margin-top: 30px;
+}
+.submit a {
+    font-size: 15px;
+    background: #3b5998;
+    color: #FFF;
+    border: 2px solid #1D4088;
+    border-style: outset;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.submit a:hover {
+    border-style: inset;
+}
+</style>
+
+</head>
+<body>
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
+  FB.init({appId: appId, status: true, cookie: true, xfbml: true, logging:true, ouath: true});
+</script>
+<script type="text/javascript">
+myQuiz.renderQuiz();
+</script>
+
+
+</body>
+</html>

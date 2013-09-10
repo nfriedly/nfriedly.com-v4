@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Danish Duck Duck Go + Google Suggest OpenSearch Plugin</title>
+
+<link rel="search" id="xml-direct" type="application/opensearchdescription+xml" title="Direct Duck Duck Go + Google Suggest (Danish)" href="http://nfriedly.com/stuff/ddgg-da/ddgg-da.xml" >
+
+</head>
+<body>
+
+<h1>Danish Duck Duck Go + Google Suggest OpenSearch Plugin</h1>
+
+<p>Install via the search box or <a href="#">click here</a>.</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+function installSearchEngine(url) {
+ if (window.external && ("AddSearchProvider" in window.external)) {
+    window.external.AddSearchProvider( url );
+ } else {
+    alert("your browser doesn't appear to support installing opensearch plugins via javascript");
+ }
+}
+
+$(document).ready(function(){
+  $('a').click(function(){
+    installSearchEngine( $('#xml-direct').attr("href") );
+  });
+}
+
+</script>
+</body>
+</html>

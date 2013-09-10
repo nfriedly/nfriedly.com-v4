@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+appId = 239438612781351;
+appUrl = "http://apps.facebook.com/hwdykandreaa"
+
+var addEvent = function( obj, type, fn ) {
+        if (obj.addEventListener)
+                obj.addEventListener(type, fn, false);
+        else if (obj.attachEvent) 
+                obj.attachEvent('on' + type, function() { return fn.apply(obj, new Array(window.event));});
+}
+
+function quiz(quizTitle, imageUrl) {
+    this.quizTitle = quizTitle;
+    this.imageUrl = imageUrl;
+    this.questions = [];
+    this.results = [];
+    
+    this.addQuestion = function(question) {
+        this.questions.push(question);
+    }
+    
+    this.addResult = function(result) {
+        this.results.push(result);
+    }
+    
+    this.renderQuiz = function() {
+        document.write("<div class='container'><div class='quizTitle'>"+this.quizTitle+"</div>");
+        document.write("<div id='quizForm'>")
+        var questionText = "";
+        for (var index in this.questions) {
+            var question = this.questions[index];
+            questionText += question.render(index);
+        }
+        document.write(questionText);
+        document.write("<div id='submitQuiz' class='submit'><a href='#'>Submit</a></div>");
+        document.write("</div><div id='result'></div></div>");
+        var that = this;
+        var submit = document.getElementById('submitQuiz');
+        submit.addEvent('click', function() {that.renderResult();}, false);
+    }
+    
+    this.renderResult = function(result) {
+        var quizEl = document.getElementById("quizForm");
+        quizEl.style.display='none';
+        var score = this.calculateScore();
+        var result = this.determineResult(score);
+        document.getElementById('result').innerHTML = result.render();
+        var that = this;
+        var publishButton = document.getElementById('publish');
+        publishButton.addEvent('click', function() {that.promptFeedStory(result)}, false);
+    }
+    
+    this.calculateScore = function() {
+        var score = 0;
+        for (var index in this.questions) {
+            var question = this.questions[index];
+            score += question.calculateScore();
+        }
+        return score;
+    }
+    
+    this.determineResult = function(score) {
+        for (var i in this.results) {
+            var result = this.results[i];
+            if (result.isUserResult(score)) return result;
+        }
+    }
+    
+    this.promptFeedStory = function(result) {
+		FB.ui({
+			method: 'feed',
+			name: this.quizTitle + ": " + result.resultTitle,
+			caption: result.resultDescription, 
+			description: " ", //add another line of text here if you want
+			link: appUrl,
+			picture: this.imageUrl,
+			actions: [
+				{ name: 'Test your knowledge!', link: appUrl }
+			]
+		});
+    }
+    
+}
+
+function question(questionText, responses) {
+    this.question = questionText;
+    this.responses = responses;
+    
+    this.render = function(index) {
+        var text = "<div class='question'><div class='questionText'>" + this.question + "</div><div class='responses'>";
+        for (var i in this.responses) {
+            text += this.responses[i].render(index, i);
+        }
+        text +="</div></div>"
+        return text;
+    }
+    this.calculateScore = function() {
+        var score = 0;
+        for (var i in this.responses) {
+            score += this.responses[i].calculateScore();
+        }
+        return score;
+    }
+}
+
+function response(responseText, score) {
+    this.respText = responseText;
+    this.score = score;
+    this.responseId = "";
+    
+    this.render = function(questionIndex, responseIndex) {
+        this.responseId = questionIndex + "_" + responseIndex;
+        return "<input type='radio' class='response' name='"+questionIndex+"' value='"+responseIndex+"' id='"+ this.responseId+"' /> "+this.respText +"<br/>";
+    }
+    this.calculateScore = function() {
+        if (this.responseId === "") return 0;
+        if (document.getElementById(this.responseId).checked) return this.score;
+        return 0;
+    }
+}
+
+function result(low, high, resultTitle, resultDescription) {
+    this.low = low;
+    this.high = high;
+    this.resultTitle = resultTitle;
+    this.resultDescription = resultDescription;
+    
+    this.render = function() {
+        return "<div class='resultTitle'>" + this.resultTitle + "</div><div class='resultDescription'>"+ this.resultDescription+"</div><div id='publish' class='submit'><a href='#'>Publish your result!</a></div>"; 
+    }
+    
+    this.isUserResult = function(score) {
+        return this.low < score && score <= this.high;
+    }
+}
+
+/* SET UP YOUR QUIZ HERE!!!! */
+myQuiz = new quiz("How Well Do Yuhh Know Andreaa(: ???", "http://www.metroactive.com/papers/cruz/07.27.05/gifs/potter-0530.jpg");
+
+myQuiz.addQuestion(new question("What's Andreaa's Favorite Baseball player??",
+                           [new response("Barry Zito", 0), 
+                           new response("Tim Lincecum", 1),
+                           new response("Hannah Montana", 0) ] ));
+
+myQuiz.addQuestion(new question("What's her favorite color to wear? 0_0?", 
+                           [new response("Yelloowww", 0), 
+                           new response("Red & BLue??", 0),
+                           new response("Purple,white, and gray", 5) ] ));
+
+myQuiz.addQuestion(new question("Who does Andreaaa lovee??<33?", 
+                           [new response("Rheanna&Hadasaa", 10), 
+                           new response("Barack Obama", 0),
+                           new response("Chris Brown", 0),
+                           new response("Everyonee!!!!<33", 0) ] ));
+
+myQuiz.addQuestion(new question("Who's Andreaa's child???", 
+                           [new response("Rheanna<33", 10), 
+                           new response("Junior xD", 0),
+                           new response("Michael Jaskson", 0),
+                           new response("A dog", 0) ] ));
+
+
+myQuiz.addQuestion(new question("Who is Andreaa's 1st Choice?", 
+                           [new response("Justin Bieber",0),
+                           new response("Chocolatee && twinkies??", 0),
+                           new response("A monkey", 0),
+                           new response("Jose Casteneda", 1) ] ));
+
+
+myQuiz.addQuestion(new question("If Andreaa could travel some where where would she go?", 
+                           [new response("San Francisco",0),
+                           new response("Africa??", 0),
+                           new response("Europe or Italy", 1),
+                           new response("Australia", 0) ] ));
+
+
+myQuiz.addQuestion(new question("How can you describe Andreaa's Personality?",
+                           [new response("Weird and very odd",0),
+                           new response("Loud, funny, random and very outgoing, loves to be with people, very good hearted and Fun!!>_<", 1),
+                           new response("A quiet boring person", 0),
+                           new response("a Freak", 0) ] ));
+
+
+
+myQuiz.addQuestion(new question("What do you love bout'Andreaa??", 
+                           [new response("Her hair",0),
+                           new response("Her looks&personalityy", 1),
+                           new response("Her style", 0),
+                           new response("Her Body", 0) ] ));
+
+myQuiz.addQuestion(new question("which of Andreaa's friends loves GLEE?",
+                           [new response("Justin Bieber",0),
+                           new response("Charlie the 'unicorn", 0),
+                           new response("Cello A.", 1),
+                           new response("Jose Casteneda", 0) ] ));
+
+
+
+myQuiz.addQuestion(new question("If you could rate quiz what score would you give it?",
+                           [new response("90-80%??", 0),
+                           new response("70-50%", 0),
+                           new response("All of the Abovee!!!!!:D", 1) ] ));
+
+
+
+myQuiz.addResult(new result(-1,5, "Andrea Who?", "Where have you been?"));
+myQuiz.addResult(new result(0,10, "meh.", "Ok, you've at least know who Andrea is"));
+myQuiz.addResult(new result(11,20, "OMG!!! YOu must know her petty well!!(;."));                           
+myQuiz.addResult(new result(21,25, "Pretty good", "Your a true friend..:D"));
+myQuiz.addResult(new result(26,33, "Wow!!!", "Stalker Statuss!0_0 LOL but you've past!! yay!"));
+</script>
+
+<style>
+body{font-family: "lucida grande", tahoma, verdana, arial, sans-serif; }
+            
+.container {
+    width: 600px;
+    margin: 50px auto;
+}
+.quizTitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.question {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.questionText {
+    font-weight: bold;
+}
+.responses {
+    margin-left: 10px;
+}
+.submit {
+    text-align: center;
+    margin-top: 30px;
+}
+.submit a {
+    font-size: 15px;
+    background: #3b5998;
+    color: #FFF;
+    border: 2px solid #1D4088;
+    border-style: outset;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.submit a:hover {
+    border-style: inset;
+}
+</style>
+
+</head>
+<body>
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
+  FB.init({appId: appId, status: true, cookie: true, xfbml: true, logging:true, ouath: true});
+</script>
+<script type="text/javascript">
+myQuiz.renderQuiz();
+</script>
+
+
+</body>
+</html>

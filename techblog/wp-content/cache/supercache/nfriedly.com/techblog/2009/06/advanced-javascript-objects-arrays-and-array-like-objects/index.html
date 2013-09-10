@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Advanced Javascript: Objects, Arrays, and Array-Like objects &#8211; nFriedly Web Dev Tech Blog</title>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/blog.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+<link rel="alternate" type="application/rss+xml" title="nFriedly Web Dev Tech Blog &raquo; Advanced Javascript: Objects, Arrays, and Array-Like objects Comments Feed" href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://nfriedly.com/techblog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://nfriedly.com/techblog/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Search Engine Optimization and Marketing (SEO &amp; SEM)' href='http://nfriedly.com/techblog/2009/06/search-engine-optimization-and-marketing-seo-sem/' />
+<link rel='next' title='How AJAX Security and Twitter callbacks work' href='http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/' />
+<meta name="generator" content="WordPress 3.6" />
+<link rel='canonical' href='http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/' />
+<link rel='shortlink' href='http://nfriedly.com/techblog/?p=106' />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/feed/" title="nFriedly Web Dev Tech Blog latest posts" />
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/comments/feed/" title="nFriedly Web Dev Tech Blog latest comments" />
+	<link rel="pingback" href="http://nfriedly.com/techblog/xmlrpc.php" />
+
+</head>
+
+<body class=" yui-skin-sam">
+
+<div id="container-header">
+	<div id="header">
+		<h2><a href="/techblog">nFriedly Web Development</a></h2>
+		<h1><a href="/techblog">Tech Blog</a></h1>
+		<a href="/"><img src="/img/nflogo-header-notext.png" height="140" width="107" alt="nFriedly" /></a>
+	</div>
+</div>
+<div id="container-main">
+<div id="container">
+<div id="navigation">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+	<li><a href="/fellowship">Fellowship</a></li>
+	<li><a href="/webdev">Web Dev</a>
+		<ul>
+			<li><a href="/webdev/php" title="Server Side Web Programming">PHP</a></li>
+			<li><a href="/webdev/javascript" title="Javascript and Ajax: Client Side Web Programming">JS &amp; AJAX</a></li>
+			<li><a href="/webdev/marketing">Marketing</a></li>
+			<li><a href="/portfolio">Portfolio</a></li>
+		</ul>
+	
+</li>
+	<li><a href="/techblog">Tech Blog</a></li>
+    <li><a href="/estimate">Quote</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+		
+<div style="width: 90%; margin-top: 40px;">
+<h3 style="margin:0">Did I help you?</h3>
+<p style=" margin:6px 0; font-size: 110%;">Support my work with a <a href="https://www.gittip.com/nfriedly/">small recurring donation</a>:</p>
+<iframe width="80px" height="25px" src="https://www.gittip.com/nfriedly/widget.html" style="border: 0; margin: 0; padding: 0;"></iframe>
+</div></div>
+    <div id="content">
+
+				<p class="navigation">
+			<div class="left">&laquo; <a href="http://nfriedly.com/techblog/2009/06/search-engine-optimization-and-marketing-seo-sem/" rel="prev">Search Engine Optimization and Marketing (SEO &#038; SEM)</a></div>
+			<div class="right"><a href="http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/" rel="next">How AJAX Security and Twitter callbacks work</a> &raquo;</div>
+		</p>
+		<div class="clear"></div>
+		
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/" >Advanced Javascript: Objects, Arrays, and Array-Like objects</a></h1>
+				<small class="date">June 10th, 2009 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://www.flickr.com/photos/stawarz/2492636763/"><img class="alignleft" title="The other kind of array" src="http://farm4.static.flickr.com/3146/2492636763_788774987e_m.jpg" alt="" width="240" height="160" /></a>Javascript <code>objects</code> and <code>arrays</code> are both incredibly useful. They&#8217;re also incredibly easy to confuse with each other. Mix in a few objects that look like arrays and you&#8217;ve got a recipe for confusion!</p>
+<p>We&#8217;re going to see what the differences between objects and arrays are, how to work with some of the common array-like objects, and how to get the most performance out of each.</p>
+<p><span id="more-106"></span></p>
+<h2>What Objects Are</h2>
+<p>A javascript object is a basic data structure:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+var basicObj = {}; // an empty object
+// {} is a shortcut for &quot;new Object()&quot;
+
+basicObj.suprise= &quot;cake!&quot;;
+
+basicObj['suprise']; // returns &quot;cake!&quot;
+</pre>
+<p>Using <code>{}</code> instead of <code>new Object();</code> is know as &#8220;Object Literal&#8221; syntax.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+var fancyObj = {
+
+	favoriteFood: &quot;pizza&quot;,
+
+	add: function(a, b){
+
+		return a + b;
+	}
+};
+
+fancyObj.add(2,3); // returns 5
+
+fancyObj['add'](2,3); // ditto.
+
+</pre>
+<p>As you can see, and probably already knew, properties can be accessed a couple of different ways.  However, it&#8217;s an important point that we&#8217;ll come back to in a minute.</p>
+<p>Everything in javascript is an <code>object</code>. Everything. <code>Arrays</code>, <code>functions</code>, even <code>numbers</code>! Because of this, you can do some really interesting things, such as modifying the <code>prototypes</code> of Objects, Arrays, etc.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+// an example of something you probably shouldn't do. Ever. Seriously.
+
+Number.prototype.addto = function(x){
+
+	return this + x;
+
+}
+
+(8).addto(9); // returns 17
+
+// other variations:
+
+8.addto(9);  
+// gives a syntax error, because the dot is assumed to be a decimal point
+
+8['addto'](9);  
+// works but is kind of ugly compared to the first method
+
+var eight = 8;
+eight.addto(9);  // works
+</pre>
+<h2>What Arrays Are</h2>
+<p>Javascript arrays are a type of <code>object</code> used for storing multiple values in a single variable. Each value gets  numeric index and may be any data type.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+var arr = [];  // this is a shortcut for new Array();
+
+arr[0] = &quot;cat&quot;;
+arr[1] = &quot;mouse&quot;;
+
+</pre>
+<p>See how that syntax is so similar to the syntax used for setting object properties? In fact, the only difference is that objects use a string while arrays use a number. This is why arrays get confused with objects so often.</p>
+<h3>Length</h3>
+<p>Arrays have a <code>length</code> property that tells how many items are in the array and is automatically updated when you add or remove items to the array. </p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+var arr = [];
+
+arr[0] = &quot;cat&quot;; // this adds to the array
+arr[1] = &quot;mouse&quot;; // this adds to the array
+arr[&quot;favoriteFood&quot;] = &quot;pizza&quot;; // this DOES NOT add to the array
+// setting a string parameter adds to the underlying object
+
+arr.length; // returns 2, not 3
+
+</pre>
+<p>The length property is only modified when you add an item to the array, not the underlying object.</p>
+<p><strong>The <code>length</code> is always 1 higher than the highest index, even if there are actually fewer items in the array.</strong></p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+var arr = [];
+
+arr.length; // returns 0;
+
+arr[100] = &quot;this is the only item in the array&quot;;
+
+arr.length; 
+// returns 101, even though there is only 1 object in the array
+
+</pre>
+<p>This is somewhat counter-intuitive. PHP does more what you would expect:</p>
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+
+arr = array();
+
+arr[100] = &quot;php behaves differently&quot;;
+
+sizeof(arr); // returns 1 in PHP
+
+?&gt;
+</pre>
+<p>You can manually set the <code>length</code> also. Setting it to 0 is a simple way to empty an array.</p>
+<p>In addition to this length property, arrays have lots of nifty built in functions such as <code>push()</code>, <code>pop()</code>, <code>sort()</code>, <code>slice()</code>, <code>splice()</code>, and more. This is what sets them apart from Array-Like Objects.</p>
+<h2><a href="http://www.flickr.com/photos/repoort/2645497916/"><img class="alignright" title="It's like an array, but made out of Lego!" src="http://farm4.static.flickr.com/3175/2645497916_386b9b75b8_m.jpg" alt="" width="240" height="180" /></a></h2>
+<h2>Array-like Objects</h2>
+<p>Array-like objects look like arrays. They have various numbered elements and a length property. But that&#8217;s where the similarity stops. Array-like objects do not have any of Array&#8217;s functions, and for-in loops don&#8217;t even work!</p>
+<p>You&#8217;ll come across these more often than you might expect. A common one is the <code>arguments</code> variable that is present inside of every js function. </p>
+<p>Also included in the category are the HTML node sets returned by <code>document.getElementsByTagName()</code>, <code>document.forms</code>, and basically every other DOM method and property that gives a list of items.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+document.forms.length; // returns 1;
+
+document.forms[0]; // returns a form element.
+
+document.forms.join(&quot;, &quot;); // throws a type error. this is not an array.
+
+typeof document.forms; // returns &quot;object&quot;
+
+</pre>
+<p>Did you know you can send any number of parameters you want to a javascript function? They&#8217;re all stored in an array-like object named <code>arguments</code>.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+function takesTwoParams(a, b){
+
+	// arguments is an  array-like variable inside of all functions
+	// arguments.length works great
+
+	alert (&quot;you gave me &quot;+arguments.length+&quot; parameters&quot;);  
+
+	for(i=0; i&lt; arguments.length; i++){
+
+		alert(&quot;parameter &quot; + i + &quot; = &quot; + arguments[i]); 
+
+	}
+}
+
+takesTwoParams(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;);
+// alerts &quot;you gave me 3 parameter&quot;, 
+// then &quot;parameter 0 = one&quot; 
+// etc. 
+
+</pre>
+<p>This works great. But that&#8217;s about as far as you can go with array-like objects. The flowing example does not work:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+function takesTwoParams(a, b){
+
+	alert(&quot; your parameters were &quot; + arguments.join(&quot;, &quot;)); 
+	// throws a type error because arguments.join doesn't exist
+}
+
+</pre>
+<h3>So what can you do? </h3>
+<p>Well you could make your own <code>join()</code> function, but that adds a lot of unnecessary overhead to your code because it has to loop over everything. If only there were a quick way to get an array out of an array like object&#8230;</p>
+<p>It turns out there is.</p>
+<p>The array functions can be called on non-array objects as long as you know where to find the function (usually they&#8217;re attached to the array, but this isn&#8217;t an array remember <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+<p><code>Prototype</code> to the win:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+function takesTwoParams(a, b){
+
+	var args = Array.prototype.slice.call(arguments);
+
+	alert(&quot; your parameters were &quot; + args.join(&quot;, &quot;)); 
+	// yay, this works!
+
+}
+</pre>
+<p>Let&#8217;s take a look at that a bit more in-depth:</p>
+<p><code>Array</code>: This object is the original array that all other arrays inherit their properties from.</p>
+<p><code>Array.prototype</code>:This gives us access to all the methods properties that each array inherits</p>
+<p><code>Array.prototype.slice</code>: The original slice method that is given to all arrays via the prototype chain. We can&#8217;t call it directly though, because when it runs internally, it looks at the <code>this</code> keyword, and calling it here would make <code>this</code> point to <code>Array</code>, not our <code>arguments</code> variable.</p>
+<p><code>Array.prototype.slice.call()</code>: <code>call()</code> and <code>apply()</code> are prototype methods of the <code>Function</code> object, meaning that they can be called on every function in javascript. These allow you to change what the <code>this</code> variable points to inside a given function.</p>
+<p>And finally, you get a regular <code>array</code> back! This works because javascript returns a new object of type Array rather than whatever you gave it. This causes a lot of headaches for a <a href="http://dean.edwards.name/weblog/2006/11/hooray/">few</a> <a href="http://webreflection.blogspot.com/2008/03/sorry-dean-but-i-subclassed-array-again.html">people</a> who are trying to make subclasses of Array, but it&#8217;s very handy in our case!</p>
+<h2><a name="gotchas"></a>Gotchas</h2>
+<p>First, in Internet Explorer, DOM <code>NodeLists</code> are not considered to be javascript objects, so you cannot call <code>Array.prototype.slice</code> on them. If you want an array, you&#8217;ll have to loop through it the old fashioned way. Or use a hybrid function that tries it the fast way first, then the slow way if that doesn&#8217;t work. </p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+function hybridToArray(nodes){
+	try{
+		// works in every browser except IE
+		var arr = Array.prototype.slice.call(nodes);
+		return arr;
+	} catch(err){
+		// slower, but works in IE
+		var arr = [],
+		    length = nodes.length;
+		for(var i=0; i &lt; length; i++){
+			arr.push(nodes[i]);
+		}
+		return arr;
+	}
+}
+</pre>
+<p>See an example here: <a href="http://nfriedly.com/demos/ie-nodelist-to-array">http://nfriedly.com/demos/ie-nodelist-to-array</a>.</p>
+<p>Second, arrays are objects, so you can do this, but it can get you some serious inconsistencies:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+
+arr = [];
+
+arr[0] = &quot;first element&quot;; // adds item to the array
+
+arr.length; // returns 1
+
+arr.two = &quot;second element&quot;; // adds an item to the underlying object that array is built on top of.
+
+arr.length; // still returns 1 !
+
+// BUT...
+for(i in arr){
+
+	// this will hit both 0 and &quot;two&quot;
+
+}
+
+</pre>
+<h3>A better solution: wrap arrays in an object if you need both worlds</h3>
+<p>This is basically a less efficient method of the array subclassing links I mentioned above. While less efficient, it has the advantage of being simple and reliable.</p>
+<p>That said, I wouldn&#8217;t recommend that you use this in most cases due to issues with speed and extra code requirements. It&#8217;s provided here as an example.</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+// an example of a wrapper for an array.
+// not recommended for most situations.
+
+var ArrayContainer = function(arr){
+
+	this.arr = arr || [];
+
+	this.length = this.arr.length;
+
+};
+
+ArrayContainer.prototype.add=  function(item){
+
+	index = this.arr.length;
+
+	this.arr[index] = item;
+
+	this.length = this.arr.length;
+
+	return index;
+
+};
+
+ArrayContainer.prototype.get=  function(index){
+
+	return this.arr[index];
+
+};
+
+ArrayContainer.prototype.forEach=  function(fn){
+
+	if(this.arr.forEach) this.arr.forEach(fn);// use native code if it's there
+
+	else {
+
+		for(i in this.arr){
+
+			fn( i, this.arr[i], this.arr );
+		
+		}
+	}
+};
+
+var mySuperDooperArray = new ArrayContainer();
+
+</pre>
+<p>Now that your array is (somewhat) protected on the inside, you can loop through it&#8217;s items with <code>forEach()</code> and know that they will match it&#8217;s length. You can also add arbitrary properties to <code>ArrayContainer</code> or <code>mySuperDooperArray</code> and they <strong>won&#8217;t</strong> get pulled into your <code>forEach()</code> loop.</p>
+<p>This example could be extended to completely protect the array if the need arose. </p>
+<h2>An Even Better Solution: <a href="http://nfriedly.com/webdev">Hire a javascript expert</a>.</h2>
+<p>nFriedly Web Development is a top ranked <a href="http://nfriedly.com/webdev/javascript">Javascript and AJAX ninja</a> with an extensive portfolio of proven results. I can bring your project to life and make it run faster than you ever imagined.  <a href="http://nfriedly.com/contact">Get in touch</a> with me or get a free <a href="http://nfriedly.com/estimate">instant estimate</a> for new projects.</p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/#comments" title="Comment on Advanced Javascript: Objects, Arrays, and Array-Like objects">Comments (25)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+<!-- You can start editing here. -->
+
+	<h3 id="comments">25 Responses to &#8220;Advanced Javascript: Objects, Arrays, and Array-Like objects&#8221;</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-34">
+				<div id="div-comment-34" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/70a21bc5d5c7a5c14ad1f88a2430c356?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://www.delphicsage.com' rel='external ' class='url'>SMercer</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-34">
+			June 11, 2009 at 11:07 am</a>		</div>
+
+		<p>Great article. It&#8217;s easy to forget the foundations of javascript when you get so comfy with frameworks.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-35">
+				<div id="div-comment-35" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/6c7e7dcaf4a6088014483c37e9985e6d?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Hardik Thakkar</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-35">
+			June 12, 2009 at 3:14 am</a>		</div>
+
+		<p>Really appreciate your article ideas and techniques to make javascripts much faster.</p>
+<p>Today i really got to know something new about javascript technology.</p>
+<p>Thanks for giving essential information about javascripts.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-48">
+				<div id="div-comment-48" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/a92ef73b9c6b06881f55d42091e1b81f?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://www.jquerymagic.com' rel='external ' class='url'>Mahbub</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-48">
+			June 18, 2009 at 6:03 am</a>		</div>
+
+		<p>We call Javascript object arrays as collection, isn&#8217;t it? In php the similar is called an associative array.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-51">
+				<div id="div-comment-51" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-51">
+			June 18, 2009 at 10:40 am</a>		</div>
+
+		<p>Yes, I think an Objects and Arrays both fall under the description of collections. </p>
+<p>In PHP, array() can be an associative array (like an Object in javascript) or a numerical array (like an Array in javascript), there&#8217;s only one object.</p>
+<p>PHP also has Objects, which are roughly comparable to javascript objects. So really in PHP, there&#8217;s two ways to do it. </p>
+<p>When a PHP array() is used as an associative array, the items are in a guaranteed order. In a javascript Object, the items are usually in whatever order you added them, but it is not guaranteed.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-103">
+				<div id="div-comment-103" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/357b57f11feaa1b10145a43966716f67?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://dmitriy.dunin.name/' rel='external ' class='url'>illvm</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-103">
+			July 14, 2009 at 1:01 am</a>		</div>
+
+		<p>There is no array type in JS though. All arrays are objects! typeof [] === &#8216;object&#8217;; Even more confusing is HTMLCollections appear to be arrays when they are, indeed not, and inherit from a separate prototype. On top of that they are live collections and need to be cloned or otherwise cached if you are modifying them in some way (especially adding to or removing from).</p>
+<p>What&#8217;s really unfortunate is that for in loops are deceptively not forEach loops. They iterate over every key in the object on the right side of the in without regard to whether that key is actually part of that object! I don&#8217;t really see an issue with the for in loops using &#8216;two&#8217; as an index though, it seems proper. For in returning prototype keys instead of objects keys though can be a real mess. =/</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-158">
+				<div id="div-comment-158" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-158">
+			July 22, 2009 at 3:50 pm</a>		</div>
+
+		<p>Hey Dmitriy! </p>
+<p>Yea, those are good points, both about arrays not getting their own type and forEach loops hitting inherited items as well as local items. It&#8217;s handy when you want those inherited items to be in the loop though. </p>
+<p>Similarly, live collections can be really handy, as long as you realize they&#8217;re live <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-2946">
+				<div id="div-comment-2946" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://cgomes7.wordpress.com/2011/03/15/bug-1139-oops-my-bad/' rel='external ' class='url'>Bug #1139 &#8211; Oops, my bad. | The Open Source Experience</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-2946">
+			March 15, 2011 at 9:35 am</a>		</div>
+
+		<p>[...] code above accepts arguments such as array, objects, array-like objects. I found this site helpful when trying to understand objects, arrays and array-like objects. By changing the code to [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3354">
+				<div id="div-comment-3354" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/ad977f72a295efded76a1e07bc515360?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Spencer</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-3354">
+			October 17, 2011 at 3:56 pm</a>		</div>
+
+		<p>Very nice overview.  I&#8217;ve been trying to brush up on my coding skills.  That made it much more clear for me.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-4892">
+				<div id="div-comment-4892" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/9f107ba0f10ffafae82f57595dab1a25?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Frank</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-4892">
+			January 16, 2012 at 8:37 pm</a>		</div>
+
+		<p>Very coherent, well-expressed piece. I was hoping you might give me a pointer on how to find an object in an array of objects whose object property has a specified value. Fore example, if I have an array:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">     var detailsArray = [
+        {
+            moduleKey: &quot;attendancecalendar&quot;,
+            iframe: true,
+            innerWidth: 500,
+            innerHeight: 350,
+            opacity: 0.35,
+            scrolling: false,
+            identifierType: &quot;href&quot;
+        },
+        {
+            moduleKey: &quot;attendanceindex&quot;,
+            iframe: true,
+            innerWidth: 500,
+            innerHeight: 350,
+            opacity: 0.35,
+            scrolling: false,
+            identifierType: &quot;href&quot;
+        }
+        //etc.
+    ];</pre>
+<p>&#8212;&#8212;<br />
+How would I find the object whose moduleKey is &#8220;attendanceindex&#8221;?<br />
+Thanks</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-5140">
+				<div id="div-comment-5140" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5140">
+			January 18, 2012 at 12:07 am</a>		</div>
+
+		<p>Hi Frank,</p>
+<p>There&#8217;s no &#8220;quick&#8221; way to do it, you&#8217;d just need to loop through the entire list and check each one until you find it:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">
+var winner;
+for(var i=0; i&lt; detailsArray.length; i++) {
+  if(detailsArray[i].moduleKey === &quot;attendanceindex&quot;) {
+    winner == detailsArray[i];
+    break;
+  }
+}</pre>
+<p>Note, I said &#8220;quick&#8221; in quotes because in reality even with 1000 items in the array it took 0.005 seconds on my laptop (I tested it).</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-5465">
+				<div id="div-comment-5465" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/c24778a554ce51b04319fe1b3f663e5d?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Mark</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5465">
+			January 23, 2012 at 12:48 pm</a>		</div>
+
+		<p>Frank,</p>
+<p>I would take a look at your design and see if objectArray could instead be an Object, and not an Array.  If so, I&#8217;d change it&#8217;s name to objectLookup, and then finding a module with &#8220;attendanceindex&#8221; is O(1).</p>
+<pre class="brush: jscript; title: ; notranslate" title="">   var objectLookup = {
+       attendanceindex : 
+         {
+	        moduleKey: &quot;attendancecalendar&quot;,
+	        iframe: true,
+	        innerWidth: 500,
+	        innerHeight: 350,
+	        opacity: 0.35,
+	        scrolling: false,
+	        identifierType: &quot;href&quot;
+	 },
+         // ...rest of contents of objectArray
+    };
+
+    //then later..
+    var winner = objectLookup.attendanceindex;</pre>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-5467">
+				<div id="div-comment-5467" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5467">
+			January 24, 2012 at 4:41 am</a>		</div>
+
+		<p>Yep, that&#8217;s another good way to do it <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="trackback even thread-even depth-1" id="comment-5470">
+				<div id="div-comment-5470" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.quora.com/Why-do-arrays-work-as-objects-in-JavaScript#ans973845' rel='external ' class='url'>Quora</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5470">
+			January 30, 2012 at 9:26 am</a>		</div>
+
+		<p><strong>Why do arrays work as objects in JavaScript?&#8230;</strong></p>
+<p>go to this link:-http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/&#8230;</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-5472">
+				<div id="div-comment-5472" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://javascriptmountain.com/2012/02/interview-questions/javascript-interview-questions-arrays/' rel='external ' class='url'>JavaScript Interview Questions: Arrays | JavaScript Mountain</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5472">
+			February 1, 2012 at 2:26 am</a>		</div>
+
+		<p>[...] Hint: JavaScript arrays are Objects [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-5482">
+				<div id="div-comment-5482" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/c05d787cd8c606c2d73c6c4bdda5e0eb?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">shawn</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5482">
+			February 7, 2012 at 1:27 pm</a>		</div>
+
+		<p>@Frank,</p>
+<p>There is a &#8216;quick&#8217; way to code it if you are on a modern (ECMASCript 5) environment:</p>
+<p>var filtered = detailsArray.filter( function(value) {<br />
+            return value.moduleKey === &#8216;attendanceindex&#8217;;<br />
+        });</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-5705">
+				<div id="div-comment-5705" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://blog.kevinchisholm.com/2012/03/javascript-programming/javascript-array/javascript-interview-questions-arrays/' rel='external ' class='url'>JavaScript Interview Questions: Arrays | Kevin Chisholm Blog</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-5705">
+			March 21, 2012 at 1:45 am</a>		</div>
+
+		<p>[...] Hint: JavaScript arrays are Objects [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6404">
+				<div id="div-comment-6404" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/2b95d650c27ee46244e61d50c2843fd0?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">WMB</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6404">
+			May 10, 2012 at 9:25 pm</a>		</div>
+
+		<p>Hi, </p>
+<p>Your example above slices the argument, returns an array, and then returns a string using join:</p>
+<p>&#8212;&#8212;&#8212;<br />
+var args = Array.prototype.slice.call(arguments);<br />
+alert(&#8221; your parameters were &#8221; + args.join(&#8220;, &#8220;));<br />
+&#8212;&#8212;&#8212;</p>
+<p>why not just call it directly?</p>
+<p>&#8212;&#8212;&#8212;<br />
+alert( Array.prototype.join.call( arguments )  );<br />
+&#8212;&#8212;&#8212;</p>
+<p>Isnt this more efficient?</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-6406">
+				<div id="div-comment-6406" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6406">
+			May 14, 2012 at 3:19 pm</a>		</div>
+
+		<p>You&#8217;re right, the example could be shortened to just that to improve efficiency. I kept it in two parts to make it a little more clear that you&#8217;re just working with a regular array after .slice()</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-6408">
+				<div id="div-comment-6408" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://liunian.info/convert-fake-array-to-real-array-in-javascript.html' rel='external ' class='url'>把JavaScript中的伪数组转换为真数组 « 小居</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6408">
+			May 16, 2012 at 8:12 am</a>		</div>
+
+		<p>[...] Advanced Javascript: Objects, Arrays, and Array-Like objects [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6636">
+				<div id="div-comment-6636" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/e9fe029532c94fa60f3250b9ca3e68c2?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Consignation Jessica</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6636">
+			June 21, 2012 at 12:58 pm</a>		</div>
+
+		<p>Today i really got to know something new about javascript technology.I was hoping you might give me a pointer on how to find an object in an array of objects whose object property has a specified value.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor even thread-even depth-1" id="comment-6637">
+				<div id="div-comment-6637" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6637">
+			June 22, 2012 at 5:51 pm</a>		</div>
+
+		<p>If you look <a href="#comment-4892">a few comments up</a>, there were several good replies to a similar question. Would one of those work for you?</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-6665">
+				<div id="div-comment-6665" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.sitepoint.com/implementing-memoization-in-javascript/' rel='external ' class='url'>Implementing Memoization in JavaScript - SitePoint</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6665">
+			August 23, 2012 at 9:13 am</a>		</div>
+
+		<p>[...] the arguments which were passed in.  &#8221;arguments&#8221; is a type of object known as an Array-like object. It is similar to an array, but cannot be used to index the cache. Therefore, it must first be [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-6675">
+				<div id="div-comment-6675" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://howtobeaprogrammer.wordpress.com/2012/09/29/array-de-funciones/' rel='external ' class='url'>Array de funciones &laquo; Programmer&#039;s Blog</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6675">
+			September 29, 2012 at 10:32 am</a>		</div>
+
+		<p>[...] <a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/">http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/</a> [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6687">
+				<div id="div-comment-6687" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8dbf03e33d958a7527d8b7d4b2694bdc?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Kashif Khan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6687">
+			November 8, 2012 at 7:27 am</a>		</div>
+
+		<p>Very well done! it was a very nice tutorial</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-6769">
+				<div id="div-comment-6769" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://blog.kevinchisholm.com/javascript/javascript-interview-questions-arrays/' rel='external ' class='url'>JavaScript Interview Questions: Arrays | Kevin Chisholm - Blog</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/comment-page-1/#comment-6769">
+			March 11, 2013 at 9:54 pm</a>		</div>
+
+		<p>[...] Hint: JavaScript arrays are Objects [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div id="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://nfriedly.com/techblog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='106' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0c698210ac" /></p>	<script type='text/javascript'>
+	<!--
+	ref = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='ref' value='"+ref+"'>");
+	// -->
+	</script>
+	<p style="display:none;"><input type="text" name="nxts" value="1377687924" /><input type="text" name="nxts_signed" value="c29ac0c268dd820de6c3eafe86c9e9d6835b0205" /><input type="text" name="eaba44abc25c34be729678164" value="3c8ca25967a141543700ac647" /><input type="text" name="042d412f056" value="" /></p><p style="clear:both"><input style="width: 20px" type="checkbox" value="1" name="subscribe" id="subscribe" checked="checked"/>&nbsp;<label style="margin:0; padding:0; position:relative; left:0; top:0;" for="subscribe">Email me when new comments are added</label></p>
+</form>
+
+</div>
+
+
+
+			<div id="nav-below" class="navigation">
+				<div class="nav-previous"></div>
+				<div class="nav-next"></div>
+			</div>
+
+<hr />
+
+		<p>
+<a class="right" href="http://nfriedly.com/techblog/feed/"><img src="/img/feed-icon-14x14.png" alt="RSS" /></a>
+<a href="/webdev">nFriedly Web Development</a>  &raquo; <a href="/techblog">Technical Blog</a></p>
+		
+		
+
+	</div> <!-- /content -->
+    <div class="clear"></div>
+
+</div> <!-- /container -->
+</div> <!-- /container-main -->
+
+<div id="container-footer">
+	<div id="footer">
+		<div class="column left">
+	       		&copy; 2008 Nathan Friedly<br />
+				<script type="text/javascript">
+					<!--
+					document.write('Site design by <a href="http://www.charleyskira.com"><img src="/img/charleyskiralogo.gif" align="absmiddle" height="18" width="65" border="0" alt="Charley Skira" /></a>');
+					// -->
+				</script>
+		</div>
+
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left center">
+			<a href="/">Home</a>
+			| <a href="/webdev">Web Development</a>
+			<br />
+			<a href="/contact">Contact</a>
+			| <a href="/estimate">Quote</a>
+
+			| <a href="/sitemap">Sitemap</a>
+		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left">
+        	<div class="login">
+
+<h1>Client Login</h1>
+
+<form action="/client/login" method="post" >
+
+<p><b>Username:</b><br />
+<input type="text" name="username" /></p>
+
+<p><b>Password:</b><br />
+<input type="password" name="password" /></p>
+
+<p><a href="/techblog/wp-admin/">WP Admin</a> <input type="submit" value="Log In" /></p>
+
+</form>
+
+</div>		</div>
+	</div>
+
+</div> <!-- /container-footer -->
+
+
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201335.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'8074834',v:'ext',post:'106'});
+var load_cmc = function(){linktracker_init(8074834,106,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1735765-3";
+urchinTracker();
+</script>
+
+<script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('f9396fdc93a94c71e178b275d41bad01'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } </script>
+<script type='text/javascript'>
+mpmetrics.track('pageview', { 'url': window.location.pathname, location:'blog' }); 
+</script>
+
+</body>
+
+</html>
+<!-- Dynamic page generated in 0.363 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2013-08-28 07:05:24 -->
+
+<!-- super cache -->

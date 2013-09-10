@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<title>FB.getLoginStatus example with alcohol restriction</title>
+</head>
+<body>
+
+<h1>FB.getLoginStatus example with alcohol restriction</h1>
+<p>This page initializes the Fb JS SDK with app ID 113630655336080, which has the Alcohol restriction enabled.</p>
+
+<p>If you click the button, it should alert your current login status (one of <code>unknown</code>, <code>not_authorized</code>, or <code>connected</code>). However, for users who are not logged into FB (<code>unknown</code>), it fails to alert anything.</p>
+
+<p>If you check the network traffic for the <code>unknown</code> case, you can see the response to http://www.facebook.com/dialog/oauth?... is <code>&lt;span&gt;Application Error: There was a problem getting data for the application you requested. The application may not be valid, or there may be a temporary glitch. Please try again later.&lt;/span&gt;</code></p>
+
+
+<button onclick="FB.getLoginStatus(function(res){ alert(res.status); }, true)">call FB.getLoginStatus(..., true)</button>
+
+<button onclick="FB.login()">call FB.login()</button>
+
+<button onclick="FB.logout()">call FB.logout()</button>
+
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '113630655336080', // App ID
+      status     : true // check login status
+    });
+
+    // Additional initialization code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+</body>
+</html>

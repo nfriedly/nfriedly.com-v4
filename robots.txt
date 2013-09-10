@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /img
+Disallow: /files
+Disallow: /links
+Disallow: /db
+Disallow: /openid
+Disallow: /stuff/sociablelabs
+
+sitemap: http://nfriedly.com/sitemapindex.xml

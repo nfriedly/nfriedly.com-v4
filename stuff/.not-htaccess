@@ -1,0 +1,11 @@
+RewriteEngine on
+
+# fix my broken ssl paper link
+RewriteRule ^Nathan_\ Friedly_SSL_TLS\.doc$ /stuff/Nathan_Friedly_SSL_TLS.doc [R=301,L] 
+
+#send anything else that doesn't exist to my home page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# nix it for my bug report
+RewriteCond $1 !zel
+RewriteRule ^(.*)$ / [R=301,L]

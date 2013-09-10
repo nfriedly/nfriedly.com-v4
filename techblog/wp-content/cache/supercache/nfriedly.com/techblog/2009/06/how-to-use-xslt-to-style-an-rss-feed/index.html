@@ -1,0 +1,904 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>How to use XSLT to style an RSS feed &#8211; nFriedly Web Dev Tech Blog</title>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/blog.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+<link rel="alternate" type="application/rss+xml" title="nFriedly Web Dev Tech Blog &raquo; How to use XSLT to style an RSS feed Comments Feed" href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://nfriedly.com/techblog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://nfriedly.com/techblog/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='How AJAX Security and Twitter callbacks work' href='http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/' />
+<link rel='next' title='Advanced Javascript: Logical Operators and truthy / falsy' href='http://nfriedly.com/techblog/2009/07/advanced-javascript-operators-and-truthy-falsy/' />
+<meta name="generator" content="WordPress 3.6" />
+<link rel='canonical' href='http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/' />
+<link rel='shortlink' href='http://nfriedly.com/techblog/?p=191' />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/feed/" title="nFriedly Web Dev Tech Blog latest posts" />
+	<link rel="alternate" type="application/rss+xml" href="http://nfriedly.com/techblog/comments/feed/" title="nFriedly Web Dev Tech Blog latest comments" />
+	<link rel="pingback" href="http://nfriedly.com/techblog/xmlrpc.php" />
+
+</head>
+
+<body class=" yui-skin-sam">
+
+<div id="container-header">
+	<div id="header">
+		<h2><a href="/techblog">nFriedly Web Development</a></h2>
+		<h1><a href="/techblog">Tech Blog</a></h1>
+		<a href="/"><img src="/img/nflogo-header-notext.png" height="140" width="107" alt="nFriedly" /></a>
+	</div>
+</div>
+<div id="container-main">
+<div id="container">
+<div id="navigation">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+	<li><a href="/fellowship">Fellowship</a></li>
+	<li><a href="/webdev">Web Dev</a>
+		<ul>
+			<li><a href="/webdev/php" title="Server Side Web Programming">PHP</a></li>
+			<li><a href="/webdev/javascript" title="Javascript and Ajax: Client Side Web Programming">JS &amp; AJAX</a></li>
+			<li><a href="/webdev/marketing">Marketing</a></li>
+			<li><a href="/portfolio">Portfolio</a></li>
+		</ul>
+	
+</li>
+	<li><a href="/techblog">Tech Blog</a></li>
+    <li><a href="/estimate">Quote</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+
+		
+<div style="width: 90%; margin-top: 40px;">
+<h3 style="margin:0">Did I help you?</h3>
+<p style=" margin:6px 0; font-size: 110%;">Support my work with a <a href="https://www.gittip.com/nfriedly/">small recurring donation</a>:</p>
+<iframe width="80px" height="25px" src="https://www.gittip.com/nfriedly/widget.html" style="border: 0; margin: 0; padding: 0;"></iframe>
+</div></div>
+    <div id="content">
+
+				<p class="navigation">
+			<div class="left">&laquo; <a href="http://nfriedly.com/techblog/2009/06/javascript-security-ajax-json-and-twitter-callbacks/" rel="prev">How AJAX Security and Twitter callbacks work</a></div>
+			<div class="right"><a href="http://nfriedly.com/techblog/2009/07/advanced-javascript-operators-and-truthy-falsy/" rel="next">Advanced Javascript: Logical Operators and truthy / falsy</a> &raquo;</div>
+		</p>
+		<div class="clear"></div>
+		
+
+			<div class="post">
+				<h1 class="entry-title"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/" >How to use XSLT to style an RSS feed</a></h1>
+				<small class="date">June 17th, 2009 
+				By nFriedly 
+				  
+				</small>
+
+				<div class="entry-content">
+					<p><a href="http://www.flickr.com/photos/gogdog/2240855570/"><img class="alignright" src="http://farm3.static.flickr.com/2097/2240855570_4529cf9f6d_m.jpg" alt="Take this!" /></a><abbr title="Extensible Stylesheet Language Transformations">XSLT</abbr> is a fairly well-supported technology. It allows you to take any XML file &#8211; including RSS &#8211; and <em>transform</em> it into a styled HTML document. It&#8217;s kind of like CSS on steroids.</p>
+<p>Unfortunately, most browsers think they know better and go off and do their own thing on RSS feeds.</p>
+<p>We&#8217;re going to look at how and which browsers can be brought into line, and how to use XSLT to improve the look of your RSS feed in those browsers.</p>
+<p><span id="more-191"></span></p>
+<h2>The RSS problem</h2>
+<p>In most browsers, XML and XSLT are supported in every single case *except* RSS. By default, Internet Explorer, Firefox, Safari, and Opera all ignore XSLT files and do their own thing with RSS. In fact, Google Chrome is the *only* browser I tested that got it right without tinkering.</p>
+<p>To their credit, Microsoft at least gave their users the option to turn off the &#8220;feature&#8221;. No other browser even gives this option.</p>
+<p>During my tests, I have found a way to &#8220;trick&#8221; Firefox into rendering RSS with XSLT correctly. Currently there seems to be no solution for other browsers except to try and detect them on the server and send the user an HTML file if they&#8217;re in a browser that doesn&#8217;t work properly.</p>
+<h3>Internet Explorer</h3>
+<p>IE requires that the user specifically choose to disable their take-liberties-with-rss &#8220;feature&#8221;. I would point out that this really isn&#8217;t good enough because 99% of users will never get that far, but sadly, it&#8217;s the closest thing to getting it right out of any browser on the market! (Aside from Google Chrome.)</p>
+<p>Here&#8217;s how:</p>
+<ol>
+<li>Click on the <strong>Tools</strong> menu,</li>
+<li>Click on the <strong>Internet Options</strong> sub-menu,</li>
+<li>Click on the <strong>Content</strong> tab,</li>
+<li>Click on the <strong>Settings</strong> button of the <strong>Feed</strong> section to bring up Feed Settings dialog box,</li>
+<li>Un-check the <strong>Turn On Feed Reading View</strong> option.</li>
+<li>Click OK all the way to close all opened dialog boxes.</li>
+<li>Restart Internet Explorer</li>
+</ol>
+<h3><a href="http://www.flickr.com/photos/gogdog/2240065731/"><img class="alignright" src="http://farm3.static.flickr.com/2172/2240065731_86c22f48c1_m.jpg" alt="Transform!" /></a>Firefox</h3>
+<p>Firefox can be tricked into working because it decides fairly early on in the rendering process whether to treat the page in a standard way or to fly off the handle with it. In fact, it makes this decision before even completely downloading the RSS file.</p>
+<p>Because of the early decision process, we can insert 512 characters of white space in between the <code>&lt;?xml ?&gt;</code> declaration and the opening <code>&lt;rss&gt;</code> tag. Firefox is then &#8220;tricked&#8221; into doing the right thing and rendering the feed correctly.</p>
+<h2>Working around it</h2>
+<p>Although not practical in most cases currently, I&#8217;ve included an example of a script that will take any RSS feed and add a style sheet to it.  It includes the hack to work in firefox and instructions for enabling it in Internet Explorer.</p>
+<p><a href="http://nfriedly.com/stuff/rss/?url=http://nfriedly.com/techblog/feed/">http://nfriedly.com/stuff/rss/?url=http://nfriedly.com/techblog/feed/</a></p>
+<p>Code for index.php:</p>
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+
+// grab the url
+if(isset($_REQUEST['url'])) $url = $_REQUEST['url'];
+else $url = false;
+
+// make sure the url is good (no local files)
+if($url &amp;&amp; substr($url,0,7) != &quot;http://&quot;) exit(&quot;Please start urls with 'http://'&quot;);
+
+// make the stylesheet link
+$xsl_file = 'xsl.php';
+if($url) $xsl_file .= '?url='.urlencode($url);
+define('XSL_LINK','&lt;?xml-stylesheet href=&quot;'.$xsl_file.'&quot; type=&quot;text/xsl&quot; ?&gt;');
+
+// if we don't have a url, use the home page
+if(!$url) $url = &quot;home.xml&quot;;
+
+// download the rss feed
+$rss = file_get_contents($url);
+
+// xml header so firefox doesn't decide it's text
+header('content-type: text/xml');
+
+//echo out the header right away, if there is one
+if(substr($rss,0,6) == '&lt;?xml '){
+	$header_end = strpos($rss,'?&gt;') +2;
+	echo substr($rss,0,$header_end);
+	$rss = substr($rss,$header_end);
+}
+//otherwise echo a default header:
+else echo '&lt;?xml version=&quot;1.0&quot; ?'.'&gt;';
+
+// remove any existing stylesheet
+$rss = preg_replace('/&lt;\?xml-stylesheet([^?]|\?(?!&gt;))*\?'.'&gt;/','',$rss);  // uses lookahead
+
+// add in our stylesheet
+echo &quot;\r\n&quot; . XSL_LINK . &quot;\r\n&quot;;
+
+// toss in 512 bytes of nothing to throw off firefox
+echo &quot;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 &quot;;
+
+//finally, pass along the content
+echo $rss;
+
+?&gt;
+
+</pre>
+<p>The xsl.php file is only php to allow for setting the current url in the feed url input box. Ignoring that, you can view it&#8217;s source by looking at <a href="http://nfriedly.com/stuff/rss/xsl.php">http://nfriedly.com/stuff/rss/xsl.php</a>. You could simply save that as an .xml file and have a working copy.</p>
+<p>You can also view the <a href="http://nfriedly.com/stuff/rss/theme/style.css">CSS</a> and <a href="http://nfriedly.com/stuff/rss/scripts.js">Javascript</a> used to make everything look nice.</p>
+<h2>Hire me for web development</h2>
+<p>Need an <a href="http://nfriedly.com/webdev">expert web programmer</a> to research and solve some off-the-wall problem like this? I&#8217;m available. I&#8217;m good solving run-of-the-mill problems too &#8211; <a href="http://nfriedly.com/webdev/javascript">Javascript and AJAX development</a> is my specialty.  <a href="http://nfriedly.com/contact">Get in touch with me</a> for more information and a free quote.</p>
+
+					
+				</div>
+				<div class="entry-meta">
+
+					<span class="comments-link"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/#comments" title="Comment on How to use XSLT to style an RSS feed">Comments (37)</a></span>
+
+					<span class="tag-links">Tagged <a href="http://nfriedly.com/techblog/tag/css/" rel="tag">css</a>, <a href="http://nfriedly.com/techblog/tag/javascript/" rel="tag">javascript</a>, <a href="http://nfriedly.com/techblog/tag/php/" rel="tag">php</a>, <a href="http://nfriedly.com/techblog/tag/rss/" rel="tag">rss</a>, <a href="http://nfriedly.com/techblog/tag/xml/" rel="tag">xml</a>, <a href="http://nfriedly.com/techblog/tag/xslt/" rel="tag">xslt</a></span>
+					<span class="meta-sep"></span>
+					  
+				</div>
+			</div><!-- .post -->
+			
+
+
+<!-- You can start editing here. -->
+
+	<h3 id="comments">37 Responses to &#8220;How to use XSLT to style an RSS feed&#8221;</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="pingback even thread-even depth-1" id="comment-145">
+				<div id="div-comment-145" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://dv8-designs.com/2009/07/dumb-xml-question.html' rel='external ' class='url'>Dumb XML question | dv8-designs</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-145">
+			July 21, 2009 at 3:40 pm</a>		</div>
+
+		<p>[...] This post seems to explain what&#8217;s going on. Most browsers do funny stuff with [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-150">
+				<div id="div-comment-150" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://www.jarretthousenorth.com/2009/07/21/links-for-2009-07-21/' rel='external ' class='url'>links for 2009-07-21 (Jarrett House North)</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-150">
+			July 21, 2009 at 10:01 pm</a>		</div>
+
+		<p>[...] How to use XSLT to style an RSS feed – nFriedly Web Dev Tech Blog Easy way to force a browser to display RSS as plain XML. (tags: rss xslt) [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-166">
+				<div id="div-comment-166" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://1rssblog.com/how-to-use-xslt-to-style-an-rss-feed/' rel='external ' class='url'>How to use XSLT to style an RSS feed | 1 RSSBLOG.com</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-166">
+			July 23, 2009 at 9:05 am</a>		</div>
+
+		<p>[...] July 23rd, 2009 &middot; No Comments  XSLT is a fairly well-supported technology. It allows you take any XML file – including RSS – and transform it into an styled HTML document. It is kind of like CSS on steroids.  How to use XSLT to style an RSS feed [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-167">
+				<div id="div-comment-167" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://blog-blog.org/how-to-use-xslt-to-style-an-rss-feed/' rel='external ' class='url'>Blog Blog &raquo; How to use XSLT to style an RSS feed</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-167">
+			July 23, 2009 at 9:08 am</a>		</div>
+
+		<p>[...] RSS – and transform it into an styled HTML document. It is kind of like CSS on steroids.  How to use XSLT to style an RSS feed XSLT is a fairly well-supported technology. It allows you take any XML file – including RSS – [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-269">
+				<div id="div-comment-269" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/8b71ac29d4c8fbc68955337e5143d549?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://twitter.com/sull' rel='external ' class='url'>sull</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-269">
+			July 30, 2009 at 1:43 am</a>		</div>
+
+		<p>i&#8217;ve not used XSL in a few years but now i&#8217;m wanting to use it with a project.  i am very surprised about this RSS/ATOM handling by Firefox.  This just does not make sense.  It should at least be an option that is turned off by default and maybe an alert message (like you get when a popup window tries to load) tells user that they can activate auto-styling for RSS feeds.  </p>
+<p>anyway, thanks for the post. I also found the official mozilla bug mentioning this work-around &#8211; <a href="https://developer.mozilla.org/en/XSL_Transformations_in_Mozilla_FAQ">https://developer.mozilla.org/en/XSL_Transformations_in_Mozilla_FAQ</a></p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-277">
+				<div id="div-comment-277" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com/' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-277">
+			July 30, 2009 at 12:31 pm</a>		</div>
+
+		<p>Hey, thanks for that article, that is helpful. </p>
+<p>I read a long flamewar arguing back and forth the pros and cons of having a special case for RSS. There&#8217;s a lot of people on both sides of the issue, but I think that it&#8217;s a &#8220;feature&#8221; that they can drop from firefox.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-289">
+				<div id="div-comment-289" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/51eeadfae396930ad17b972cf256daf2?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Brainerd</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-289">
+			July 31, 2009 at 10:04 am</a>		</div>
+
+		<p>I never knew you could do that. Thanks!</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-417">
+				<div id="div-comment-417" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/cc3eb460b82a8972c89d000bc809f47b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">phoenix</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-417">
+			August 8, 2009 at 1:44 pm</a>		</div>
+
+		<p>Hi. It does not work on Opera 9.64 <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' />  but it works on IE 8 and the latest FF.<br />
+How can we make it work in Opera too? Do you have any idea?<br />
+Thanks in advance.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor even thread-even depth-1" id="comment-423">
+				<div id="div-comment-423" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com/' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-423">
+			August 8, 2009 at 9:26 pm</a>		</div>
+
+		<p>Nope, I tested a few things in opera and did not find a way to make rss work correctly.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1351">
+				<div id="div-comment-1351" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/61990d4c811b917d8369f18f5ed17dc9?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">James</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-1351">
+			September 25, 2009 at 10:31 am</a>		</div>
+
+		<p>Since you use jQuery, is it possible to add say a light window function if an image exists in the RSS feed?</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor even thread-even depth-1" id="comment-1352">
+				<div id="div-comment-1352" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com/' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-1352">
+			September 25, 2009 at 10:42 am</a>		</div>
+
+		<p>Yea, I imagine that would be possible. Take a look here: <a href="http://nfriedly.com/stuff/rss/?url=http://feeds.gawker.com/lifehacker/full">http://nfriedly.com/stuff/rss/?url=http://feeds.gawker.com/lifehacker/full</a></p>
+<p>And then run this in the address bar: javascript:void(jQuery(&#8216;a img&#8217;).css(&#8216;border&#8217;,&#8217;5px solid green&#8217;)) </p>
+<p>That works, so a lightbox function would probably also work.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-1607">
+				<div id="div-comment-1607" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href='http://kitmobley.com/technology/how-to-use-xslt-to-style-an-rss-feed.html' rel='external ' class='url'>How to use XSLT to style an RSS feed &#8211; Kit Mobley</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-1607">
+			October 13, 2009 at 9:22 am</a>		</div>
+
+		<p>[...] <a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/">http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/</a> [...]</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-2031">
+				<div id="div-comment-2031" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/30c61ca01dff3c1100f60dc8541caf88?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Alejandro</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2031">
+			February 2, 2010 at 1:02 pm</a>		</div>
+
+		<p>Another option is to declare a prefix for the namespace and use it in the root element. This will break the &#8220;&lt;feed&quot; string that is sought by the browser. You can also keep the default namespace to avoid altering the rest of the document. Only the Opera browser is not fooled by this method. This costs much less than 512 bytes in comments.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-2035">
+				<div id="div-comment-2035" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com/' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2035">
+			February 9, 2010 at 12:30 pm</a>		</div>
+
+		<p>Good point Alejandro &#8211; thanks!</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-2276">
+				<div id="div-comment-2276" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/52b5ccbdd18905aa61bee53059b04f5c?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://www.ianglaze.co.uk' rel='external ' class='url'>Ian</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2276">
+			July 22, 2010 at 12:08 pm</a>		</div>
+
+		<p>Great article. Is there a way to fool Opera into using a custom xsl.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-2277">
+				<div id="div-comment-2277" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com/' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2277">
+			July 22, 2010 at 12:58 pm</a>		</div>
+
+		<p>Hi Ian, </p>
+<p>It&#8217;s been about a year since I&#8217;ve done my research, but at the time there was no way to make Opera behave properly with RSS + XSL. </p>
+<p>I just took a quick glance at Opera 10.60, and it seems that nothing has changed since then.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-2827">
+				<div id="div-comment-2827" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/1e6ce5282dfdeee2a024cc8bc3a1ca52?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Gaz Pieprzowy</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2827">
+			December 27, 2010 at 6:31 am</a>		</div>
+
+		<p>Transforming XML into a nice and neat HTML is a nice trick. Although it&#8217;s just so much trouble to just make it work for most of the browsers. Chrome works but what about the rest.</p>
+<p>Very nice article.</p>
+<p>Regards, Gaz</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-2829">
+				<div id="div-comment-2829" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2829">
+			December 27, 2010 at 6:11 pm</a>		</div>
+
+		<p>Actually Gaz, it&#8217;s only in the case of RSS, where browsers all want to be &#8220;special&#8221;, that this doesn&#8217;t work. Outside of RSS feeds, XML + XSLT works reliably in every modern browser I can think of. I think part of this comes from the fact that the language is much more strict, so there is less room for the quirks and differences that HTML &amp; CSS have in different browsers.</p>
+<p>Thanks for the comment though. Have a great new year!<br />
+-Nathan</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-2939">
+				<div id="div-comment-2939" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/b49b97457e947f88d23552be96cab0a6?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">George</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-2939">
+			March 10, 2011 at 11:46 am</a>		</div>
+
+		<p>That was new information for me! Had no idea you could transform XML in to HTML like that.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3152">
+				<div id="div-comment-3152" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/0d2a3ca5347d8c91d2f9879f0dc023b8?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Ian</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-3152">
+			September 14, 2011 at 8:47 pm</a>		</div>
+
+		<p>Great information on XSLT.  I had some issues with this in a recent university assignment where i was incorporating an RSS feed into a website</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-3314">
+				<div id="div-comment-3314" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/5d753800e53a79aa42d6b36f0fe45a76?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">John</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-3314">
+			October 15, 2011 at 9:42 am</a>		</div>
+
+		<p>While XSLT for browsers has moved into the non-issue category using XSLT on RSS feeds in WordPress is still a bit of a challenge. The XML Documents plug-in is a big improvement.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3403">
+				<div id="div-comment-3403" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/30bd88bbc97a971a9f69ecce19da395f?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">Croup Cough</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-3403">
+			November 14, 2011 at 7:30 am</a>		</div>
+
+		<p>I never knew that was possible. I always wondered why my RSS page looks so ugly. Now it goes well with the design of my web page. Thanks!</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-5468">
+				<div id="div-comment-5468" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/86e5ff06d9854a3ad4250dbbe65058e6?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://potateauxcomix.wordpress.com' rel='external ' class='url'>Chykin</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-5468">
+			January 25, 2012 at 1:54 pm</a>		</div>
+
+		<p>WTF? Why are there pictures of Gunbuster on a page about RSS feeds?</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-5469">
+				<div id="div-comment-5469" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-5469">
+			January 25, 2012 at 2:56 pm</a>		</div>
+
+		<p>Because that&#8217;s how awesome this trick is! And seriously, what are you going to put pictures of? Raw XML?</p>
+<p>(Also, they&#8217;re <strong>transformers</strong>, just like XSLT &#8211; Extensible Stylesheet Language <em>Transformations</em> <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6650">
+				<div id="div-comment-6650" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/5dbb7cdfd7915c8128850eaa92ffc3c6?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://blog.diy-kart.info' rel='external ' class='url'>Isabelle Rivera</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6650">
+			July 26, 2012 at 3:37 am</a>		</div>
+
+		<p>Very nice article. Is there any technic to incorporate into other browsers as well. It works on chrome, but it would be so much helpful if it is compatible with others too.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-6651">
+				<div id="div-comment-6651" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6651">
+			July 26, 2012 at 11:54 am</a>		</div>
+
+		<p>Hi, thanks. I don&#8217;t know that there is, but if you find one, please let me know <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6661">
+				<div id="div-comment-6661" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/5ed9174169037622f9a45082dc3f84f1?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://www.my-family-home.info' rel='external ' class='url'>Samantha Johnson</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6661">
+			August 2, 2012 at 11:50 am</a>		</div>
+
+		<p>Hi, for a non technical person what is the significance of XSLT to work it with different web browsers? Suppose if I see a page how will it change if the RSS feed is not working with XSLT? This article was interesting and thought I can get my doubts cleared, so put a comment.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-6662">
+				<div id="div-comment-6662" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6662">
+			August 2, 2012 at 12:30 pm</a>		</div>
+
+		<p>XSLT never really caught on, so there&#8217;s not a lot of significance to it. If you have an XML file that&#8217;s not an RSS feed, you can add an XSLT file and make the XML render like an HTML web page without needing any server-side logic. This might be handy for XML data stored in Amazon S3 or a CDN. But this is not very common. It only works if you control the XML generator, and at that point, most sites just generate two files: one in XML and one in HTML.</p>
+<p>However, the primary place where XML is used on the internet is RSS, and from what I&#8217;ve found, it is not very feasible to to combine XSLT and RSS due to Internet Explorer&#8217;s default configuration.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6664">
+				<div id="div-comment-6664" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/4e0220c3d795361c704c6777ac924e99?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://info.la-lumiere.org' rel='external ' class='url'>Emily Martin</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6664">
+			August 17, 2012 at 5:11 am</a>		</div>
+
+		<p>Very nice article. After a lot of trouble, I succeeded in converting XML to HTML. Thanks for your expert tips. It is very compatible with Chrome. Not sure about other browsers.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6670">
+				<div id="div-comment-6670" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/ae8d3334610497623e286ec94b200e44?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://espace.maintenance-info.org' rel='external ' class='url'>Allen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6670">
+			September 8, 2012 at 6:39 am</a>		</div>
+
+		<p>It is surely great work. Many people are not that comfortable with XML. Thus your post will definitely going to help these people to convert XML to HTML. If you can manage to provide an alternative to JQuery for this then it will much more helpful than earlier as jQuery is little complex. What do you say?</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6673">
+				<div id="div-comment-6673" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/aa45be3ecc56f848e85ae68bc6c7a788?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://blog.lechauffageelec.org' rel='external ' class='url'>Sofia</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6673">
+			September 24, 2012 at 12:09 pm</a>		</div>
+
+		<p>Yeah Allen you are absolutely right and I am one of them those don&#8217;t like XML. XML is little complex thats why I like and prefer HTML instead of XML. </p>
+<p>I want to ask the same question Allen asked that is there any alternative to JQuery here? Can DOM API be used in place of JQuery, If yes then please give some code example for that.</p>
+<p>Thanks for your reply in advance. <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-6674">
+				<div id="div-comment-6674" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6674">
+			September 24, 2012 at 7:35 pm</a>		</div>
+
+		<p>I don&#8217;t have time right now to make a safe translation to pure javascript. But if some one else would like to, they can post it here in the comments. <code>&lt;code&gt;</code> tags should work and make it a little more readable.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6678">
+				<div id="div-comment-6678" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/756c1d45c7034c0781562bad07dade3e?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://analysis.abolitionistcrusade.org' rel='external ' class='url'>Wilson</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6678">
+			October 14, 2012 at 1:22 pm</a>		</div>
+
+		<p>Yes, I agree that JQuery is quiet complex but I can translate it to javascript and I&#8217;ll do it on next weekend and will post that here. So stay tuned here.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6681">
+				<div id="div-comment-6681" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/499186f7e529f5387f6a528fcfb34515?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://technique.plombier-aix-en-provence.net' rel='external ' class='url'>Bryant</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6681">
+			November 4, 2012 at 7:23 am</a>		</div>
+
+		<p>Hey Wilson you were about to post the JQuery to javascript translation last weekend, I am waiting for your post. Please provide the javascript code because JQuery is not that understandable by me.</p>
+<p>If anyone else here has a solution then please share here&#8230; <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-nFriedly bypostauthor even thread-even depth-1" id="comment-6685">
+				<div id="div-comment-6685" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/7c159f97b130c49e27f2eb74ae215f0b?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://nfriedly.com' rel='external ' class='url'>nFriedly</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6685">
+			November 5, 2012 at 2:54 pm</a>		</div>
+
+		<p>You know, jQuery is really just javascript, and it&#8217;s source code is very well documented. If you&#8217;re up for a bit of a challenge, take a look at <a href="http://code.jquery.com/jquery-latest.js">http://code.jquery.com/jquery-latest.js</a> and see if you can work out what the jQuery code here is doing.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-6694">
+				<div id="div-comment-6694" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://0.gravatar.com/avatar/a662bca490e26c7041b1bb858feb7439?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn"><a href='http://www.la-gravitation.info' rel='external ' class='url'>Rogers</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6694">
+			November 22, 2012 at 1:01 pm</a>		</div>
+
+		<p>Yes nFriedly! You are absolutely right that jQuery is well documented javascript but some persons don&#8217;t want to put any efforts and want everything readymade, thats why some people are asking for javascript. <img src='http://nfriedly.com/techblog/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-6699">
+				<div id="div-comment-6699" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='http://1.gravatar.com/avatar/9ccc4f0179a6a4b58dc4545fc7e7d810?s=32&amp;d=identicon&amp;r=PG' class='avatar avatar-32 photo' height='32' width='32' />			<cite class="fn">hunter4</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://nfriedly.com/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/comment-page-1/#comment-6699">
+			December 30, 2012 at 10:42 am</a>		</div>
+
+		<p>Very informative post and discussion on it. I never try to use XSLT yet but really want to use it now in one of my recent project itself.<br />
+I will use it and will get back here.<br />
+Thanks for sharing.</p>
+
+		<div class="reply">
+					</div>
+				</div>
+		</li><!-- #comment-## -->
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div id="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/techblog/2009/06/how-to-use-xslt-to-style-an-rss-feed/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://nfriedly.com/techblog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='191' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4eb1eff5b2" /></p>	<script type='text/javascript'>
+	<!--
+	ref = escape( document[ 'referrer' ] );
+	document.write("<input type='hidden' name='ref' value='"+ref+"'>");
+	// -->
+	</script>
+	<p style="display:none;"><input type="text" name="nxts" value="1377633914" /><input type="text" name="nxts_signed" value="b7dc0f9265f401d49b0f6fd3ea4bbf9eec7fa142" /><input type="text" name="042d412f056" value="" /><input type="text" name="eaba44abc25c34be729678164" value="3c8ca25967a141543700ac647" /></p><p style="clear:both"><input style="width: 20px" type="checkbox" value="1" name="subscribe" id="subscribe" checked="checked"/>&nbsp;<label style="margin:0; padding:0; position:relative; left:0; top:0;" for="subscribe">Email me when new comments are added</label></p>
+</form>
+
+</div>
+
+
+
+			<div id="nav-below" class="navigation">
+				<div class="nav-previous"></div>
+				<div class="nav-next"></div>
+			</div>
+
+<hr />
+
+		<p>
+<a class="right" href="http://nfriedly.com/techblog/feed/"><img src="/img/feed-icon-14x14.png" alt="RSS" /></a>
+<a href="/webdev">nFriedly Web Development</a>  &raquo; <a href="/techblog">Technical Blog</a></p>
+		
+		
+
+	</div> <!-- /content -->
+    <div class="clear"></div>
+
+</div> <!-- /container -->
+</div> <!-- /container-main -->
+
+<div id="container-footer">
+	<div id="footer">
+		<div class="column left">
+	       		&copy; 2008 Nathan Friedly<br />
+				<script type="text/javascript">
+					<!--
+					document.write('Site design by <a href="http://www.charleyskira.com"><img src="/img/charleyskiralogo.gif" align="absmiddle" height="18" width="65" border="0" alt="Charley Skira" /></a>');
+					// -->
+				</script>
+		</div>
+
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left center">
+			<a href="/">Home</a>
+			| <a href="/webdev">Web Development</a>
+			<br />
+			<a href="/contact">Contact</a>
+			| <a href="/estimate">Quote</a>
+
+			| <a href="/sitemap">Sitemap</a>
+		</div>
+		<div style="float:left; width: 20px;">&nbsp;</div>
+		<div class="column left">
+        	<div class="login">
+
+<h1>Client Login</h1>
+
+<form action="/client/login" method="post" >
+
+<p><b>Username:</b><br />
+<input type="text" name="username" /></p>
+
+<p><b>Password:</b><br />
+<input type="password" name="password" /></p>
+
+<p><a href="/techblog/wp-admin/">WP Admin</a> <input type="submit" value="Log In" /></p>
+
+</form>
+
+</div>		</div>
+	</div>
+
+</div> <!-- /container-footer -->
+
+
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://nfriedly.com/techblog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201335.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'8074834',v:'ext',post:'191'});
+var load_cmc = function(){linktracker_init(8074834,191,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1735765-3";
+urchinTracker();
+</script>
+
+<script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('f9396fdc93a94c71e178b275d41bad01'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } </script>
+<script type='text/javascript'>
+mpmetrics.track('pageview', { 'url': window.location.pathname, location:'blog' }); 
+</script>
+
+</body>
+
+</html>
+<!-- Dynamic page generated in 0.379 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2013-08-27 16:05:14 -->
+
+<!-- super cache -->

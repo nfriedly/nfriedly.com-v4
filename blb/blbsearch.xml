@@ -1,0 +1,12 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>Blue Letter Bible (KJV)</ShortName>
+<Description>For You have Magnified Your Word above all Your name. - Psalm 138:2</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="16" height="16">data:image/x-icon;base64,R0lGODlhEAAQALMPAFZVkg4ObUVFd2JibCkocff395aWuHt7genp6djY2hoaGqiorcXFxwAAAP//
+/////yH5BAEAAA8ALAAAAAAQABAAAARt8MlJKyUkMAlEEFXgjEw2OoVBiedSnE5AAU3tKM5SJ7Jk
+GA3HgIFjDBwNwASAaCiCuIRz8JOIoE0HAtdAKB+ixSKBIi0YPM4BMzgUCgMBQXDoBe53AWCQuWc4
+HngBfXlfFgMWiRKIihYgjZAUEQA7</Image>
+<Url type="text/html" method="get" template="http://cf.blb.org/search/preSearch.cfm?Criteria={searchTerms}&amp;Version=KJV" />
+<moz:SearchForm>http://www.blueletterbible.org/index.html</moz:SearchForm>
+</OpenSearchDescription>

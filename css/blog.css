@@ -1,0 +1,120 @@
+#header { position:relative; }
+
+#header h1 a, #header h2 a {
+	color:white;
+	text-decoration:none;
+}
+#header h1, #header h2 {
+	position:absolute;
+	margin:0;
+}
+#header h1 {
+	top: 75px;
+	left: 200px;
+}
+#header h2 {
+	top: 55px;
+	left: 200px;
+}
+#navigation {
+	margin-bottom:20px;
+}
+
+.post h1 {
+	border-bottom:1px solid grey;
+}
+
+.post h1 a {
+	text-decoration:none;
+}
+
+.post .entry-content {
+	margin-top: 10px;
+}
+
+.post p {
+	margin-top:0;
+}
+
+.post h2 {
+	margin: 30px 0 8px;
+}
+
+.post h3 {
+	margin: 20px 0 4px;
+	font-size:12px;
+}
+
+.post h4 {
+	font-weight:bold;
+	font-size:inherit;
+	margin-bottom: 2px;
+}
+
+pre {
+	border:1px solid grey;
+	padding:5px;
+	overflow:auto;
+}
+
+img.alignleft  {
+	float:left;
+	margin: 2px 10px 5px 0;
+}
+
+img.alignright  {
+	float:right;
+	margin: 2px 0 5px 10px;
+}
+
+textarea {
+	width:98%;
+}
+
+.entry-meta {
+	/*border:1px solid grey;*/
+	background-color:#F4F4F4;
+	padding:5px;
+	background-color:ddd;
+	margin:30px 0 50px;
+}
+
+.comments-link {
+	float:right;
+}
+
+.commentlist {
+	padding:0;
+}
+
+.commentlist li {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	border: 1px solid #E7E5DC;
+	padding: 5px 10px 10px;
+}
+
+.thread-alt {
+	background-color:#F8F8F8;
+}
+
+.commentlist cite {
+	background:none;
+	display:inline;
+	padding:0;
+}
+
+.comment-author {
+	font-weight: bold;
+}
+
+.comment-author img {
+	border:1px solid #EEEEEE;
+	float:left;
+	margin-right: 10px;
+	padding:2px;
+}
+
+
+ins { text-decoration: none; font-style: italic; }

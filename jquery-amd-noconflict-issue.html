@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery & AMD: timing issue with noConflict()</title>
+</head>
+<body>
+<div style="padding:0 15px; width:800px;>
+<h1>jQuery & AMD: timing issue with noConflict()</h1>
+<p>Both <a href="https://github.com/jrburke/requirejs/blob/master/require.js#L1381">require.js</a> and <a href="https://github.com/jrburke/almond/blob/master/almond.js#L366">almond.js</a> use a 
+short (4ms) <code>setTimeout</code> between when a module's <code>define()</code> callback 
+is called and when the modules who depend on it have their callbacks called, even when 
+compiled into a single file.</p>
+
+<p>jQuery's behavior is to <a href="https://github.com/jquery/jquery/blob/master/src/exports.js#L9">create global objects</a> 
+and let you destroy them later with <code>jQuery.noConflict(true)</code>, even when in AMD 
+mode.</p>
+
+<p>When these two behaviors combine, the AMD-loaded copy of jQuery becomes the global one 
+for a few milliseconds, even if <code>jQuery.noConflict(true)</code> is called immediately 
+after loading jQuery.</p>
+
+<p>This is particularly an issue when a jQuery plugin is loaded during that few 
+milliseconds because the plugin gets attached to the AMD copy of jQuery instead of the 
+plugin copy.</p>
+
+<p>This page attempts to reproduce the issue by:</p>
+<ul>
+	<li>Loading a normal (global) copy of jQuery</li>
+	<li>Loading a third-party widget js file that includes requirejs, jQuery and main code that calls jQuery.noConflict()</li>
+	<li>Loading a <a href="http://www.flotcharts.org/">jQuery plugin</a> that attaches itself to the global copy of jQuery</li>
+	<li>Waits a second</li>
+	<li>Checks if the plugin is now defined on the global copy of jQuery.</li>
+</ul>
+
+<p>Results: <span id="results">Loading...</span></p>
+
+<p>The widget was built with this command: <code>r.js -o baseUrl=. paths.requireLib=require name=main include=requireLib out=widget.js optimize=none</code></p>
+
+</div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="widget.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/flot/0.7/jquery.flot.min.js"></script>
+<script type="text/javascript">
+setTimeout(function() {
+if ($.plot) {
+	$('#results').text('Success: plugin is attached to the global copy of jQuery');
+} else {
+	$('#results').text('Failed: plugin is not attached to the global copy of jQuery');
+}
+}, 1000);
+</script>
+
+</body>
+</html>
