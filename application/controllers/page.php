@@ -18,7 +18,7 @@ class Page extends Controller {
 	function index()
 	{
 		$this->load->view('index');
-    $this->supercache('index');
+    		$this->supercache('index');
 		//$this->load->view('footer');
 	}
 	
@@ -65,7 +65,7 @@ class Page extends Controller {
 		if(is_dir(APPPATH.'views/pages/'.$page)) $page .= "/index";
 		else if($page == "") $page = "index"; 
     
-    $orig_page = $page;
+    		$orig_page = $page;
 
 		$page = 'pages/'.$page;
 		
@@ -73,7 +73,7 @@ class Page extends Controller {
 		
 		if(file_exists(APPPATH.'views/' . $page . '.php')){ // for main index page and any non-index subpages
 			$this->load->view($page, $data);
-      $this->supercache($orig_page);
+      			$this->supercache($orig_page);
 		//} 
 		//elseif(file_exists(APPPATH.'views/' . $page . '/index.php')) { //for  sub-page indexes
 		//	$this->load->view($page . '/index',$data);
@@ -92,40 +92,40 @@ class Page extends Controller {
 		
 			header("HTTP/1.0 404 Not Found"); 
 			//header("Status: 404 Not Found");  works also
-      echo '<!-- url: ' .$page . ' -->';
+      			echo '<!-- url: ' .$page . ' -->';
 			$this->load->view('pages/404');
 		}
 		
 		//$this->load->view('footer',$data);
 	}
   
-  function supercache($page){
-    RETURN FALSE; // this is disabled because I want to have my cookie tracking, and it didn't really speed up page loads anyways
-    
-    if($this->session->userdata('loggedin') || $this->nocache) return; // don't cache pages for logged in users
-    
-    $output = $this->output->get_output();
-    
-    date_default_timezone_set('America/New_York');
-    $signature = "\n\n<!-- supercache generated at " . date('Y-n-j g:i:s A') . " -->\n\n";
-    
-    $output = str_replace('</body>',$signature . '</body>', $output);
-    
-    // clean up my $page, - remove 'index' and  make sure it has a trailing slash if it's not empty
-    $page = str_replace('index', '', $page);
-    if(strlen($page) && substr($page, -1) != '/') $page .= "/";
-   
-    $path = APPPATH . 'cache/' . $page;   
-    
-    if($page && !file_exists($path)) mkdir($path, 0777, true) or die("can't create folder");
-    
-    $fh = fopen($path. "index.html", 'w') or die("can't open file");
-    fwrite($fh, $output);
-    fclose($fh);
-    
-    chmod  ( $path. "index.html"  ,  0777  );
-    // could pre-gzip the output, but not worth the trouble. gzencode() .gz
-  }
+	  function supercache($page){
+	    RETURN FALSE; // this is disabled because I want to have my cookie tracking, and it didn't really speed up page loads anyways
+	    
+	    if($this->session->userdata('loggedin') || $this->nocache) return; // don't cache pages for logged in users
+	    
+	    $output = $this->output->get_output();
+	    
+	    date_default_timezone_set('America/New_York');
+	    $signature = "\n\n<!-- supercache generated at " . date('Y-n-j g:i:s A') . " -->\n\n";
+	    
+	    $output = str_replace('</body>',$signature . '</body>', $output);
+	    
+	    // clean up my $page, - remove 'index' and  make sure it has a trailing slash if it's not empty
+	    $page = str_replace('index', '', $page);
+	    if(strlen($page) && substr($page, -1) != '/') $page .= "/";
+	   
+	    $path = APPPATH . 'cache/' . $page;   
+	    
+	    if($page && !file_exists($path)) mkdir($path, 0777, true) or die("can't create folder");
+	    
+	    $fh = fopen($path. "index.html", 'w') or die("can't open file");
+	    fwrite($fh, $output);
+	    fclose($fh);
+	    
+	    chmod  ( $path. "index.html"  ,  0777  );
+	    // could pre-gzip the output, but not worth the trouble. gzencode() .gz
+	  }
 	
 	// returns true to prevent the regular page logic from continuing
 	function _check_for_special($page,$data=array()){
@@ -139,7 +139,7 @@ class Page extends Controller {
 			break;
       
 			case 'submit':
-        $this->nocache = true;
+        			$this->nocache = true;
 				$this->_send_email($data);
 				return false; // continue with the page load as normal
 			break;
@@ -159,51 +159,50 @@ class Page extends Controller {
 	
 	// captures form submission + some extra data
 	function _send_email($data){
-
-		$ip 				  =  $this->_get_ip();
-		$ua 				= (isset($_SERVER['HTTP_USER_AGENT']))	?	$_SERVER['HTTP_USER_AGENT']	:'';
-		$landing_page 		= (isset($_SESSION['landing_page'])) 	? 	$_SESSION['landing_page'] : '';
-		$original_referrer 	= (isset($_SESSION['original_referrer']))?	$_SESSION['original_referrer'] :  '';
+	
+		$ip 		  	=  $this->_get_ip();
+		$ua 			= (isset($_SERVER['HTTP_USER_AGENT']))	  ?	$_SERVER['HTTP_USER_AGENT']	:'';
+		$landing_page		= (isset($_SESSION['landing_page'])) 	  ? 	$_SESSION['landing_page'] : '';
+		$original_referrer 	= (isset($_SESSION['original_referrer'])) ?	$_SESSION['original_referrer'] :  '';
 		
 		$location =  ($ip) ? $this->_get_location($ip) : '';
-    
-    $headers = "From: contact@nfriedly.com"; 
-   
-    $name = (isset($_POST['name'])) ? $_POST['name'] : "";
-    $email = (isset($_POST['email'])) ? $_POST['email'] : "";
-    
-    if( !preg_match( "/[\r\n]/", $name) && !preg_match( "/[\r\n]/", $email) && strlen($email)) {
-      $headers .= "\n"
-        . "Reply-To: $name <$email>";
-    } 
-    
-    
-		if(isset($_POST['website'])){
-    
-      // do a print_r, but trim the Array ( ... ) and extra spacing from  it ;)
-      $body = print_r($_POST,1);
-      $body = substr($body, 8, strlen($body) -2 -8);
-      $body = str_replace("   [", "[", $body);
-      
-      $body .= "\r\n\r\n"
-						."Site Referrer: $original_referrer => $landing_page" 
-						."\r\n"
-						."IP & UA:" . $ip ."  ".  $ua
-						."\r\n"
-						."Location: " . $location;
-      
-			if($_POST['website'] == "" ){ //  && ($_POST['name'] != "" || $_POST['email'] != "" && $_POST['message'] != "")
+		
+		$headers = "From: contact@nfriedly.com"; 
+		
+		$name = (isset($_POST['name'])) ? $_POST['name'] : "";
+		$email = (isset($_POST['email'])) ? $_POST['email'] : "";
+		
+		if( !preg_match( "/[\r\n]/", $name) && !preg_match( "/[\r\n]/", $email) && strlen($email)) {
+			$headers .= "\n" . "Reply-To: $name <$email>";
+		} 
+		
+		
+		if(isset($_POST['website'])) {
+		
+			// do a print_r, but trim the Array ( ... ) and extra spacing from  it ;)
+			$body = print_r($_POST,1);
+			$body = substr($body, 8, strlen($body) -2 -8);
+			$body = str_replace("   [", "[", $body);
+			
+			$body .= "\r\n\r\n"
+				."Site Referrer: $original_referrer => $landing_page" 
+				."\r\n"
+				."IP & UA:" . $ip ."  ".  $ua
+				."\r\n"
+				."Location: " . $location;
+			
+			if($_POST['website'] == "" ) { //  && ($_POST['name'] != "" || $_POST['email'] != "" && $_POST['message'] != "")
 				mail(
 					"nathan.friedly@gmail.com",
 					"[nfriedly] " 
-						. $_POST['form'] 
-						. ": " 
-						. $_POST['name'],
-          $body,
+					. $_POST['form'] 
+					. ": " 
+					. $_POST['name'],
+					$body,
 					$headers
 				);
 			}
-      else echo "<!-- bot detected, no email sent -->";
+			else echo "<!-- bot detected, no email sent -->";
 		}	
 	}
   
